@@ -1,0 +1,18 @@
+.copy_right {
+    width:100%;
+    padding: 2rem 0;
+    border-top: 1px double $logo;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 999;
+    a, p {
+        color: $color_3;
+        padding-right: .5rem;
+        font-size: 1rem;
+        letter-spacing: .1rem;
+    }
+}
