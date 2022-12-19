@@ -40,7 +40,14 @@
     });
       // MENU TOGGLE HERE
       $('.toggle_btn').click(function(){
-        $(this).next('.sub_menu').slideToggle(250);
+        if($(this).next('.sub_menu').hasClass('active')){
+          $(this).next('.sub_menu').slideToggle(250);
+        }else{
+          $('.sub_menu').removeClass('active');
+          $('.sub_menu').hide(250);
+          $(this).next('.sub_menu').show(250);
+          $(this).next('.sub_menu').addClass('active');
+        }
     });
 
 // INPUT FILE HERE

@@ -40,3 +40,7 @@
         <input class="btn_submit" type="submit">                   
     </form>
 </div>
+
+<form action="" class="text-center">
+    <h1 class="text-title">Gah</h1>
+</form>

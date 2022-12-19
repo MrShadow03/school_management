@@ -6,7 +6,7 @@
 @endsection
 @section('main')
 <div class="right_content">
-    <x-dashboard.organisms.login title="teacher" input_name="email" input_type="email"/>     
+    <x-dashboard.organisms.login title="teacher" input_name="phone_number" input_type="text"/>     
 </div>
 @endsection
 

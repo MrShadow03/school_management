@@ -64,33 +64,20 @@
     }
 }
 // TEACHER BOX HERE
-.teacher_content{
-    padding: 3rem 4rem;
+.section{
+    padding: 3rem;
     width: 100%;
-    background-color: $color_3;
     gap: 3rem;
     display: flex;
     justify-content: space-between;
     gap: 5rem;   
-    .teacher_box{
+    .table_box{
         width: 70%;
-        padding: 1rem;
+        padding: 2rem 3rem;
         background-color: $color_3;
         box-shadow: 0px 0px 10px rgba(207, 205, 205, 0.24);
-        .title{
-             padding: 1rem 0;
-            h2{
-                font-size: 2rem;
-            }
-        }
         .main_curd {
-            .curd_heading{ 
-                display: flex;
-                padding: 1rem;
-                padding-right: 2rem;
-                box-shadow: 0px 0px 10px rgba(207, 205, 205, 0.24);
-                border-bottom: 1px dotted $color_1;
-                margin-bottom: 1rem;
+            .curd_heading{
                     h6{
                         padding: .5rem;
                         flex: 1;

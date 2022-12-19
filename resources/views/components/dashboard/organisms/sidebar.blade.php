@@ -18,15 +18,32 @@
                 </li>
                 @elseif (Auth::guard('admin')->check())
                 {{-- sidebar for admin --}}
-                <li><a href="index.html"><i class="menu_icon fa-regular fa-house-user"></i>Dashboard</a></li>
+                <li><a href="{{ route('admin.dashboard') }}"><i class="menu_icon fa-regular fa-house-user"></i>Dashboard</a></li>
+                    <li><a class="toggle_btn" href="#"><i class="fa-regular fa-chalkboard-user menu_icon"></i>Manage Teacher<i class="las sub_icon la-angle-down"></i></a>
+                        <ul class="sub_menu">
+                            <li><a href="{{ route('admin.register-teacher.create') }}"><i class="fa-regular fa-users"></i> Teachers</a></li>
+                            <li><a href="{{ route('admin.register-teacher.create') }}"><i class="fa-regular fa-user-plus"></i> Register Teacher</a></li>
+                        </ul>
+                    </li>
                     <li><a class="toggle_btn" href="#"><i class="fa-regular fa-graduation-cap menu_icon"></i>Manage Student<i class="las sub_icon la-angle-down"></i></a>
                         <ul class="sub_menu">
-                            <li><a href="{{ route('admin.register-student.create') }}"><i class="fa-regular fa-users"></i> All Students</a></li>
+                            <li><a href="{{ route('admin.students') }}"><i class="fa-regular fa-users"></i> All Students</a></li>
                             <li><a href="{{ route('admin.register-student.create') }}"><i class="fa-regular fa-user-plus"></i> Student Register</a></li>
                         </ul>
                     </li>
+                    <li><a class="toggle_btn" href="#"><i class="fa-regular fa-layer-group menu_icon"></i>Class & Sections<i class="las sub_icon la-angle-down"></i></a>
+                        <ul class="sub_menu">
+                            <li><a href="{{ route('admin.section.index') }}"><i class="fa-regular fa-layer-plus"></i>Sections</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="toggle_btn" href="#"><i class="fa-light fa-book menu_icon"></i>Subjects<i class="las sub_icon la-angle-down"></i></a>
+                        <ul class="sub_menu">
+                            <li><a href="{{ route('admin.subject.index') }}"><i class="fa-light fa-books-medical"></i>Create Subject</a></li>
+                            <li><a href="{{ route('admin.assign-subject-teacher') }}"><i class="fa-regular fa-user-plus"></i> Assign Teacher</a></li>
+                        </ul>
+                    </li>
                 @endif
-            </x-dashboard.molecules.sidebar_menu>                           <!--START FOOTER HERE -->
+            </x-dashboard.molecules.sidebar_menu>
         <x-dashboard.molecules.sidebar_footer />
     </div>
 </div>

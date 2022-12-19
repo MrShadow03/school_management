@@ -10,7 +10,6 @@
 //
 $user = Auth::guard($guard)->user() ?? 'invalid user';
 $logout_route = $guard == 'student'? 'logout' : $guard.'.logout';
-
 @endphp
 @section('title')
 <title>Dashboard</title>
@@ -24,12 +23,6 @@ $logout_route = $guard == 'student'? 'logout' : $guard.'.logout';
 
     <div class="right_content">
         <x-dashboard.organisms.nav :username="$user->name" :logout_route="$logout_route" />
-        <x-dashboard.organisms.card />
-        <div class="teacher_content">
-            @if (Auth::guard('admin')->check())
-            <x-dashboard.organisms.pie-chart/>
-            @endif
-            <x-dashboard.organisms.table-sm/>
-        </div>  
+        <x-dashboard.organisms.card />  
     </div>
 @endsection

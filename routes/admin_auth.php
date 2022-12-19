@@ -1,9 +1,16 @@
 <?php
 
+use App\Models\Section;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SectionController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\SubjectTeacherController;
 use App\Http\Controllers\Auth\Admin\NewPasswordController;
 use App\Http\Controllers\Auth\Admin\VerifyEmailController;
 use App\Http\Controllers\student\StudentRegisterController;
+use App\Http\Controllers\teacher\TeacherRegisterController;
 use App\Http\Controllers\Auth\Admin\RegisteredAdminController;
 use App\Http\Controllers\Auth\Admin\PasswordResetLinkController;
 use App\Http\Controllers\Auth\Admin\ConfirmablePasswordController;
@@ -30,11 +37,36 @@ Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin/', 'as' => 'admin
     Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
-    //Register student
+    //student
+    Route::get('/students', [StudentController::class, 'index'])->name('students');
     Route::get('register-student/create', [StudentRegisterController::class, 'create'])->name('register-student.create');
     Route::post('register-student/store', [StudentRegisterController::class, 'store'])->name('register-student.store');
+    //Teacher
+    Route::get('register-teacher/create', [TeacherRegisterController::class, 'create'])->name('register-teacher.create');
+    Route::post('register-teacher/store', [TeacherRegisterController::class, 'store'])->name('register-teacher.store');
+
+    //Assign subject teacher
+    Route::get('subject_teacher', [SubjectTeacherController::class, 'index'])->name('assign-subject-teacher');
+    Route::post('subject_teacher/store', [SubjectTeacherController::class, 'store'])->name('assign-subject-teacher.store');
+    Route::patch('subject_teacher/update', [SubjectTeacherController::class, 'update'])->name('assign-subject-teacher.update');
+    
+    // sections
+    Route::get('section', [SectionController::class, 'index'])->name('section.index');
+    Route::get('section/get/{class}', [SectionController::class, 'getSections'])->name('section.getSections');
+    Route::post('section/store', [SectionController::class, 'store'])->name('section.store');
+    Route::patch('section/update', [SectionController::class, 'update'])->name('section.update');
+
+    // subjects
+    Route::get('subject', [SubjectController::class, 'index'])->name('subject.index');
+    Route::get('subject/get/{class}', [SubjectController::class, 'getSubjects'])->name('subject.getSubjects');
+    Route::post('subject/store', [SubjectController::class, 'store'])->name('subject.store');
+    Route::patch('subject/update', [SubjectController::class, 'update'])->name('subject.update');
+
+    Route::get('section/axios/{name}', [SectionController::class, 'axios'])->name('section.axios');
 });
 
 Route::get('/admin/dashboard', function () {
-    return view('dashboard.pages.dashboard');
+    return view('dashboard.pages.dashboard',[
+        'sections' => Section::all()
+    ]);
 })->middleware(['auth:admin', 'verified'])->name('admin.dashboard');

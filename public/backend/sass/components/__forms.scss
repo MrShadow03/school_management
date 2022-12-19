@@ -24,9 +24,6 @@ form.data_form{
     height: auto;
     padding: 3rem 4rem;
     background-color: #fff;
-    flex-direction: column;
-    display: flex;
-    justify-content: center;
 
     .input_group {
         display: flex;
@@ -46,23 +43,7 @@ form.data_form{
                 opacity: .8;
                 color: $primary;
             }
-            .image_input{
-                background: $background;
-                margin-top: 1rem;
-                border-radius: 3px;
-                //border: 1px solid $border_light;
-                position: relative;
-                p{
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    font-size: 1.4rem;
-                    font-weight: 500;
-                    margin-right: .5rem;
-                    opacity: .6;
-                }
-            }
+            
             input,select {
                 font-family: 'inter', sans-serif;
                 padding: 1rem .7rem;
@@ -486,3 +467,6 @@ form.data_form{
     }
 }
 
+.form-sm{
+    width: 40% !important;
+}
