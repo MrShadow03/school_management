@@ -6,4 +6,5 @@
 <link rel="stylesheet" href="{{ asset('backend/font/font-awesome/css/all.min.css') }}">
 <link rel="stylesheet" href="{{ asset('backend/css/dropify.min.css') }}">
 <link rel="stylesheet" href="{{ asset('backend/css/hamburgers.css') }}">
+<link rel="stylesheet" href="{{ asset('backend/css/tom-select.css') }}">
 <link rel="stylesheet" href="{{ asset('backend/css/main.min.css') }}">

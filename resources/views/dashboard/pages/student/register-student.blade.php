@@ -33,15 +33,15 @@ $logout_route = $guard == 'student'? 'logout' : $guard.'.logout';
                     <div class="input_field">
                         <div class="input_field pb-2">
                             <label for="grade">Class <span class="required">*</span></label>
-                            <select name="class" id="grade" onchange="createUsername()">
+                            <select name="class" id="grade" onchange="createUsername();getSections(this.value);">
                                 <option value="" selected disabled>Select a Grade</option>
-                                <option value="03" >3rd</option>
-                                <option value="04" >4th</option>
-                                <option value="05" >5th</option>
-                                <option value="06" >6th</option>
-                                <option value="07" >7th</option>
-                                <option value="08" >8th</option>
-                                <option value="09" >9th</option>
+                                <option value="3" >3rd</option>
+                                <option value="4" >4th</option>
+                                <option value="5" >5th</option>
+                                <option value="6" >6th</option>
+                                <option value="7" >7th</option>
+                                <option value="8" >8th</option>
+                                <option value="9" >9th</option>
                                 <option value="10" >10th</option>
                             </select>
                             @error('class')
@@ -274,7 +274,7 @@ $logout_route = $guard == 'student'? 'logout' : $guard.'.logout';
                 <div class="input_group">
                     <div class="input_field">
                         <label for="section">Section </label>
-                        <select name="section" id="section">
+                        <select name="section_id" id="section">
                             <option value="" selected disabled>Select a Section</option>
                         </select>
                         @error('section')
@@ -307,6 +307,7 @@ $logout_route = $guard == 'student'? 'logout' : $guard.'.logout';
 @section('exclusive_scripts')
 
 <script>
+    
     let name = document.getElementById('name');
     let username = document.getElementById('username');
     let grade = document.getElementById('grade');
@@ -334,6 +335,29 @@ $logout_route = $guard == 'student'? 'logout' : $guard.'.logout';
     function setGuardian(name){
         local_guardian_name.value = name == 'father' ? father_name.value : mother_name.value;
         local_guardian_contact.value = name == 'father' ? father_contact.value : mother_contact.value;
+    }
+
+    function getSections(class_id){
+        let section = document.getElementById('section');
+        var url = "{{ route('admin.section.getSections', ':id') }}";
+        url = url.replace(':id', class_id);
+        axios.get(url)
+        .then(function (response) {
+            let datas = response.data;
+            while(section.firstChild){
+                section.removeChild(section.firstChild);
+            };
+            section.innerHTML = '<option value="" selected disabled>Select a Section</option>';
+            datas.forEach(data => {
+                let option = document.createElement('option');
+                option.value = data.id;
+                option.innerHTML = data.name;
+                section.appendChild(option);
+            });
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
     }
 
     createUsername();

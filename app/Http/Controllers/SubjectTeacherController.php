@@ -33,8 +33,6 @@ class SubjectTeacherController extends Controller
 
     public function update(Request $request)
     {
-        dd($request);
-        die();
         $validation = $request->validate([
             'section_id' => 'required',
             'subject_id' => 'required|unique:subject_teachers,subject_id,'.$request->id.',id,section_id,'.$request->section_id,
@@ -45,5 +43,12 @@ class SubjectTeacherController extends Controller
         $subject_teacher = SubjectTeacher::find($request->id)->update($validation);
 
         return $subject_teacher?redirect()->back()->with('success', 'Subject Teacher Updated Successfully'):redirect()->back()->with('error', 'Something Went Wrong');
+    }
+
+    public function destroy(Request $request)
+    {
+        $subject_teacher = SubjectTeacher::find($request->id)->delete();
+
+        return $subject_teacher?redirect()->back()->with('success', 'Subject Teacher Deleted Successfully'):redirect()->back()->with('error', 'Something Went Wrong');
     }
 }

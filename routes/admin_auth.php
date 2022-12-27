@@ -2,6 +2,7 @@
 
 use App\Models\Section;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoutineController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
@@ -49,12 +50,20 @@ Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin/', 'as' => 'admin
     Route::get('subject_teacher', [SubjectTeacherController::class, 'index'])->name('assign-subject-teacher');
     Route::post('subject_teacher/store', [SubjectTeacherController::class, 'store'])->name('assign-subject-teacher.store');
     Route::patch('subject_teacher/update', [SubjectTeacherController::class, 'update'])->name('assign-subject-teacher.update');
+    Route::delete('subject_teacher/destroy/{id}', [SubjectTeacherController::class, 'destroy'])->name('assign-subject-teacher.destroy');
     
     // sections
     Route::get('section', [SectionController::class, 'index'])->name('section.index');
     Route::get('section/get/{class}', [SectionController::class, 'getSections'])->name('section.getSections');
     Route::post('section/store', [SectionController::class, 'store'])->name('section.store');
     Route::patch('section/update', [SectionController::class, 'update'])->name('section.update');
+
+    //routines
+    Route::get('routine', [RoutineController::class, 'create'])->name('routine');
+    Route::get('routine/index', [RoutineController::class, 'index'])->name('routine.index');
+    Route::get('routine/get/{class}', [RoutineController::class, 'getRoutines'])->name('routine.getRoutines');
+    Route::post('routine/store', [RoutineController::class, 'store'])->name('routine.store');
+    Route::patch('routine/update', [RoutineController::class, 'update'])->name('routine.update');
 
     // subjects
     Route::get('subject', [SubjectController::class, 'index'])->name('subject.index');

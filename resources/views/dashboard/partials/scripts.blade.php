@@ -1,4 +1,6 @@
 <script src="{{ asset('./backend/js/jquery-3.6.0.min.js') }}"></script>
+<script src="{{ asset('./backend/js/tom-select.complete.min.js') }}"></script>
+<script src="{{ asset('./backend/js/moment.min.js') }}"></script>
 <script src="{{ asset('./backend/js/axios.min.js') }}"></script>
 {{-- <script src="{{ asset('./backend/plugins/apexcharts-bundle/js/apexcharts.min.js') }}"></script>
 <script src="{{ asset('./backend/js/ckeditor.js') }}"></script>

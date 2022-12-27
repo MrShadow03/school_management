@@ -122,3 +122,63 @@ function readURL(input) {
     reader.readAsDataURL(input.files[0]);
   }
 }
+function tConvert (time) {
+  // Check correct time format and split into components
+  [time] = time.split ('.');
+  time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+
+  if (time.length > 1) { // If time format correct
+    time = time.slice (1);  // Remove full string match value
+    time[5] = +time[0] < 12 ? 'am' : 'pm'; // Set AM/PM
+    time[0] = +time[0] % 12 || 12; // Adjust hours
+  }
+  return time.join (''); // return adjusted time or original string
+}
+//submit create form through axios
+function submitCreateForm(e, form){
+  //alert('hello');
+  let grade = document.getElementById('grade');
+  let section_id = document.getElementById('section_id');
+  let subject_id = document.getElementById('subject_id');
+  let day = document.getElementById('day');
+  let start_time = document.getElementById('start_time');
+
+  console.dir(form);
+  e.preventDefault();
+  let formData = {
+      class: form.grade.value,
+      section_id: form.section_id.value,
+      subject_id: form.subject_id.value,
+      day: form.day.value,
+      start_time: form.start_time.value,
+  }
+  console.log(formData);
+  axios.post('routine/store', formData)
+  .then(function (response) {
+      let data = response.data;
+      let table_body = document.getElementById('table-body');
+      console.log(response);
+      //remove table rows
+      while (table_body.firstChild) {
+          table_body.removeChild(table_body.firstChild);
+      }
+      //update table
+      data.forEach(element => {
+        let time = tConvert(element.start_time)
+        let [hour,minute,sec_prefix] = time.split(':');
+        let prefix = sec_prefix.slice(2,4);
+
+          table_body.innerHTML += `<tr class="body-row">
+              <td class="body-column text-body-column">${element.class}</td>
+              <td class="body-column text-body-column">${element.section.name}</td>
+              <td class="body-column text-body-column">${element.subject.name}</td>
+              <td class="body-column text-body-column">${element.day}</td>
+              <td class="body-column text-body-column">${hour}:${minute} ${prefix}</td>
+              <td class="body-column text-body-column"><a href="#">View</a></td>
+          </tr>`
+      });
+  })
+  .catch(function (error) {
+      console.log(error);
+  });
+}

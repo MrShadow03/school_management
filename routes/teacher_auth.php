@@ -1,14 +1,15 @@
 <?php
 
-use App\Http\Controllers\Auth\Teacher\AuthenticatedSessionController;
-use App\Http\Controllers\Auth\Teacher\ConfirmablePasswordController;
-use App\Http\Controllers\Auth\Teacher\EmailVerificationNotificationController;
-use App\Http\Controllers\Auth\Teacher\EmailVerificationPromptController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\teacher\TeacherSectionController;
 use App\Http\Controllers\Auth\Teacher\NewPasswordController;
+use App\Http\Controllers\Auth\Teacher\VerifyEmailController;
 use App\Http\Controllers\Auth\Teacher\PasswordResetLinkController;
 use App\Http\Controllers\Auth\Teacher\RegisteredTeacherController;
-use App\Http\Controllers\Auth\Teacher\VerifyEmailController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\Teacher\ConfirmablePasswordController;
+use App\Http\Controllers\Auth\Teacher\AuthenticatedSessionController;
+use App\Http\Controllers\Auth\Teacher\EmailVerificationPromptController;
+use App\Http\Controllers\Auth\Teacher\EmailVerificationNotificationController;
 
 Route::group(['middleware' => 'guest:teacher', 'prefix' => 'teacher/', 'as'=>'teacher.'], function(){
     Route::get('register', [RegisteredTeacherController::class, 'create'])->name('register');
@@ -28,6 +29,9 @@ Route::group(['middleware' => 'auth:teacher', 'prefix' => 'teacher/', 'as' => 't
     Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])->name('password.confirm');
     Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+
+    //students list
+    Route::get('students/{teacher_id}/{section_id?}', [TeacherSectionController::class, 'index'])->name('students');
 });
 
 Route::get('/teacher/dashboard', function () {

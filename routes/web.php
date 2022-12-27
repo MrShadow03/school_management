@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\Auth\Admin\RegisteredUserController;
 
 /*
@@ -13,6 +14,8 @@ use App\Http\Controllers\Auth\Admin\RegisteredUserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/test', [TestController::class, 'create']);
+Route::post('/test/store', [TestController::class, 'store'])->name('test.store');
 
 Route::get('/', function () {
     return view('welcome');

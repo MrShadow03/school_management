@@ -46,31 +46,29 @@ form.data_form{
             
             input,select {
                 font-family: 'inter', sans-serif;
-                padding: 1rem .7rem;
-                font-size: 1.6rem;
+                padding: 1rem 1.5rem;
+                font-size: 1.4rem;
                 width: 100%;
                 border: 1px solid transparent;
                 background: $background;
                 border-radius: 3px;
                 transition: .3s ease-in-out;
                 margin-top: 1rem;
-                font-weight: 500;
-                color: rgba(0, 0, 0, 0.7);
+                font-weight: 400;
+                color: $background_dark;
                 &:focus {
                     border: 1px solid $primary;
                 }
                 option{
-                    font-size: 1.5rem;
-                    font-weight: 500;
+                    font-size: 1.4rem;
+                    font-weight: 400;
                     margin-right: .5rem;
                     color: rgba(0, 0, 0, 0.7);
                 }
             }
             select{
                 font-size: 1.4rem;
-                font-weight: 500;
                 margin-right: .5rem;
-                opacity: .8;
             }
             i.input-icon{
                 position: absolute;

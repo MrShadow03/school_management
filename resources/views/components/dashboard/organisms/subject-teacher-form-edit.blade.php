@@ -8,7 +8,7 @@
     <div class="input_group">
         <div class="input_field">
             <label for="grade">Class <span class="required">*</span></label>
-            <select name="class" id="update_grade" onchange="getData(this.value)">
+            <select name="class" id="update_grade" onchange="getUpdatedData(this.value)">
                 <option value="" selected disabled>Select a Class</option>
                 <option value="3" >3rd</option>
                 <option value="4" >4th</option>
@@ -61,5 +61,5 @@
         </div>
     </div>
 
-    <button type="submit" class="btn btn-lg mt-2"><i class="fa-light fa-floppy-disk"></i> Save</button>
+    <button type="submit" class="btn btn-lg mt-2"><i class="fa-light fa-pen-to-square"></i> Update Data</button>
 </form>

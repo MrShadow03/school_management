@@ -29,7 +29,14 @@
                     <td class="body-column text-body-column">{{ $item->section->name??'' }}</td>
                     <td class="body-column text-body-column">{{ $item->subject->name??'' }}</td>
                     <td class="body-column text-body-column">{{ $item->teacher->name??'' }}</td>
-                    <td class="body-column text-body-column"><a href="#" onclick="dataToForm({{ json_encode(['id'=>$item->id,'class'=>$item->class,'section'=>[$section_id,$section_name],'subject'=>[$subject_id,$subject_name],'teacher'=>[$teacher_id,$teacher_name]]) }})">Edit</a></td>
+                    <td class="body-column text-body-column">
+                        <a href="#" onclick="dataToForm({{ json_encode(['id'=>$item->id,'class'=>$item->class,'section'=>[$section_id,$section_name],'subject'=>[$subject_id,$subject_name],'teacher'=>[$teacher_id,$teacher_name]]) }})">Edit</a>
+                        <form class="d-inline" action="{{ route('admin.assign-subject-teacher.destroy',$item->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" onclick="return confirm('You want to delete?')">Delete</button>
+                        </form>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

@@ -14,8 +14,6 @@ class StudentRegisterController extends Controller
         return view('dashboard.pages.student.register-student');
     }
     public function store(Request $request){
-
-        //dd();
         // Validating the formdata
         //
         $validation = $request->validate([
@@ -37,10 +35,54 @@ class StudentRegisterController extends Controller
             "local_guardian_contact" => "required | min:11 | max:11",
             "class" => "required",
             "class_roll" => "required",
+            "section_id" => "required",
             "username" => "required | max:255",
             'student_image' => 'required|mimes:jpg,png,gif,jpeg|max:1024',
             'father_image' => 'required|mimes:jpg,png,gif,jpeg|max:1024',
             'mother_image' => 'required|mimes:jpg,png,gif,jpeg|max:1024',
+        ],[
+            "name.required" => "Student name is required.",
+            "name.max" => "Student name is too long.",
+            "birth_certificate_number.required" => "Birth certificate number is required.",
+            "birth_certificate_number.max" => "Birth certificate number is too long.",
+            "birth_date.required" => "Birth date is required.",
+            "birth_date.date" => "Birth date is not valid.",
+            "religion" => "Religion is required.",
+            "gender" => "Gender is required.",
+            "blood_group" => "Blood group is required.",
+            "present_address" => "Present address is required.",
+            "permanent_address" => "Permanent address is required.",
+            "father_name" => "Father name is required.",
+            "father_contact" => "Father contact is required.",
+            "father_contact.min" => "Father contact is too short.",
+            "father_contact.max" => "Father contact is too long.",
+            "father_nid" => "Father NID is required.",
+            "father_nid.min" => "Father NID is too short.",
+            "father_nid.max" => "Father NID is too long.",
+            "mother_name" => "Mother name is required.",
+            "mother_contact" => "Mother contact is required.",
+            "mother_contact.min" => "Mother contact is too short.",
+            "mother_contact.max" => "Mother contact is too long.",
+            "mother_nid" => "Mother NID is required.",
+            "mother_nid.min" => "Mother NID is too short.",
+            "mother_nid.max" => "Mother NID is too long.",
+            "local_guardian_name" => "Local guardian name is required.",
+            "local_guardian_contact" => "Local guardian contact is required.",
+            "local_guardian_contact.min" => "Local guardian contact is too short.",
+            "local_guardian_contact.max" => "Local guardian contact is too long.",
+            "class.required" => "Class is required",
+            "class_roll.required" => "Class roll is required",
+            "section_id.required" => "Section is required",
+            "username.required" => "Username is required",
+            'student_image.required' => 'Student image is required',
+            'student_image.mimes' => 'Image format is not supported. Please upload jpg, png, gif or jpeg image',
+            'student_image.max' => 'Student image is too large',
+            'father_image.required' => 'Father image is required',
+            'father_image.mimes' => 'Image format is not supported. Please upload jpg, png, gif or jpeg image',
+            'father_image.max' => 'Father image is too large',
+            'mother_image.required' => 'Mother image is required',
+            'mother_image.mimes' => 'Image format is not supported. Please upload jpg, png, gif or jpeg image',
+            'mother_image.max' => 'Mother image is too large',
         ]);
 
         

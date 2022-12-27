@@ -11,8 +11,9 @@
 $user = Auth::guard($guard)->user() ?? 'invalid user';
 $logout_route = $guard == 'student'? 'logout' : $guard.'.logout';
 @endphp
+
 @section('title')
-<title>Admin-Section</title>
+<title>Select Teacher</title>
 @endsection
 @extends('dashboard.app')
 @section('exclusive_styles')
@@ -79,13 +80,65 @@ $logout_route = $guard == 'student'? 'logout' : $guard.'.logout';
         let subject_class = document.getElementById('update_grade');
         let teacher_id = document.getElementById('update_teacher_id');
         
-        console.dir([section_id, subject_id, subject_class, teacher_id, id])
-
+        //set values to id
         id.value = data.id;
-        section_id.innerHTML = `<option value="${data.section[0]}">${data.section[1]}</option>`;
-        subject_id.innerHTML = `<option value="${data.subject[0]}">${data.subject[1]}</option>`;
-        subject_class.innerHTML = `<option value="${data.class}">${data.class}</option>`;
-        teacher_id.innerHTML = `<option value="${data.teacher[0]}">${data.teacher[1]}</option>`;
+
+        //Re-create options in class
+        subject_class.innerHTML = '<option value="3">3rd</option><option value="4">4th</option><option value="5">5th</option><option value="6">6th</option><option value="7">7th</option><option value="8">8th</option><option value="9">9th</option><option value="10">10th</option>';
+
+        //set value to class
+        subject_class.value = data.class;
+
+        //remove other options from class except the selected one
+        Array.from(subject_class.children).forEach(option => {
+            if(option.value != subject_class.value){
+                option.remove();
+            }
+        });
+
+        //set value to teacher
+        teacher_id.value = data.teacher[0];
+
+        //get sections
+        axios.get(`section/get/${data.class}`)
+        .then(function (response) {
+            //remove options from section_id
+            while (section_id.firstChild) {
+                section_id.removeChild(section_id.firstChild);
+            }
+            //section_id.innerHTML = '<option value="" selected disabled>Select a Section</option>'
+            response.data.forEach(element => {
+                let option = document.createElement('option');
+                option.value = element.id;
+                option.innerText = element.name;
+                section_id.appendChild(option);
+            });
+            section_id.value = data.section[0];
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+
+        //get subjects
+        axios.get(`subject/get/${data.class}`)
+        .then(function (response) {
+            //remove options from subject_id
+            while (subject_id.firstChild) {
+                subject_id.removeChild(subject_id.firstChild);
+            }
+            //subject_id.innerHTML = '<option value="" selected disabled>Select a Subject</option>'
+            response.data.forEach(element => {
+                let option = document.createElement('option');
+                option.value = element.id;
+                option.innerText = element.name;
+                subject_id.appendChild(option);
+            });
+            subject_id.value = data.subject[0];
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+
     }
 </script>
 @endsection

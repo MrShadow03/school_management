@@ -33,8 +33,8 @@
     <div class="input_group">
         <div class="input_field">
             <label for="teacher_id">Section Teacher <span class="required">*</span></label>
-            <select name="teacher_id" id="teacher_id" onchange="createUsername()">
-                <option value="" selected disabled>Select Teacher</option>
+            <select name="teacher_id" id="teacher_id">
+                <option value="" disabled selected>Select a teacher</option>
                 @foreach ($teachers as $teacher)
                     <option value="{{$teacher->id}}">{{$teacher->name}}</option>
                 @endforeach

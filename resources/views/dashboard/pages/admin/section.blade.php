@@ -62,5 +62,14 @@ $logout_route = $guard == 'student'? 'logout' : $guard.'.logout';
             }
         });
     }
+
+    //Tom selects
+    new TomSelect("#teacher_id",{
+        create: false,
+        sortField: {
+            field: "text",
+            direction: "asc"
+        }
+    });
 </script>
 @endsection
