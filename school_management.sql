@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 19, 2022 at 11:38 AM
+-- Generation Time: Dec 27, 2022 at 12:44 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -187,6 +187,32 @@ CREATE TABLE `role_has_permissions` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `routines`
+--
+
+CREATE TABLE `routines` (
+  `id` bigint(20) NOT NULL,
+  `class` int(10) NOT NULL,
+  `section_id` bigint(20) NOT NULL,
+  `subject_id` bigint(20) NOT NULL,
+  `day` varchar(20) NOT NULL,
+  `start_time` time(6) NOT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `routines`
+--
+
+INSERT INTO `routines` (`id`, `class`, `section_id`, `subject_id`, `day`, `start_time`, `updated_at`, `created_at`) VALUES
+(13, 3, 1, 1, 'Saturday', '07:00:00.000000', '2022-12-27 04:40:54', '2022-12-27 04:40:54'),
+(26, 3, 3, 3, 'Saturday', '07:04:00.000000', '2022-12-27 05:28:32', '2022-12-27 05:28:32'),
+(27, 10, 13, 4, 'Saturday', '07:00:00.000000', '2022-12-27 05:31:53', '2022-12-27 05:31:53');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sections`
 --
 
@@ -209,7 +235,11 @@ INSERT INTO `sections` (`id`, `name`, `class`, `teacher_id`, `updated_at`, `crea
 (3, 'Earth', 3, 6, '2022-12-18 01:05:35', '2022-12-04 03:51:41'),
 (4, 'Mars', 3, 7, '2022-12-18 01:05:50', '2022-12-04 04:29:17'),
 (9, 'Banana', 6, 6, '2022-12-18 01:05:18', '2022-12-07 03:03:28'),
-(10, 'Proton', 10, 6, '2022-12-18 01:08:03', '2022-12-18 01:07:51');
+(10, 'Proton', 10, 6, '2022-12-18 01:08:03', '2022-12-18 01:07:51'),
+(11, 'Electron', 10, 8, '2022-12-22 01:01:59', '2022-12-20 03:09:59'),
+(12, 'Uranus', 8, 8, '2022-12-20 23:06:22', '2022-12-20 23:06:22'),
+(13, 'Neutron', 10, 8, '2022-12-22 03:33:59', '2022-12-22 03:33:59'),
+(14, 'Mango', 9, 7, '2022-12-24 02:35:59', '2022-12-24 02:35:59');
 
 -- --------------------------------------------------------
 
@@ -243,7 +273,7 @@ CREATE TABLE `students` (
   `mother_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `student_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `class` int(10) DEFAULT NULL,
-  `section` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `section_id` bigint(20) DEFAULT NULL,
   `status` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT 'active',
   `class_roll` int(10) DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
@@ -258,9 +288,10 @@ CREATE TABLE `students` (
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`id`, `name`, `username`, `email`, `birth_certificate_number`, `present_address`, `permanent_address`, `birth_date`, `gender`, `religion`, `blood_group`, `father_name`, `father_contact`, `father_profession`, `father_nid`, `mother_name`, `mother_contact`, `mother_profession`, `mother_nid`, `local_guardian_name`, `local_guardian_contact`, `father_image`, `mother_image`, `student_image`, `class`, `section`, `status`, `class_roll`, `email_verified_at`, `password`, `parent_id`, `remember_token`, `created_at`, `updated_at`) VALUES
-(23, 'Galib Jaman', 'galib_jaman0501', NULL, '54546546545468', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2022-02-23', 'Male', 'Islam', 'B+', 'Abu Saleh', '01717044904', NULL, '132546981356', 'Anjumanara Begum', '01712923016', NULL, '151325464681', 'Abu Saleh', '01717044904', 'student_images/tfhU2gAMmbVKdSfSCdO0Tma2JEnbgcqBaODMCC4m.jpg', 'student_images/rJiWhosQNJ4DcENKS8g1CNjV8DE9CtAJkLIPbZS3.jpg', 'student_images/1STjc1xAMPJgnisTeyadN2xVDiK4zYbbP3w86DGL.jpg', 5, NULL, 'active', 1, NULL, '$2y$10$NscYa38QsaWbceN6tRZQSu29XediIZL.0ljcrKR0ctHltcKgAq1o.', 4, NULL, '2022-11-27 01:16:59', '2022-11-27 01:16:59'),
-(24, 'Farhana Akter', 'farhana_akter052', NULL, '54546546545545', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2022-02-23', 'Female', 'Islam', 'B+', 'Dewan Lutfur Rahman', '01747371076', NULL, '132546981356', 'Salma Begum', '01747371076', NULL, '151325464681', 'Dewan Lutfur Rahman', '01747371076', 'student_images/mQ2o3gPBneBmRGoMequfLgkK7f5W1BdFsGdgxP33.png', 'student_images/nBWkRo8Y5zsZrAD2KIfXXIRl3jVpQ4oZOg3rjLiL.png', 'student_images/FP4HHbGrYEShd4K5g7JgbzVWIpfuKiMI8L7QbNn3.png', 5, NULL, 'active', 2, NULL, '$2y$10$w0U3nxCyOv1jZiLxO9T1L./AfoZCbsk5X43.2WOldjXY6BkyGl0ya', 5, NULL, '2022-11-27 01:19:09', '2022-11-27 01:19:09');
+INSERT INTO `students` (`id`, `name`, `username`, `email`, `birth_certificate_number`, `present_address`, `permanent_address`, `birth_date`, `gender`, `religion`, `blood_group`, `father_name`, `father_contact`, `father_profession`, `father_nid`, `mother_name`, `mother_contact`, `mother_profession`, `mother_nid`, `local_guardian_name`, `local_guardian_contact`, `father_image`, `mother_image`, `student_image`, `class`, `section_id`, `status`, `class_roll`, `email_verified_at`, `password`, `parent_id`, `remember_token`, `created_at`, `updated_at`) VALUES
+(23, 'Galib Jaman', 'galib_jaman0501', NULL, '54546546545468', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2022-02-23', 'Male', 'Islam', 'B+', 'Abu Saleh', '01717044904', NULL, '132546981356', 'Anjumanara Begum', '01712923016', NULL, '151325464681', 'Abu Saleh', '01717044904', 'student_images/tfhU2gAMmbVKdSfSCdO0Tma2JEnbgcqBaODMCC4m.jpg', 'student_images/rJiWhosQNJ4DcENKS8g1CNjV8DE9CtAJkLIPbZS3.jpg', 'student_images/1STjc1xAMPJgnisTeyadN2xVDiK4zYbbP3w86DGL.jpg', 5, 12, 'active', 1, NULL, '$2y$10$NscYa38QsaWbceN6tRZQSu29XediIZL.0ljcrKR0ctHltcKgAq1o.', 4, NULL, '2022-11-27 01:16:59', '2022-11-27 01:16:59'),
+(24, 'Farhana Akter', 'farhana_akter052', NULL, '54546546545545', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2022-02-23', 'Female', 'Islam', 'B+', 'Dewan Lutfur Rahman', '01747371076', NULL, '132546981356', 'Salma Begum', '01747371076', NULL, '151325464681', 'Dewan Lutfur Rahman', '01747371076', 'student_images/mQ2o3gPBneBmRGoMequfLgkK7f5W1BdFsGdgxP33.png', 'student_images/nBWkRo8Y5zsZrAD2KIfXXIRl3jVpQ4oZOg3rjLiL.png', 'student_images/FP4HHbGrYEShd4K5g7JgbzVWIpfuKiMI8L7QbNn3.png', 5, 12, 'active', 2, NULL, '$2y$10$w0U3nxCyOv1jZiLxO9T1L./AfoZCbsk5X43.2WOldjXY6BkyGl0ya', 5, NULL, '2022-11-27 01:19:09', '2022-11-27 01:19:09'),
+(25, 'Faaris', 'faaris106', NULL, '132546813212', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2022-12-13', 'Male', 'Islam', 'B+', 'Galib Jaman', '01766555213', NULL, '5451321321321', 'Farhana Akter', '01766555213', NULL, '3541231321321', 'Galib Jaman', '01766555213', 'student_images/T6bjTkPEIH0BqhY2C62VIR3J1r8eCXtkhag950i4.png', 'student_images/ZqZnpJ2rWWkFbo6X6LvJ6MljFEpKIT9xtSg2i1sV.png', 'student_images/XNNXVRccegUu6r23E6MPyYM20JL1MyURP4vvFYKj.png', 10, 11, 'active', 6, NULL, '$2y$10$kVQIGAM36uvWgq0P8WtuQu8ADEnXteYLbhC9aDCPydP5mHt.7QybG', 6, NULL, '2022-12-22 01:54:02', '2022-12-22 01:54:02');
 
 -- --------------------------------------------------------
 
@@ -286,7 +317,8 @@ CREATE TABLE `student_parents` (
 
 INSERT INTO `student_parents` (`id`, `name`, `email`, `phone_number`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (4, 'Abu Saleh', NULL, '01717044904', NULL, '$2y$10$iyaGT7az9wrjMeNHhyc5fewI3Eor0koBu2l/z.t9M8P26kDelqnUO', NULL, '2022-11-26 03:37:08', '2022-11-26 03:37:08'),
-(5, 'Dewan Lutfur Rahman', NULL, '01747371076', NULL, '$2y$10$y7pLfAnscBJSkMllc4mX7uLOF15tQh/8QFmnfb7OT43o2Qn08biSu', NULL, '2022-11-27 01:19:09', '2022-11-27 01:19:09');
+(5, 'Dewan Lutfur Rahman', NULL, '01747371076', NULL, '$2y$10$y7pLfAnscBJSkMllc4mX7uLOF15tQh/8QFmnfb7OT43o2Qn08biSu', NULL, '2022-11-27 01:19:09', '2022-11-27 01:19:09'),
+(6, 'Galib Jaman', NULL, '01766555213', NULL, '$2y$10$Lxtj.ffTcN1LNzBFri.Zx.5Vz4sfBiE1uTp07XP6jnfQ88kx3YRN.', NULL, '2022-12-22 01:54:02', '2022-12-22 01:54:02');
 
 -- --------------------------------------------------------
 
@@ -363,8 +395,10 @@ INSERT INTO `subject_teachers` (`id`, `class`, `subject_id`, `teacher_id`, `sect
 (2, 10, 5, 7, 10, '2022-12-19 03:05:52', '2022-12-19 03:05:52'),
 (3, 10, 5, 6, 10, '2022-12-19 03:07:06', '2022-12-19 03:07:06'),
 (4, 10, 6, 6, 10, '2022-12-19 03:07:34', '2022-12-19 03:07:34'),
-(5, 3, 3, 6, 3, '2022-12-19 03:15:08', '2022-12-19 03:15:08'),
-(6, 10, 4, 6, 10, '2022-12-19 03:26:03', '2022-12-19 03:26:03');
+(6, 10, 4, 6, 10, '2022-12-19 03:26:03', '2022-12-19 03:26:03'),
+(7, 3, 1, 7, 4, '2022-12-20 01:52:18', '2022-12-20 01:52:18'),
+(8, 10, 6, 6, 11, '2022-12-20 03:10:23', '2022-12-20 03:11:49'),
+(9, 10, 5, 8, 11, '2022-12-20 23:07:05', '2022-12-20 23:07:58');
 
 -- --------------------------------------------------------
 
@@ -400,7 +434,21 @@ CREATE TABLE `teachers` (
 
 INSERT INTO `teachers` (`id`, `nid_number`, `phone_number`, `birth_date`, `religion`, `gender`, `blood_group`, `present_address`, `permanent_address`, `major`, `education`, `name`, `email`, `email_verified_at`, `password`, `teacher_image`, `remember_token`, `created_at`, `updated_at`) VALUES
 (6, '5461256254', '01766555213', '1996-08-28', 'Islam', 'Male', 'B+', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', 'science', 'M.Sc', 'Galib Jaman', NULL, NULL, '$2y$10$ZrwA1r5qrLOur4PYP2ZhWubiPdg0CK9obaOF6Uu44XNbe2tFFnyp.', 'teacher_image/EBrk3XDXzWH5Y03jOvc2QavWIsmYR2HuB27qY0Tz.jpg', NULL, '2022-12-04 02:52:53', '2022-12-04 02:52:53'),
-(7, '829232233232', '01766555212', '1993-10-19', 'Islam', 'Male', 'A+', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', 'arts', 'MA', 'Muhammad', NULL, NULL, '$2y$10$MEHUjVVMG8u5aoU2N1qqOeRiaCzm2sK8NgnZCUn8zXKw7nI2yHCdK', 'teacher_image/JHf5HPjQY994NI5leHpxZj7YNNZNhu1Tnd5yQH7W.jpg', NULL, '2022-12-18 00:42:29', '2022-12-18 00:42:29');
+(7, '829232233232', '01766555212', '1993-10-19', 'Islam', 'Male', 'A+', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', 'arts', 'MA', 'Muhammad', NULL, NULL, '$2y$10$MEHUjVVMG8u5aoU2N1qqOeRiaCzm2sK8NgnZCUn8zXKw7nI2yHCdK', 'teacher_image/JHf5HPjQY994NI5leHpxZj7YNNZNhu1Tnd5yQH7W.jpg', NULL, '2022-12-18 00:42:29', '2022-12-18 00:42:29'),
+(8, '81154612124512', '01747371076', '2016-04-15', 'Islam', 'Female', 'B+', 'Aliqua Ea qui asper', 'Aliqua Ea qui asper', 'science', 'M.Sc', 'Farhana Akter', NULL, NULL, '$2y$10$u1Ld8xC2n4vZ8m6o4tL1zepRJmnem/C6lS4IxHC7cqGqZguPFwm46', 'teacher_image/c21uuUuTNXezjHlO1voztqisQdz5AVZMSG4D3X9f.png', NULL, '2022-12-20 23:06:03', '2022-12-20 23:06:03');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tests`
+--
+
+CREATE TABLE `tests` (
+  `id` bigint(20) NOT NULL,
+  `images` varchar(1000) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -493,6 +541,12 @@ ALTER TABLE `role_has_permissions`
   ADD KEY `role_has_permissions_role_id_foreign` (`role_id`);
 
 --
+-- Indexes for table `routines`
+--
+ALTER TABLE `routines`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sections`
 --
 ALTER TABLE `sections`
@@ -538,6 +592,12 @@ ALTER TABLE `subject_teachers`
 ALTER TABLE `teachers`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `teachers_email_unique` (`email`);
+
+--
+-- Indexes for table `tests`
+--
+ALTER TABLE `tests`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -587,22 +647,28 @@ ALTER TABLE `roles`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `routines`
+--
+ALTER TABLE `routines`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
 -- AUTO_INCREMENT for table `sections`
 --
 ALTER TABLE `sections`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `student_parents`
 --
 ALTER TABLE `student_parents`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `stuffs`
@@ -620,13 +686,19 @@ ALTER TABLE `subjects`
 -- AUTO_INCREMENT for table `subject_teachers`
 --
 ALTER TABLE `subject_teachers`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `tests`
+--
+ALTER TABLE `tests`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
