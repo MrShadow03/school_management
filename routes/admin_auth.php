@@ -60,10 +60,11 @@ Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin/', 'as' => 'admin
 
     //routines
     Route::get('routine', [RoutineController::class, 'create'])->name('routine');
-    Route::get('routine/index', [RoutineController::class, 'index'])->name('routine.index');
+    Route::get('routine/index/{id?}', [RoutineController::class, 'index'])->name('routine.index');
     Route::get('routine/get/{class}', [RoutineController::class, 'getRoutines'])->name('routine.getRoutines');
     Route::post('routine/store', [RoutineController::class, 'store'])->name('routine.store');
     Route::patch('routine/update', [RoutineController::class, 'update'])->name('routine.update');
+    Route::delete('routine/destroy/{id}', [RoutineController::class, 'destroy'])->name('routine.destroy');
 
     // subjects
     Route::get('subject', [SubjectController::class, 'index'])->name('subject.index');

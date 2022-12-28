@@ -13,7 +13,7 @@ class TeacherSectionController extends Controller
     //show students list
     public function index(Request $request)
     {
-        $all_sections = Section::where('teacher_id',$request->teacher_id)->get() ?? 'No section found';
+        $all_sections = Section::where('teacher_id',$request->teacher_id)->orderBy('class','desc')->get() ?? 'No section found';
         $section = $request->section_id;
         $students = $section? Student::where('section_id',$section)->get() : Student::whereIn('section_id',$all_sections->pluck('id'))->get();
 

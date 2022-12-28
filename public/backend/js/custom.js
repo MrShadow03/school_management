@@ -143,7 +143,6 @@ function submitCreateForm(e, form){
   let day = document.getElementById('day');
   let start_time = document.getElementById('start_time');
 
-  console.dir(form);
   e.preventDefault();
   let formData = {
       class: form.grade.value,
@@ -152,12 +151,15 @@ function submitCreateForm(e, form){
       day: form.day.value,
       start_time: form.start_time.value,
   }
-  console.log(formData);
+
   axios.post('routine/store', formData)
   .then(function (response) {
-      let data = response.data;
+      // remove previous error messages
+      hideErrorDivs();
+      // get data
+      let data = response.data.data;
+      console.log(data);
       let table_body = document.getElementById('table-body');
-      console.log(response);
       //remove table rows
       while (table_body.firstChild) {
           table_body.removeChild(table_body.firstChild);
@@ -179,6 +181,20 @@ function submitCreateForm(e, form){
       });
   })
   .catch(function (error) {
-      console.log(error);
+      let errors = error.response.data.errors;
+      hideErrorDivs();
+      
+      for(let key in errors){
+          let error_div = document.getElementById(key+'_error');
+          error_div.innerHTML = errors[key][0];
+          error_div.classList.remove('d-none');
+      }
+  });
+}
+
+function hideErrorDivs(){
+  document.querySelectorAll('.input_error').forEach(element => {
+      element.innerHTML = '';
+      element.classList.add('d-none');
   });
 }

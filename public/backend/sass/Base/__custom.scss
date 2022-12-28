@@ -169,6 +169,12 @@ table{
 .grid-column-20{
     grid-template-columns: 20% auto !important;
 }
+@media screen and (max-width: 768px){
+    .grid-column-20{
+        grid-template-columns: 30% !important;
+    }
+}
+
 .table_box{
     background-color: $white;
     padding: 3rem;
@@ -275,4 +281,25 @@ tbody.hovarable{
 //text color styles
 .text-alert{
     color: $alert !important;
+}
+
+//min height
+.min-h-100{
+    min-height: 100% !important;
+}
+.min-h-86{
+    min-height: 86% !important;
+}
+
+//column highlight
+.column-highlight{
+    background-color: $success-light;
+}
+.routine-table{
+    border: 1px solid $border_light;
+    th, td{
+        padding-block: 3rem;
+        text-align: center;
+        border: 1px solid $border_light;
+    }
 }

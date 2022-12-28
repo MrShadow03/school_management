@@ -3,21 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Models\Routine;
+use App\Models\Section;
 use Illuminate\Http\Request;
 
 class RoutineController extends Controller
 {
     //show routines
-    public function index(){
-        return view('dashboard.pages.admin.routine',[
-            'routines' => Routine::all(),
+    public function index(Request $request){
+        $section_id = $request->id ?? Section::first()->id;
+        $times = Routine::where('section_id', $section_id)->distinct()->orderBy('start_time', 'asc')->pluck('start_time');
+        return view('dashboard.pages.admin.routine_show',[
+            'routine' => Routine::with('section', 'subject')->where('section_id', $section_id)->get(),
+            'all_sections' => Section::orderBy('class', 'asc')->get(),
+            'times' => $times,
         ]);
     }
     
     //create routines
     public function create(){
         return view('dashboard.pages.admin.routine',[
-            'routines' => Routine::with('section', 'subject')->get(),
+            'routines' => Routine::with('section', 'subject')->paginate(10),
         ]);
     }
 
@@ -37,9 +42,16 @@ class RoutineController extends Controller
         ]);
 
         $create_routine = Routine::create($validation);
-        $routines = Routine::with('section', 'subject')->get();
+        $routines = Routine::with('section', 'subject')->latest('id')->paginate(10);
 
         //if routine created successfully then return response with all routines else return error
         return $create_routine?response()->json($routines):redirect()->back()->with('error', 'Routine not added');
+    }
+
+    //delete routine
+    public function destroy($id){
+        $routine = Routine::find($id);
+        $routine->delete();
+        return redirect()->back()->with('success', 'Routine deleted successfully');
     }
 }

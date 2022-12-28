@@ -5,11 +5,8 @@
     </div>
     <div class="table-wrapper">
         <div>
-            <a href="{{ route('teacher.students',[auth()->user()->id]) }}" class="w-100 row border-top row-hover p-inline">
-                <div class="text-body-column">All students</div>
-            </a>
             @foreach ($sections as $section)
-            <a href="{{ route('teacher.students',[auth()->user()->id, $section->id]) }}" class="w-100 row border-top row-hover p-inline">
+            <a href="{{ route('admin.routine.index', $section->id) }}" class="w-100 row border-top row-hover p-inline">
                 <div class="text-body-column">{{ $section->name }} ({{ $section->class }})</div>
             </a>
             @endforeach
