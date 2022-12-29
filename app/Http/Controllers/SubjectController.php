@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Section;
 use App\Models\Subject;
 use Illuminate\Http\Request;
+use App\Models\SubjectTeacher;
 
 class SubjectController extends Controller
 {
@@ -47,6 +49,15 @@ class SubjectController extends Controller
     public function getSubjects(Request $request)
     {
         $subjects = Subject::where('class', $request->class)->get();
+        return response()->json($subjects);
+    }
+    
+    //get remaining subjects
+    public function remainingSubjects(Request $request)
+    {
+        $class = Section::find($request->section_id)->class;
+        $existingSubjects = SubjectTeacher::where('section_id', $request->section_id)->pluck('subject_id')->toArray();
+        $subjects = Subject::where('class', $class)->whereNotIn('id', $existingSubjects)->get();
         return response()->json($subjects);
     }
 }

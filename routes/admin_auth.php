@@ -69,6 +69,7 @@ Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin/', 'as' => 'admin
     // subjects
     Route::get('subject', [SubjectController::class, 'index'])->name('subject.index');
     Route::get('subject/get/{class}', [SubjectController::class, 'getSubjects'])->name('subject.getSubjects');
+    Route::get('subject/remaining/{section_id}', [SubjectController::class, 'remainingSubjects'])->name('subject.remainingSubjects');
     Route::post('subject/store', [SubjectController::class, 'store'])->name('subject.store');
     Route::patch('subject/update', [SubjectController::class, 'update'])->name('subject.update');
 

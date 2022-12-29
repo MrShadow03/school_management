@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoutineController;
 use App\Http\Controllers\teacher\TeacherSectionController;
 use App\Http\Controllers\Auth\Teacher\NewPasswordController;
 use App\Http\Controllers\Auth\Teacher\VerifyEmailController;
@@ -32,6 +33,9 @@ Route::group(['middleware' => 'auth:teacher', 'prefix' => 'teacher/', 'as' => 't
 
     //students list
     Route::get('students/{teacher_id}/{section_id?}', [TeacherSectionController::class, 'index'])->name('students');
+    
+    //students list
+    Route::get('routine', [RoutineController::class, 'teacherRoutine'])->name('routine');
 });
 
 Route::get('/teacher/dashboard', function () {

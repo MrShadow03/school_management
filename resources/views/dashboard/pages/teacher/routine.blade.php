@@ -22,11 +22,8 @@ $logout_route = $guard == 'student'? 'logout' : $guard.'.logout';
     <x-dashboard.organisms.sidebar/>
     <div class="right_content">
         <x-dashboard.organisms.nav :username="$user->name" :logout_route="$logout_route" />
-        <div class="@if($guard=='admin') display-grid three-grid grid-column-20 @endif">
-            @if (Auth::guard('admin')->check())
-            <x-dashboard.organisms.routine-section-table-sm :sections="$all_sections"/>
-            @endif
-            <x-dashboard.organisms.routine-view-table-sm :routine="$routine" :times="$times"/>
+        <div>
+            <x-dashboard.organisms.teacher-routine-view-table-sm :routine="$routine" :times="$times"/>
         </div> 
     </div>
 @endsection

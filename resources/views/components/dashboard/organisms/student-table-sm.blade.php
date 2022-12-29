@@ -26,32 +26,3 @@
         </table>
     </div>
 </div>
-
-@props(['routine'])
-<div class="table_box grid-row2">
-    <div class="title">
-        <h2 class="text-title pb-2">Students</h2>
-    </div>
-    <div class="table-wrapper">
-        <table class="w-100">
-            <thead>
-                <tr class="heading-row">
-                    <th class="heading-column text-title-column">Day</th>
-                    <th class="heading-column text-title-column">Subjects</th>
-                    <th class="heading-column text-title-column">Time</th>
-                    <th class="heading-column text-title-column">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($routine as $routin)
-                <tr class="body-row">
-                    <td class="body-column text-body-column">{{ $routin->day ?? ''}}</td>
-                    <td class="body-column text-body-column">{{ $routin->subject->name ?? ''}}</td>
-                    <td class="body-column text-body-column">{{ Carbon\Carbon::parse($routin->start_time)->format('h:i a') ?? ''}}</td>
-                    <td class="body-column text-body-column"><a href="#">View</a></td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-</div>

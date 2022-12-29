@@ -1,14 +1,15 @@
 <?php
 //dd();
-use App\Http\Controllers\Auth\Student\AuthenticatedSessionController;
-use App\Http\Controllers\Auth\Student\ConfirmablePasswordController;
-use App\Http\Controllers\Auth\Student\EmailVerificationNotificationController;
-use App\Http\Controllers\Auth\Student\EmailVerificationPromptController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoutineController;
 use App\Http\Controllers\Auth\Student\NewPasswordController;
+use App\Http\Controllers\Auth\Student\VerifyEmailController;
 use App\Http\Controllers\Auth\Student\PasswordResetLinkController;
 use App\Http\Controllers\Auth\Student\RegisteredStudentController;
-use App\Http\Controllers\Auth\Student\VerifyEmailController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\Student\ConfirmablePasswordController;
+use App\Http\Controllers\Auth\Student\AuthenticatedSessionController;
+use App\Http\Controllers\Auth\Student\EmailVerificationPromptController;
+use App\Http\Controllers\Auth\Student\EmailVerificationNotificationController;
 
 Route::group(['middleware' => 'guest'], function(){
     Route::get('register', [RegisteredStudentController::class, 'create'])->name('register');
@@ -28,6 +29,9 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])->name('password.confirm');
     Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+
+    //routine view
+    Route::get('routine', [RoutineController::class, 'index'])->name('routine');
 });
 
 Route::get('/dashboard', function () {

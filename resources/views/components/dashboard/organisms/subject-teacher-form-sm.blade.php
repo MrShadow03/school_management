@@ -5,7 +5,7 @@
     <div class="input_group">
         <div class="input_field">
             <label for="grade">Class <span class="required">*</span></label>
-            <select name="class" id="grade" onchange="getData(this.value)">
+            <select name="class" id="grade" onchange="getClass(this.value)">
                 <option value="" selected disabled>Select a Class</option>
                 <option value="3" >3rd</option>
                 <option value="4" >4th</option>
@@ -24,7 +24,7 @@
     <div class="input_group">
         <div class="input_field">
             <label for="section_id">Section <span class="required">*</span></label>
-            <select name="section_id" id="section_id">
+            <select name="section_id" id="section_id" onchange="getSubject(this.value)">
                 <option value="" selected disabled>Select a section</option>
             </select>
             @error('section_id')

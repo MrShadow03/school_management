@@ -1,0 +1,1524 @@
+{
+    "meta": {
+        "code": 200
+    },
+    "response": {
+        "holidays": [
+            {
+                "name": "New Year's Day",
+                "description": "New Year\u2019s Day is the first day of the year, or January 1, in the Gregorian calendar.",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-01-01",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 1,
+                        "day": 1
+                    }
+                },
+                "type": [
+                    "Common local holiday"
+                ],
+                "urlid": "bangladesh\/new-year-day",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Bangabandhu Homecoming Day",
+                "description": "Bangabandhu Homecoming Day is a observance in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-01-10",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 1,
+                        "day": 10
+                    }
+                },
+                "type": [
+                    "Common local holiday"
+                ],
+                "urlid": "bangladesh\/bangabandhu-homecoming-day",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Saraswati Puja",
+                "description": "Saraswati Puja is a optional holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-01-26",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 1,
+                        "day": 26
+                    }
+                },
+                "type": [
+                    "Common local holiday"
+                ],
+                "urlid": "bangladesh\/sri-panchami",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Maghi Purnima",
+                "description": "Maghi Purnima is a optional holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-02-05",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 2,
+                        "day": 5
+                    }
+                },
+                "type": [
+                    "Optional holiday"
+                ],
+                "urlid": "bangladesh\/magha-purnima",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Valentine's Day",
+                "description": "February 14 is Valentine's Day or Saint Valentine's Feast. The day of love owes its origins to ancient Roman and European Christian traditions.",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-02-14",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 2,
+                        "day": 14
+                    }
+                },
+                "type": [
+                    "Observance"
+                ],
+                "urlid": "bangladesh\/valentine-day",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Maha Shivaratri",
+                "description": "Maha Shivaratri is a optional holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-02-18",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 2,
+                        "day": 18
+                    }
+                },
+                "type": [
+                    "Hinduism",
+                    "Common local holiday"
+                ],
+                "urlid": "bangladesh\/hindu-maha-shivaratri",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Shab-e-Meraj",
+                "description": "Isra and Mi'raj (Isra Me'raj, Israa and Mi'raaj, Laylat Al-Isra wa Al-Miraj, Lailat al Miraj, Night Journey and Ascension to Heaven) marks the night that the Prophet Mohammad traveled from Mecca to Jerusalem, ascended to heaven and returned.",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-02-19",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 2,
+                        "day": 19
+                    }
+                },
+                "type": [
+                    "Common local holiday"
+                ],
+                "urlid": "bangladesh\/shab-e-meraj",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Language Martyrs' Day",
+                "description": "Language Martyrs' Day is a government holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-02-21",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 2,
+                        "day": 21
+                    }
+                },
+                "type": [
+                    "National holiday"
+                ],
+                "urlid": "bangladesh\/language-martyrs-day",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Ash Wednesday",
+                "description": "Ash Wednesday marks the first day of Lent in western Christian churches.",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-02-22",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 2,
+                        "day": 22
+                    }
+                },
+                "type": [
+                    "Common local holiday"
+                ],
+                "urlid": "bangladesh\/ash-wednesday",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "National Flag Day",
+                "description": "National Flag Day is a observance in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-03-02",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 3,
+                        "day": 2
+                    }
+                },
+                "type": [
+                    "Common local holiday"
+                ],
+                "urlid": "bangladesh\/national-flag-day",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Doljatra",
+                "description": "Doljatra is a optional holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-03-07",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 3,
+                        "day": 7
+                    }
+                },
+                "type": [
+                    "Optional holiday"
+                ],
+                "urlid": "bangladesh\/doljatra",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Holi",
+                "description": "Holi is a spring festival of colors celebrated by Hindus, Sikhs and others. It celebrates the triumph of good over evil and the upcoming season of spring. The festival can last up to sixteen days.",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-03-08",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 3,
+                        "day": 8
+                    }
+                },
+                "type": [
+                    "Hinduism"
+                ],
+                "urlid": "bangladesh\/hindu-holi",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Shab e-Barat",
+                "description": "Shab e-Barat is a government holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-03-08",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 3,
+                        "day": 8
+                    }
+                },
+                "type": [
+                    "National holiday"
+                ],
+                "urlid": "bangladesh\/shab-e-barat",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Sheikh Mujibur Rahman\u2019s birthday",
+                "description": "Sheikh Mujibur Rahman\u2019s birthday is a government holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-03-17",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 3,
+                        "day": 17
+                    }
+                },
+                "type": [
+                    "National holiday"
+                ],
+                "urlid": "bangladesh\/sheikh-mujibur-rahman-birthday",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Arrival Day of Sri Sri Harichand Tagore",
+                "description": "Arrival Day of Sri Sri Harichand Tagore is a optional holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-03-19",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 3,
+                        "day": 19
+                    }
+                },
+                "type": [
+                    "Optional holiday"
+                ],
+                "urlid": "bangladesh\/harichand-tagore-arrival",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "March Equinox",
+                "description": "March Equinox in Bangladesh (Dhaka)",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-03-21T03:24:20+06:00",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 3,
+                        "day": 21,
+                        "hour": 3,
+                        "minute": 24,
+                        "second": 20
+                    },
+                    "timezone": {
+                        "offset": "+06:00",
+                        "zoneabb": "BST",
+                        "zoneoffset": 21600,
+                        "zonedst": 0,
+                        "zonetotaloffset": 21600
+                    }
+                },
+                "type": [
+                    "Season"
+                ],
+                "urlid": "seasons\/vernal-equinox",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Independence Day",
+                "description": "Independence Day is a government holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-03-26",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 3,
+                        "day": 26
+                    }
+                },
+                "type": [
+                    "National holiday"
+                ],
+                "urlid": "bangladesh\/independence-day",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Maundy Thursday",
+                "description": "Maundy Thursday is a Christian observance on the Thursday during Holy Week. It is the day before Good Friday.",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-04-06",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 4,
+                        "day": 6
+                    }
+                },
+                "type": [
+                    "Common local holiday"
+                ],
+                "urlid": "bangladesh\/maundy-thursday",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Good Friday",
+                "description": "Good Friday is a global Christian observance two days before Easter Sunday.",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-04-07",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 4,
+                        "day": 7
+                    }
+                },
+                "type": [
+                    "Common local holiday"
+                ],
+                "urlid": "bangladesh\/good-friday",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Holy Saturday",
+                "description": "Holy Saturday is the day before Easter Sunday.",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-04-08",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 4,
+                        "day": 8
+                    }
+                },
+                "type": [
+                    "Common local holiday"
+                ],
+                "urlid": "bangladesh\/holy-saturday",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Easter Day",
+                "description": "Easter Sunday commemorates Jesus Christ\u2019s resurrection, according to Christian belief.",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-04-09",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 4,
+                        "day": 9
+                    }
+                },
+                "type": [
+                    "Common local holiday"
+                ],
+                "urlid": "bangladesh\/easter-day",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Easter Monday",
+                "description": "Easter Monday is the day after Easter Sunday.",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-04-10",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 4,
+                        "day": 10
+                    }
+                },
+                "type": [
+                    "Common local holiday"
+                ],
+                "urlid": "bangladesh\/easter-monday",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Chaitra Sankranti",
+                "description": "Chaitra Sankranti is a optional holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-04-13",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 4,
+                        "day": 13
+                    }
+                },
+                "type": [
+                    "Optional holiday"
+                ],
+                "urlid": "bangladesh\/chaitra-sankranti",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Bengali New Year",
+                "description": "Bengali New Year is a government holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-04-14",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 4,
+                        "day": 14
+                    }
+                },
+                "type": [
+                    "National holiday"
+                ],
+                "urlid": "bangladesh\/bengali-new-year",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Shab-e-qadr",
+                "description": "Laylat al-Qadr commmemorates the time when Mohammad received the first verses of the Koran (Qu'ran).",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-04-19",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 4,
+                        "day": 19
+                    }
+                },
+                "type": [
+                    "National holiday"
+                ],
+                "urlid": "bangladesh\/shab-e-qadr",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Jumatul Bidah",
+                "description": "Jumatul Bidah is a government holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-04-21",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 4,
+                        "day": 21
+                    }
+                },
+                "type": [
+                    "National holiday"
+                ],
+                "urlid": "bangladesh\/jumatul-bidah",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Eid ul-Fitr",
+                "description": "Eid al-Fitr is a holiday to mark the end of the Islamic month of Ramadan, during which Muslims fast during the hours of daylight.",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-04-22",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 4,
+                        "day": 22
+                    }
+                },
+                "type": [
+                    "National holiday"
+                ],
+                "urlid": "bangladesh\/eid-ul-fitr",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Eid ul-Fitr Holiday",
+                "description": "Eid ul-Fitr Holiday is a government holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-04-23",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 4,
+                        "day": 23
+                    }
+                },
+                "type": [
+                    "National holiday"
+                ],
+                "urlid": "bangladesh\/eid-ul-fitr-day-2",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Eid ul-Fitr Holiday",
+                "description": "Eid ul-Fitr Holiday is a government holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-04-24",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 4,
+                        "day": 24
+                    }
+                },
+                "type": [
+                    "National holiday"
+                ],
+                "urlid": "bangladesh\/eid-ul-fitr-day-3",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Eid ul-Fitr Holiday",
+                "description": "Eid ul-Fitr Holiday is a optional holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-04-25",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 4,
+                        "day": 25
+                    }
+                },
+                "type": [
+                    "Optional holiday"
+                ],
+                "urlid": "bangladesh\/eid-ul-fitr-day-4",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "May Day",
+                "description": "Labor Day, International Workers' Day, and May Day, is a day off for workers in many countries around the world.",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-05-01",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 5,
+                        "day": 1
+                    }
+                },
+                "type": [
+                    "National holiday"
+                ],
+                "urlid": "bangladesh\/may-day",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Buddha Purnima\/Vesak",
+                "description": "Buddha Purnima\/Vesak is a government holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-05-04",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 5,
+                        "day": 4
+                    }
+                },
+                "type": [
+                    "National holiday"
+                ],
+                "urlid": "bangladesh\/buddha-purnima",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Mothers' Day",
+                "description": "Mother\u2019s Day celebrates the achievements and efforts of mothers and mother figures.",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-05-14",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 5,
+                        "day": 14
+                    }
+                },
+                "type": [
+                    "Observance"
+                ],
+                "urlid": "bangladesh\/mother-day",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Fathers' Day",
+                "description": "Father\u2019s Day celebrates fatherhood and male parenting on different dates worldwide.",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-06-18",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 6,
+                        "day": 18
+                    }
+                },
+                "type": [
+                    "Observance"
+                ],
+                "urlid": "bangladesh\/father-day",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "June Solstice",
+                "description": "June Solstice in Bangladesh (Dhaka)",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-06-21T20:57:49+06:00",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 6,
+                        "day": 21,
+                        "hour": 20,
+                        "minute": 57,
+                        "second": 49
+                    },
+                    "timezone": {
+                        "offset": "+06:00",
+                        "zoneabb": "BST",
+                        "zoneoffset": 21600,
+                        "zonedst": 0,
+                        "zonetotaloffset": 21600
+                    }
+                },
+                "type": [
+                    "Season"
+                ],
+                "urlid": "seasons\/june-solstice",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Eid al-Adha",
+                "description": "Eid al-Adha (Id ul-Adha) is an Islamic festival falling on the 10th day of the month of Dhul Hijja (Thou al-Hijja) to commemorate the willingness of Ibrahim (Abraham) to sacrifice his son.",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-06-29",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 6,
+                        "day": 29
+                    }
+                },
+                "type": [
+                    "National holiday"
+                ],
+                "urlid": "bangladesh\/eid-ul-adha",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Eid al-Adha Holiday",
+                "description": "Eid al-Adha Holiday is a government holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-06-30",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 6,
+                        "day": 30
+                    }
+                },
+                "type": [
+                    "National holiday"
+                ],
+                "urlid": "bangladesh\/eid-ul-adha-holiday-1",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Eid al-Adha Holiday",
+                "description": "Eid al-Adha Holiday is a government holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-07-01",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 7,
+                        "day": 1
+                    }
+                },
+                "type": [
+                    "National holiday"
+                ],
+                "urlid": "bangladesh\/eid-ul-adha-holiday-2",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "July 1 Bank Holiday",
+                "description": "July 1 Bank Holiday is a bank holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-07-01",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 7,
+                        "day": 1
+                    }
+                },
+                "type": [
+                    "Common local holiday"
+                ],
+                "urlid": "bangladesh\/july-1-bank-holiday",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Eid al-Adha Holiday",
+                "description": "Eid al-Adha Holiday is a optional holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-07-02",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 7,
+                        "day": 2
+                    }
+                },
+                "type": [
+                    "Common local holiday"
+                ],
+                "urlid": "bangladesh\/eid-ul-adha-holiday-3",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Ashari Purnima",
+                "description": "Ashari Purnima is a optional holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-07-03",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 7,
+                        "day": 3
+                    }
+                },
+                "type": [
+                    "Optional holiday"
+                ],
+                "urlid": "bangladesh\/ashari-purnima",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Muharram",
+                "description": "Muharram is a government holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-07-19",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 7,
+                        "day": 19
+                    }
+                },
+                "type": [
+                    "National holiday"
+                ],
+                "urlid": "bangladesh\/muharram",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Ashura",
+                "description": "Ashura is a government holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-07-29",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 7,
+                        "day": 29
+                    }
+                },
+                "type": [
+                    "National holiday"
+                ],
+                "urlid": "bangladesh\/ashura",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "National Mourning Day",
+                "description": "National Mourning Day is a government holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-08-15",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 8,
+                        "day": 15
+                    }
+                },
+                "type": [
+                    "National holiday"
+                ],
+                "urlid": "bangladesh\/national-mourning-day",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Raksha Bandhan",
+                "description": "Raksha Bandhan is a Hindu holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-08-30",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 8,
+                        "day": 30
+                    }
+                },
+                "type": [
+                    "Hinduism"
+                ],
+                "urlid": "bangladesh\/hindu-raksha-bandhan",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Janmashtami",
+                "description": "Janmashtami is a government holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-09-06",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 9,
+                        "day": 6
+                    }
+                },
+                "type": [
+                    "Hinduism"
+                ],
+                "urlid": "bangladesh\/janmashtami",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Akhari Chahar Somba",
+                "description": "Akhari Chahar Somba is a optional holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-09-11",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 9,
+                        "day": 11
+                    }
+                },
+                "type": [
+                    "Optional holiday"
+                ],
+                "urlid": "bangladesh\/akhari-chahar-somba",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Ganesh Chaturthi",
+                "description": "Ganesh Chaturthi is a Hindu holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-09-19",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 9,
+                        "day": 19
+                    }
+                },
+                "type": [
+                    "Hinduism"
+                ],
+                "urlid": "bangladesh\/hindu-ganesh-chaturthi",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "September Equinox",
+                "description": "September Equinox in Bangladesh (Dhaka)",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-09-23T12:50:01+06:00",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 9,
+                        "day": 23,
+                        "hour": 12,
+                        "minute": 50,
+                        "second": 1
+                    },
+                    "timezone": {
+                        "offset": "+06:00",
+                        "zoneabb": "BST",
+                        "zoneoffset": 21600,
+                        "zonedst": 0,
+                        "zonetotaloffset": 21600
+                    }
+                },
+                "type": [
+                    "Season"
+                ],
+                "urlid": "seasons\/autumnal-equniox",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Eid e-Milad-un Nabi",
+                "description": "Mawlid, or Milad, marks the birth of the Islamic prophet Muhammed, or Mohamed, in the year 570 of the Gregorian calendar.",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-09-27",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 9,
+                        "day": 27
+                    }
+                },
+                "type": [
+                    "National holiday"
+                ],
+                "urlid": "bangladesh\/eid-e-milad-un-nabi",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Madhu Purnima",
+                "description": "Madhu Purnima is a optional holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-09-28",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 9,
+                        "day": 28
+                    }
+                },
+                "type": [
+                    "Optional holiday"
+                ],
+                "urlid": "bangladesh\/modhu-purnima",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Mahalaya",
+                "description": "Mahalaya is a optional holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-10-14",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 10,
+                        "day": 14
+                    }
+                },
+                "type": [
+                    "Optional holiday"
+                ],
+                "urlid": "bangladesh\/mahalaya",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "First Day of Navaratri",
+                "description": "First Day of Navaratri is a Hindu holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-10-15",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 10,
+                        "day": 15
+                    }
+                },
+                "type": [
+                    "Hinduism"
+                ],
+                "urlid": "bangladesh\/hindu-navaratri",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Ashtami",
+                "description": "Ashtami is a optional holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-10-22",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 10,
+                        "day": 22
+                    }
+                },
+                "type": [
+                    "Optional holiday"
+                ],
+                "urlid": "bangladesh\/ashtami",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Mahanabami",
+                "description": "Mahanabami is a optional holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-10-23",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 10,
+                        "day": 23
+                    }
+                },
+                "type": [
+                    "Optional holiday"
+                ],
+                "urlid": "bangladesh\/mahanabami",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Durga Puja",
+                "description": "Durga Puja is a government holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-10-24",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 10,
+                        "day": 24
+                    }
+                },
+                "type": [
+                    "Common local holiday"
+                ],
+                "urlid": "bangladesh\/durga-puja",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Fateha-i-Yajdaham",
+                "description": "Fateha-i-Yajdaham is a optional holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-10-26",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 10,
+                        "day": 26
+                    }
+                },
+                "type": [
+                    "Optional holiday"
+                ],
+                "urlid": "bangladesh\/fateha-i-yajdaham",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Lakshmi Puja",
+                "description": "Lakshmi Puja is a optional holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-10-28",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 10,
+                        "day": 28
+                    }
+                },
+                "type": [
+                    "Optional holiday"
+                ],
+                "urlid": "bangladesh\/lakshmi-puja",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Prabarana Purnima",
+                "description": "Prabarana Purnima is a optional holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-10-28",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 10,
+                        "day": 28
+                    }
+                },
+                "type": [
+                    "Optional holiday"
+                ],
+                "urlid": "bangladesh\/prabarana-purnima",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Halloween",
+                "description": "Halloween is a festive occasion that is celebrated in many countries on October 31 each year.",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-10-31",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 10,
+                        "day": 31
+                    }
+                },
+                "type": [
+                    "Observance"
+                ],
+                "urlid": "bangladesh\/halloween",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Sri Shayama Puja",
+                "description": "Sri Shayama Puja is a observance in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-11-04",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 11,
+                        "day": 4
+                    }
+                },
+                "type": [
+                    "Observance"
+                ],
+                "urlid": "bangladesh\/sri-shayama-puja",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Victory Day",
+                "description": "Victory Day is a government holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-12-16",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 12,
+                        "day": 16
+                    }
+                },
+                "type": [
+                    "National holiday"
+                ],
+                "urlid": "bangladesh\/victory-day",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "December Solstice",
+                "description": "December Solstice in Bangladesh (Dhaka)",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-12-22T09:27:21+06:00",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 12,
+                        "day": 22,
+                        "hour": 9,
+                        "minute": 27,
+                        "second": 21
+                    },
+                    "timezone": {
+                        "offset": "+06:00",
+                        "zoneabb": "BST",
+                        "zoneoffset": 21600,
+                        "zonedst": 0,
+                        "zonetotaloffset": 21600
+                    }
+                },
+                "type": [
+                    "Season"
+                ],
+                "urlid": "seasons\/december-solstice",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Christmas Eve",
+                "description": "Christmas Eve is the day before Christmas Day and falls on December 24 in the Gregorian calendar.",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-12-24",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 12,
+                        "day": 24
+                    }
+                },
+                "type": [
+                    "Common local holiday"
+                ],
+                "urlid": "bangladesh\/christmas-eve",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Christmas Day",
+                "description": "Christmas Day is one of the biggest Christian celebrations and falls on December 25 in the Gregorian calendar.",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-12-25",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 12,
+                        "day": 25
+                    }
+                },
+                "type": [
+                    "National holiday"
+                ],
+                "urlid": "bangladesh\/christmas-day",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "Boxing Day",
+                "description": "Boxing Day is a optional holiday in Bangladesh",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-12-26",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 12,
+                        "day": 26
+                    }
+                },
+                "type": [
+                    "Common local holiday"
+                ],
+                "urlid": "bangladesh\/boxing-day",
+                "locations": "All",
+                "states": "All"
+            },
+            {
+                "name": "New Year's Eve",
+                "description": "New Year\u2019s Eve is the last day of the year, December 31, in the Gregorian calendar.",
+                "country": {
+                    "id": "bd",
+                    "name": "Bangladesh"
+                },
+                "date": {
+                    "iso": "2023-12-31",
+                    "datetime": {
+                        "year": 2023,
+                        "month": 12,
+                        "day": 31
+                    }
+                },
+                "type": [
+                    "Common local holiday"
+                ],
+                "urlid": "bangladesh\/new-year-eve",
+                "locations": "All",
+                "states": "All"
+            }
+        ]
+    }
+}

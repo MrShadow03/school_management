@@ -5,16 +5,35 @@ namespace App\Http\Controllers;
 use App\Models\Routine;
 use App\Models\Section;
 use Illuminate\Http\Request;
+use App\Models\SubjectTeacher;
+use Illuminate\Support\Facades\Auth;
 
 class RoutineController extends Controller
 {
     //show routines
     public function index(Request $request){
         $section_id = $request->id ?? Section::first()->id;
+        
+        //if user is student then the section_id is authenticated student's section_id
+        $section_id = Auth::guard('student')->check() ? auth()->user()->section_id : $section_id;
+
         $times = Routine::where('section_id', $section_id)->distinct()->orderBy('start_time', 'asc')->pluck('start_time');
         return view('dashboard.pages.admin.routine_show',[
             'routine' => Routine::with('section', 'subject')->where('section_id', $section_id)->get(),
             'all_sections' => Section::orderBy('class', 'asc')->get(),
+            'times' => $times,
+        ]);
+    }
+
+    //teachers routine
+    public function teacherRoutine(){
+        $subject_teacher_of = SubjectTeacher::where('teacher_id', Auth::user()->id)->get(['subject_id', 'section_id'])->toArray();
+        $query = Routine::with('section', 'subject')->whereIn('section_id', array_column($subject_teacher_of, 'section_id'))->whereIn('subject_id', array_column($subject_teacher_of, 'subject_id'));
+        $routine = $query->get();
+        $times = $query->distinct()->orderBy('start_time', 'asc')->pluck('start_time');
+
+        return view('dashboard.pages.teacher.routine',[
+            'routine' => $routine,
             'times' => $times,
         ]);
     }

@@ -32,9 +32,8 @@ $logout_route = $guard == 'student'? 'logout' : $guard.'.logout';
 @endsection
 @section('exclusive_scripts')
 <script>
-    function getData(value) {
+    function getClass(value) {
         let class_id = document.getElementById('grade').value;
-        
         //get sections
         axios.get(`section/get/${class_id}`)
         .then(function (response) {
@@ -43,7 +42,7 @@ $logout_route = $guard == 'student'? 'logout' : $guard.'.logout';
             while (section_id.firstChild) {
                 section_id.removeChild(section_id.firstChild);
             }
-            section_id.innerHTML = '<option value="" selected disabled>Select a Section</option>'
+            section_id.innerHTML = '<option value="" selected disabled>Select a section</option>'
             response.data.forEach(element => {
                 let option = document.createElement('option');
                 option.value = element.id;
@@ -54,16 +53,18 @@ $logout_route = $guard == 'student'? 'logout' : $guard.'.logout';
         .catch(function (error) {
             console.log(error);
         });
+    }
 
+    function getSubject(section_id){
         //get subjects
-        axios.get(`subject/get/${class_id}`)
+        axios.get(`subject/remaining/${section_id}`)
         .then(function (response) {
             let subject_id = document.getElementById('subject_id');
             //remove options from subject_id
             while (subject_id.firstChild) {
                 subject_id.removeChild(subject_id.firstChild);
             }
-            subject_id.innerHTML = '<option value="" selected disabled>Select a Subject</option>'
+            subject_id.innerHTML = '<option value="" selected disabled>Select a subject</option>'
             response.data.forEach(element => {
                 let option = document.createElement('option');
                 option.value = element.id;

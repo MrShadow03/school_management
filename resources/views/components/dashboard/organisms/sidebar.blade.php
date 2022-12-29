@@ -8,7 +8,7 @@
                 {{-- sidebar for students --}}
                 @if (Auth::guard('student')->check())
                 <li><a href="index.html"><i class="menu_icon fa-solid fa-user"></i>Dashboard</a></li>
-                <li><a href="index.html"><i class="menu_icon fa-solid fa-list-dropdown"></i>Routine</a></li>
+                <li><a href="{{ route('routine') }}"><i class="menu_icon fa-regular fa-calendar-days"></i>Routine</a></li>
                 <li><a href="index.html"><i class="menu_icon fa-solid fa-bell"></i>Notice</a></li>
                 <li><a href="index.html"><i class="menu_icon fa-solid fa-users"></i>Teachers</a></li>
                 <li><a class="toggle_btn" href="#"><i class="las menu_icon la-cog"></i>Setting<i class="las sub_icon la-angle-down"></i></a>
@@ -52,6 +52,7 @@
                 {{-- sidebar for teacher --}}
                 <li><a href="{{ route('teacher.dashboard') }}"><i class="menu_icon fa-light fa-house-user"></i>Dashboard</a></li>
                 <li><a href="{{ route('teacher.students',auth()->user()->id) }}"><i class="menu_icon fa-light fa-graduation-cap"></i>My Students</a></li>
+                <li><a href="{{ route('teacher.routine') }}"><i class="menu_icon fa-light fa-graduation-cap"></i>My Routines</a></li>
                 @endif
             </x-dashboard.molecules.sidebar_menu>
         <x-dashboard.molecules.sidebar_footer />
