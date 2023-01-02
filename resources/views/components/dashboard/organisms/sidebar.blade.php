@@ -53,6 +53,7 @@
                 <li><a href="{{ route('teacher.dashboard') }}"><i class="menu_icon fa-light fa-house-user"></i>Dashboard</a></li>
                 <li><a href="{{ route('teacher.students',auth()->user()->id) }}"><i class="menu_icon fa-light fa-graduation-cap"></i>My Students</a></li>
                 <li><a href="{{ route('teacher.routine') }}"><i class="menu_icon fa-light fa-graduation-cap"></i>My Routines</a></li>
+                <li><a href="{{ route('teacher.attendance.create') }}"><i class="menu_icon fa-light fa-graduation-cap"></i>Attendance</a></li>
                 @endif
             </x-dashboard.molecules.sidebar_menu>
         <x-dashboard.molecules.sidebar_footer />

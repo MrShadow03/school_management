@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Attendance;
 use App\Models\StudentParent;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
@@ -42,5 +43,15 @@ class Student extends Authenticatable
     public function studentParent()
     {
         return $this->belongsTo(StudentParent::class);
+    }
+
+    public function section()
+    {
+        return $this->belongsTo(Section::class);
+    }
+
+    public function attendances()
+    {
+        return $this->hasMany(Attendance::class)->orderBy('date','desc');
     }
 }

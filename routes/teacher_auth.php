@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoutineController;
+use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\teacher\TeacherSectionController;
 use App\Http\Controllers\Auth\Teacher\NewPasswordController;
 use App\Http\Controllers\Auth\Teacher\VerifyEmailController;
@@ -36,6 +37,12 @@ Route::group(['middleware' => 'auth:teacher', 'prefix' => 'teacher/', 'as' => 't
     
     //students list
     Route::get('routine', [RoutineController::class, 'teacherRoutine'])->name('routine');
+
+    //attendance
+    Route::get('attendance/{section_id?}', [AttendanceController::class, 'create'])->name('attendance.create');
+    Route::post('attendance/store', [AttendanceController::class, 'store'])->name('attendance.store');
+    Route::delete('attendance/destroy/{id}', [AttendanceController::class, 'destroy'])->name('attendance.destroy');
+    Route::get('attendance/update/{id}', [AttendanceController::class, 'update'])->name('attendance.update');
 });
 
 Route::get('/teacher/dashboard', function () {

@@ -282,6 +282,9 @@ tbody.hovarable{
 .text-alert{
     color: $alert !important;
 }
+.text-success{
+    color: $success !important;
+}
 
 //min height
 .min-h-100{
@@ -302,4 +305,10 @@ tbody.hovarable{
         text-align: center;
         border: 1px solid $border_light;
     }
+}
+
+//text center
+
+.text-center{
+    text-align: center !important;
 }
