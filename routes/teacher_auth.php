@@ -39,10 +39,13 @@ Route::group(['middleware' => 'auth:teacher', 'prefix' => 'teacher/', 'as' => 't
     Route::get('routine', [RoutineController::class, 'teacherRoutine'])->name('routine');
 
     //attendance
+    Route::get('attendance/index', [AttendanceController::class, 'index'])->name('attendance.index');
+    Route::post('attendance/filter', [AttendanceController::class, 'index'])->name('attendance.filter');
     Route::get('attendance/{section_id?}', [AttendanceController::class, 'create'])->name('attendance.create');
     Route::post('attendance/store', [AttendanceController::class, 'store'])->name('attendance.store');
     Route::delete('attendance/destroy/{id}', [AttendanceController::class, 'destroy'])->name('attendance.destroy');
     Route::get('attendance/update/{id}', [AttendanceController::class, 'update'])->name('attendance.update');
+    //Route::post('attendance/filter/{section_id?}', [AttendanceController::class, 'filter'])->name('attendance.filter');
 });
 
 Route::get('/teacher/dashboard', function () {

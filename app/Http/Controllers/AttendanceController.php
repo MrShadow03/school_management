@@ -12,6 +12,36 @@ use Illuminate\Support\Facades\Auth;
 
 class AttendanceController extends Controller
 {
+    public function index(Request $request){
+        //Getting the year and month from the request
+        $date = isset($request->month) ? Carbon::parse($request->month) : Carbon::parse(Carbon::now());
+        $year = $date->year;
+        $month = $date->month;
+
+        //Getting the student ids of the student of the section which belong to teacher
+        $teacher_id = Auth::user()->id;
+        $section_id = isset($request->section_id) ? $request->section_id : Section::where('teacher_id',$teacher_id)->first()->id;
+        $students = Student::where('section_id',$section_id)->get();
+        $student_ids = $students->pluck('id');
+
+        $own_sections = Section::where('teacher_id',$teacher_id)->get();
+        $other_sections = SubjectTeacher::with('section')->where('teacher_id',$teacher_id)->whereNotIn('section_id',$own_sections->pluck('id'))->get();
+
+        //Getting the attendance of the students of the section
+        $attendance = Attendance::with('student')->whereYear('date',$year)->whereMonth('date',$month)->whereIn('student_id',$student_ids)->get();
+
+        //dd($attendance);
+        
+        return view('dashboard.pages.teacher.attendance_show',[
+            'own_sections' => $own_sections,
+            'other_sections' => $other_sections,
+            'section' => Section::find($section_id),
+            'attendances' => $attendance,
+            'date' => $date,
+            'students' => $students,
+        ]);
+    }
+
     public function create(Request $request){
         $teacher_id = Auth::user()->id;
         $section_id = $request->section_id ?? Section::where('teacher_id',$teacher_id)->first()->id;
@@ -53,4 +83,31 @@ class AttendanceController extends Controller
         $update = $row->update(['attendance' => $attendance]);
         return redirect()->back()->with('success','Attendance has been deleted successfully');
     }
+    
+    // public function filter(Request $request){
+    //     //Getting the year and month from the request
+    //     $date = Carbon::parse($request->month);
+    //     $year = $date->year;
+    //     $month = $date->month;
+
+    //     //Getting the student ids of the student of the section which belong to teacher
+    //     $teacher_id = Auth::user()->id;
+    //     $section_id = $request->section_id ?? Section::where('teacher_id',$teacher_id)->first()->id;
+    //     $student_ids = Student::where('section_id',$section_id)->get()->pluck('id');
+
+    //     $own_sections = Section::where('teacher_id',$teacher_id)->get();
+    //     $other_sections = SubjectTeacher::with('section')->where('teacher_id',$teacher_id)->whereNotIn('section_id',$own_sections->pluck('id'))->get();
+
+    //     //Getting the attendance of the students of the section
+    //     $attendance = Attendance::with('student')->whereYear('date',$year)->whereMonth('date',$month)->whereIn('student_id',$student_ids)->get();
+    //     dd($attendance);
+    //     die();
+    //     return view('dashboard.pages.teacher.attendance_show',[
+    //         'own_sections' => $own_sections,
+    //         'other_sections' => $other_sections,
+    //         'section' => Section::find($section_id),
+    //         'attendances' => $attendance,
+    //         'date' => $date,
+    //     ]);
+    // }
 }

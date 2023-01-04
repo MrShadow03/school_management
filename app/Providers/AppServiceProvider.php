@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -26,5 +27,10 @@ class AppServiceProvider extends ServiceProvider
     {
         //use vendor default as default pagination
         Paginator::defaultView('vendor.pagination.default');
+
+        //form directive to use error bag
+        Blade::directive('form', function ($expression) {
+            return "<?php \$errorBag = \$errors->{$expression} ?>";
+        });
     }
 }

@@ -21,21 +21,10 @@ $logout_route = $guard == 'student'? 'logout' : $guard.'.logout';
     <x-dashboard.organisms.sidebar/>
     <div class="right_content">
         <x-dashboard.organisms.nav :username="$user->name" :logout_route="$logout_route" />
-        <div class="display-grid three-grid grid-column-20">
-            <x-dashboard.organisms.attendance-section-table-sm :own_sections="$own_sections" :other_sections="$other_sections"/>
-            <x-dashboard.organisms.attendance-student-table-sm :students="$students" :section_name="$section_name"/>
-        </div>
+        <div>
+            <x-dashboard.organisms.attendance_table :own_sections="$own_sections" :current_section="$section" :date="$date" :attendances="$attendances" :students="$students"/>
+        </div> 
     </div>
-
 @endsection
 @section('exclusive_scripts')
-<script>
-    function setAttendanceValue(event, value, student_id){
-        document.getElementById('attendance_input_'+student_id).value = value;
-    }
-
-    function setCanceledAttendanceValue(event, student_id){
-        document.getElementById('cancel_attendance_'+student_id).value = value;
-    }
-</script>
 @endsection

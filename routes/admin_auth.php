@@ -7,6 +7,7 @@ use App\Http\Controllers\SectionController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\ExamPermissionController;
 use App\Http\Controllers\SubjectTeacherController;
 use App\Http\Controllers\Auth\Admin\NewPasswordController;
 use App\Http\Controllers\Auth\Admin\VerifyEmailController;
@@ -72,6 +73,9 @@ Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin/', 'as' => 'admin
     Route::get('subject/remaining/{section_id}', [SubjectController::class, 'remainingSubjects'])->name('subject.remainingSubjects');
     Route::post('subject/store', [SubjectController::class, 'store'])->name('subject.store');
     Route::patch('subject/update', [SubjectController::class, 'update'])->name('subject.update');
+
+    //Settings and permissions
+    Route::get('exam_permissions/index', [ExamPermissionController::class, 'index'])->name('exam_permissions.index');
 
     Route::get('section/axios/{name}', [SectionController::class, 'axios'])->name('section.axios');
 });

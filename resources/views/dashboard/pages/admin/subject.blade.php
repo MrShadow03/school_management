@@ -49,10 +49,18 @@ $logout_route = $guard == 'student'? 'logout' : $guard.'.logout';
         let id = parent.children[0].innerText;
         let name = parent.children[1].innerText;
         let subject_class = parent.children[2].innerText;
+        let total_marks = parent.children[3].innerText;
+        let cq = parent.children[4].innerText;
+        let mcq = parent.children[5].innerText;
+        let practical = parent.children[6].innerText;
 
         document.getElementById('update_subject_name').value = name;
         document.getElementById('update_subject_id').value = id;
         document.getElementById('update_subject_class').value = subject_class;
+        document.getElementById('update_total_marks').value = total_marks;
+        document.getElementById('update_cq').value = cq;
+        document.getElementById('update_mcq').value = mcq;
+        document.getElementById('update_practical').value = practical;
     }
 </script>
 @endsection
