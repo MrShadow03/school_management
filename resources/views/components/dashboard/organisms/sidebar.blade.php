@@ -50,7 +50,7 @@
                 </li>
                 <li><a class="toggle_btn" href="#"><i class="fa-regular fa-gear menu_icon"></i>Settings & Permissions<i class="las sub_icon la-angle-down"></i></a>
                     <ul class="sub_menu">
-                        <li><a href="{{ route('admin.exam_permissions.index') }}"><i class="fa-regular fa-user-unlock"></i>Result Upload Permissions</a></li>
+                        <li><a href="{{ route('admin.exam_permission.index') }}"><i class="fa-regular fa-user-unlock"></i>Result Upload Permissions</a></li>
                         <li><a href="#"><i class="fa-regular fa-calendar-plus"></i>Fee Collection Permission</a></li>
                     </ul>
                 </li>
@@ -59,11 +59,23 @@
                 <li><a href="{{ route('teacher.dashboard') }}"><i class="menu_icon fa-light fa-house-user"></i>Dashboard</a></li>
                 <li><a href="{{ route('teacher.students',auth()->user()->id) }}"><i class="menu_icon fa-light fa-graduation-cap"></i>My Students</a></li>
                 <li><a href="{{ route('teacher.routine') }}"><i class="menu_icon fa-light fa-graduation-cap"></i>My Routines</a></li>
-
+                
                 <li><a class="toggle_btn" href="#"><i class="fa-regular fa-calendar-days menu_icon"></i>Attendance<i class="las sub_icon la-angle-down"></i></a>
                     <ul class="sub_menu">
                         <li><a href="{{ route('teacher.attendance.create') }}"><i class="menu_icon fa-light fa-graduation-cap"></i>Take Attendance</a></li>
                         <li><a href="{{ route('teacher.attendance.index') }}"><i class="fa-regular fa-calendars"></i></i>View Attendance</a></li>
+                    </ul>
+                </li>
+                <li><a class="toggle_btn" href="#"><i class="fa-regular fa-calendar-days menu_icon"></i>Upload Result<i class="las sub_icon la-angle-down"></i></a>
+                    <ul class="sub_menu">
+                        @foreach ($result_uploading_permissions as $permission)
+                        @php
+                            $name = $permission->name == 'mid_result_uploading_permission' ? 'Upload Mid-term Results' : ($permission->name == 'final_result_uploading_permission' ? 'Upload Final Results' : 'Upload Test Results');
+                            $type = $permission->name == 'mid_result_uploading_permission' ? 'mid' : ($permission->name == 'final_result_uploading_permission' ? 'final' : 'test');
+                            $year = $permission->year;
+                        @endphp
+                        <li><a href="{{ $permission->status ? route('teacher.result_upload.create', [$year, $type]) : '#' }}">{!! $permission->status?'<i class="fa-regular fa-cloud-arrow-up"></i>':'<i class="fa-regular fa-cloud-slash"></i>' !!} {{ $name }}</a></li>
+                        @endforeach
                     </ul>
                 </li>
                 @endif

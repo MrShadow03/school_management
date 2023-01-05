@@ -18,13 +18,24 @@ $logout_route = $guard == 'student'? 'logout' : $guard.'.logout';
 @section('exclusive_styles')
 @endsection
 @section('main')
-
     <x-dashboard.organisms.sidebar/>
     <div class="right_content">
         <x-dashboard.organisms.nav :username="$user->name" :logout_route="$logout_route" />
-        <x-dashboard.organisms.exam_permission-table-sm />
+        <div class="display-grid three-grid grid-column-20">
+            <x-dashboard.organisms.result-subject-table-sm :subjects="$subjects" :year="$year" :type="$type"/>
+            <x-dashboard.organisms.result-student-table-sm :students="$students" :section="$section" :subject="$subject"/>
+        </div>
     </div>
 
 @endsection
 @section('exclusive_scripts')
+<script>
+    function setAttendanceValue(event, value, student_id){
+        document.getElementById('attendance_input_'+student_id).value = value;
+    }
+
+    function setCanceledAttendanceValue(event, student_id){
+        document.getElementById('cancel_attendance_'+student_id).value = value;
+    }
+</script>
 @endsection

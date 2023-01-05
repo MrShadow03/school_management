@@ -355,3 +355,24 @@ tbody.hovarable{
 .fs-20{ 
     font-size: 2rem!important;
 }
+
+
+
+
+
+@media screen and (min-width: 768px) {
+    .table-thin{
+        margin: 2rem 15%;
+    }
+}
+
+.settings-table{
+    th{
+        padding: 1rem;
+        text-align: center;
+    }
+    td{
+        padding-block: 2rem;
+        text-align: center;
+    }
+}

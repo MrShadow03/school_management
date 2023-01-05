@@ -14,4 +14,12 @@ class Section extends Model
     public function teacher(){
         return $this->belongsTo(Teacher::class);
     }
+
+    public function students(){
+        return $this->hasMany(Student::class);
+    }
+
+    public function subjectTeachers(){
+        return $this->hasMany(SubjectTeacher::class);
+    }
 }

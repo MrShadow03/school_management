@@ -75,7 +75,8 @@ Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin/', 'as' => 'admin
     Route::patch('subject/update', [SubjectController::class, 'update'])->name('subject.update');
 
     //Settings and permissions
-    Route::get('exam_permissions/index', [ExamPermissionController::class, 'index'])->name('exam_permissions.index');
+    Route::get('exam_permission/index', [ExamPermissionController::class, 'index'])->name('exam_permission.index');
+    Route::patch('exam_permission/update', [ExamPermissionController::class, 'update'])->name('exam_permission.update');
 
     Route::get('section/axios/{name}', [SectionController::class, 'axios'])->name('section.axios');
 });

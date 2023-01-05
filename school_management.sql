@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2023 at 10:30 AM
+-- Generation Time: Jan 05, 2023 at 12:55 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -190,6 +190,25 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `results`
+--
+
+CREATE TABLE `results` (
+  `id` bigint(20) NOT NULL,
+  `student_id` bigint(20) NOT NULL,
+  `section_id` int(11) NOT NULL,
+  `subject_id` bigint(20) NOT NULL,
+  `year` year(4) NOT NULL,
+  `cq` int(3) NOT NULL,
+  `mcq` int(3) DEFAULT NULL,
+  `practical` int(3) DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `roles`
 --
 
@@ -297,7 +316,7 @@ CREATE TABLE `settings` (
   `id` bigint(20) NOT NULL,
   `name` varchar(255) NOT NULL,
   `year` year(4) DEFAULT NULL,
-  `permission` tinyint(1) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -306,10 +325,10 @@ CREATE TABLE `settings` (
 -- Dumping data for table `settings`
 --
 
-INSERT INTO `settings` (`id`, `name`, `year`, `permission`, `updated_at`, `created_at`) VALUES
-(1, 'mid_result_uploading_permission', 2023, 1, '2023-01-04 08:18:58', '2023-01-04 08:18:58'),
-(2, 'final_result_uploading_permission', 2023, 1, '2023-01-04 08:55:42', '2023-01-04 08:55:42'),
-(3, 'test_result_uploading_permission', 2023, 1, '2023-01-04 08:57:43', '2023-01-04 08:57:43');
+INSERT INTO `settings` (`id`, `name`, `year`, `status`, `updated_at`, `created_at`) VALUES
+(1, 'mid_result_uploading_permission', 2023, 1, '2023-01-05 03:50:39', '2023-01-04 08:18:58'),
+(2, 'final_result_uploading_permission', 2022, 0, '2023-01-05 02:14:22', '2023-01-04 08:55:42'),
+(3, 'test_result_uploading_permission', 2022, 0, '2023-01-05 02:14:24', '2023-01-04 08:57:43');
 
 -- --------------------------------------------------------
 
@@ -616,6 +635,12 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Indexes for table `results`
+--
+ALTER TABLE `results`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `roles`
 --
 ALTER TABLE `roles`
@@ -645,7 +670,8 @@ ALTER TABLE `sections`
 -- Indexes for table `settings`
 --
 ALTER TABLE `settings`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`);
 
 --
 -- Indexes for table `students`
@@ -740,6 +766,12 @@ ALTER TABLE `permissions`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `results`
+--
+ALTER TABLE `results`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `roles`

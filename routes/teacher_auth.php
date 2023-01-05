@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ResultController;
 use App\Http\Controllers\RoutineController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\teacher\TeacherSectionController;
@@ -45,7 +46,9 @@ Route::group(['middleware' => 'auth:teacher', 'prefix' => 'teacher/', 'as' => 't
     Route::post('attendance/store', [AttendanceController::class, 'store'])->name('attendance.store');
     Route::delete('attendance/destroy/{id}', [AttendanceController::class, 'destroy'])->name('attendance.destroy');
     Route::get('attendance/update/{id}', [AttendanceController::class, 'update'])->name('attendance.update');
-    //Route::post('attendance/filter/{section_id?}', [AttendanceController::class, 'filter'])->name('attendance.filter');
+
+    //Result Upload
+    Route::get('result_upload/create/{session}/{type}/{section_id?}/{subject_id?}', [ResultController::class, 'create'])->name('result_upload.create');
 });
 
 Route::get('/teacher/dashboard', function () {
