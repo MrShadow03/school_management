@@ -208,6 +208,9 @@ table{
 .d-inline{
     display: inline !important;
 }
+.justify-center{
+    justify-content: center !important;
+}
 
 //table style classes
 tbody.hovarable{
@@ -375,4 +378,47 @@ tbody.hovarable{
         padding-block: 2rem;
         text-align: center;
     }
+}
+
+.table-wrapper-alt{
+    table{
+        thead,tbody{
+            tr{
+                td:nth-child(1),th:nth-child(1){
+                    width: 5.1% !important;
+                }
+                td:nth-child(2),th:nth-child(2){
+                    width: 20% !important;
+                }
+                td:nth-child(3),th:nth-child(3){
+                    width: 8% !important;
+                }
+                td:nth-child(4),th:nth-child(4){
+                    width: 25% !important;
+                }
+                td:nth-child(5),th:nth-child(5){
+                    width: 25% !important;
+                }
+                td{
+                    .input-box{
+                        margin-inline: 5%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.table-wrapper-alt:nth-child(even){
+    table{
+        tbody{
+            tr{
+                background-color: $background-light !important;
+            }
+        }
+    }
+}
+
+.input-label{
+    padding-bottom: .5rem;
 }

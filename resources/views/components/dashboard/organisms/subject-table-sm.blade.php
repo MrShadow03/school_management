@@ -1,5 +1,5 @@
 @props(['subjects'])
-<div class="table_box grid-row2 table-thin">
+<div class="table_box grid-row2">
     <div class="title">
         <h2 class="text-title pb-2">Subjects</h2>
     </div>

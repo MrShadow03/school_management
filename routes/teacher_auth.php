@@ -49,6 +49,7 @@ Route::group(['middleware' => 'auth:teacher', 'prefix' => 'teacher/', 'as' => 't
 
     //Result Upload
     Route::get('result_upload/create/{session}/{type}/{section_id?}/{subject_id?}', [ResultController::class, 'create'])->name('result_upload.create');
+    Route::post('result_upload/store', [ResultController::class, 'store'])->name('result_upload.store');
 });
 
 Route::get('/teacher/dashboard', function () {

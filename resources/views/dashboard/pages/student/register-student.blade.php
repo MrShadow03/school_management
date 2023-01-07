@@ -274,7 +274,7 @@ $logout_route = $guard == 'student'? 'logout' : $guard.'.logout';
                 <div class="input_group">
                     <div class="input_field">
                         <label for="section">Section </label>
-                        <select name="section_id" id="section">
+                        <select name="section_id" id="section" onChange="getRoll(this.value)">
                             <option value="" selected disabled>Select a Section</option>
                         </select>
                         @error('section')
@@ -354,6 +354,20 @@ $logout_route = $guard == 'student'? 'logout' : $guard.'.logout';
                 option.innerHTML = data.name;
                 section.appendChild(option);
             });
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    }
+
+    function getRoll(section_id){
+        let class_roll = document.getElementById('class_roll');
+        var url = "{{ route('admin.register-student.getRoll', ':id') }}";
+        url = url.replace(':id', section_id);
+        axios.get(url)
+        .then(function (response) {
+            let data = response.data;
+            class_roll.value = data;
         })
         .catch(function (error) {
             console.log(error);

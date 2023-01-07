@@ -13,6 +13,7 @@ class StudentRegisterController extends Controller
     public function create(Request $request){
         return view('dashboard.pages.student.register-student');
     }
+
     public function store(Request $request){
         // Validating the formdata
         //
@@ -146,4 +147,12 @@ class StudentRegisterController extends Controller
         return $student?redirect()->back()->with('success','student created successfully!'): "Something went wrong!";
 
     }
+
+    public function getRoll(Request $request){
+        $section_id = $request->section_id;
+        $class_roll = Student::where('section_id', $section_id)->exists() ? Student::where('section_id', $section_id)->latest('class_roll')->get()->first()->class_roll+1 : 1;
+        return response()->json($class_roll);
+    }
+
+
 }

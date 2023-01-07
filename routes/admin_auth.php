@@ -43,6 +43,7 @@ Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin/', 'as' => 'admin
     Route::get('/students', [StudentController::class, 'index'])->name('students');
     Route::get('register-student/create', [StudentRegisterController::class, 'create'])->name('register-student.create');
     Route::post('register-student/store', [StudentRegisterController::class, 'store'])->name('register-student.store');
+    Route::get('register-student/getRoll/{section_id}', [StudentRegisterController::class, 'getRoll'])->name('register-student.getRoll');
     //Teacher
     Route::get('register-teacher/create', [TeacherRegisterController::class, 'create'])->name('register-teacher.create');
     Route::post('register-teacher/store', [TeacherRegisterController::class, 'store'])->name('register-teacher.store');

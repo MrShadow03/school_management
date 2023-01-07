@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Result;
 use App\Models\Attendance;
 use App\Models\StudentParent;
 use Laravel\Sanctum\HasApiTokens;
@@ -52,6 +53,11 @@ class Student extends Authenticatable
 
     public function attendances()
     {
-        return $this->hasMany(Attendance::class)->orderBy('date','desc');
+        return $this->hasMany(Attendance::class)->orderBy('created_at','desc');
+    }
+
+    public function result()
+    {
+        return $this->hasMany(Result::class);
     }
 }
