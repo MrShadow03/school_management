@@ -9,11 +9,59 @@ use App\Models\Student;
 use App\Models\Subject;
 use Illuminate\Http\Request;
 use App\Models\SubjectTeacher;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class ResultController extends Controller
 {
+    public function index(Request $request){
+        $year = $request->session ?? date('Y');
+        $type = $request->type;
+        //if result type doesn't match settings permission then redirect back
+        if($request->type == 'mid'){
+            Setting::where('name','mid_result_uploading_permission')->first()->status ? '' : abort(404);
+        }elseif($request->type == 'final'){
+            Setting::where('name','final_result_uploading_permission')->first()->status ? '' : abort(404);
+        }elseif($request->type == 'test'){
+            Setting::where('name','test_result_uploading_permission')->first()->status ? '' : abort(404);
+        }else{
+            abort(404);
+        }
+        //Getting the student ids of the student of the section which belong to teacher
+        $teacher_id = Auth::user()->id;
+        $subject_query = SubjectTeacher::whereHas('subject')
+                                        ->leftJoin('sections', 'subject_teachers.section_id', '=', 'sections.id')
+                                        ->orderBy('sections.class', 'asc');
+        $subjects = $subject_query->get();
+        $section = Section::find($request->section_id) ?? $subjects->first()->section;
+        $subject = Subject::find($request->subject_id) ?? $subjects->first()->subject;
+        $section_id = $section->id;
+        $subject_id = $subject->id;
+
+        $students = DB::table('students')
+        ->join('results', 'students.id', '=', 'results.student_id')
+        ->where('students.section_id', $section->id)
+        ->where('results.year', $year)
+        ->where('results.type', $type)
+        ->where('results.section_id', $section_id)
+        ->where('results.subject_id', $subject_id)
+        ->orderBy('results.total', 'desc')
+        ->get();
+
+        //dd($students);
+        return view('dashboard.pages.teacher.result_view',[
+            'subjects' => $subjects,
+            'year' => $request->session,
+            'type' => $request->type,
+            'section' => $section,
+            'subject' => $subject,
+            'students' => $students,
+            'current_subject_id' => $request->subject_id ?? $subjects->first()->subject->id,
+            'current_section_id' => $request->section_id ?? $subjects->first()->section->id,
+        ]);
+    }
+    
     public function create(Request $request){
         $year = $request->session ?? date('Y');
         $type = $request->type;
@@ -101,7 +149,6 @@ class ResultController extends Controller
             'student_id' => $request->student_id,
             'section_id' => $request->section_id,
             'cq' => $request->input('cq_'.$request->student_id),
-            'mcq' => $request->input('mcq_'.$request->student_id),
             'year' => $request->year,
             'type' => $request->type,
         ];
@@ -109,6 +156,12 @@ class ResultController extends Controller
         //if practical or mcq is set then add to data array
         $request->has('mcq_'.$request->student_id) ? $data['mcq'] = $request->input('mcq_'.$request->student_id) : '';
         $request->has('practical_'.$request->student_id) ? $data['practical'] = $request->input('practical_'.$request->student_id) : '';
+
+        //calulate the total marks
+        $total = $request->input('cq_'.$request->student_id);
+        $request->has('mcq_'.$request->student_id) ? $total += $request->input('mcq_'.$request->student_id) : '';
+        $request->has('practical_'.$request->student_id) ? $total += $request->input('practical_'.$request->student_id) : '';
+        $data['total'] = $total;
 
 
         //dd($validation);

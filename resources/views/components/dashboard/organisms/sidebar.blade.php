@@ -7,10 +7,10 @@
             <x-dashboard.molecules.sidebar_menu>
                 {{-- sidebar for students --}}
                 @if (Auth::guard('student')->check())
-                <li><a href="index.html"><i class="menu_icon fa-solid fa-user"></i>Dashboard</a></li>
-                <li><a href="{{ route('routine') }}"><i class="menu_icon fa-regular fa-calendar-days"></i>Routine</a></li>
-                <li><a href="index.html"><i class="menu_icon fa-solid fa-bell"></i>Notice</a></li>
-                <li><a href="index.html"><i class="menu_icon fa-solid fa-users"></i>Teachers</a></li>
+                <li><a href="index.html"><i class="menu_icon fa-light fa-user"></i>Dashboard</a></li>
+                <li><a href="{{ route('routine') }}"><i class="menu_icon fa-light fa-calendar-days"></i>Routine</a></li>
+                <li><a href="index.html"><i class="menu_icon fa-light fa-bell"></i>Notice</a></li>
+                <li><a href="index.html"><i class="menu_icon fa-light fa-user-graduate"></i>Teachers</a></li>
                 <li><a class="toggle_btn" href="#"><i class="las menu_icon la-cog"></i>Setting<i class="las sub_icon la-angle-down"></i></a>
                     <ul class="sub_menu">
                         <li><a href="profile.html"><i class="las la-arrow-right"></i>Profile</a></li>
@@ -66,15 +66,18 @@
                         <li><a href="{{ route('teacher.attendance.index') }}"><i class="fa-regular fa-calendars"></i></i>View Attendance</a></li>
                     </ul>
                 </li>
-                <li><a class="toggle_btn" href="#"><i class="fa-regular fa-calendar-days menu_icon"></i>Upload Result<i class="las sub_icon la-angle-down"></i></a>
+                <li><a class="toggle_btn" href="#"><i class="fa-regular fa-calendar-arrow-up menu_icon"></i>Manage Result<i class="las sub_icon la-angle-down"></i></a>
                     <ul class="sub_menu">
                         @foreach ($result_uploading_permissions as $permission)
                         @php
-                            $name = $permission->name == 'mid_result_uploading_permission' ? 'Upload Mid-term Results' : ($permission->name == 'final_result_uploading_permission' ? 'Upload Final Results' : 'Upload Test Results');
+                            $name = $permission->name == 'mid_result_uploading_permission' ? 'Mid-term Results' : ($permission->name == 'final_result_uploading_permission' ? 'Final Results' : 'Test Results');
                             $type = $permission->name == 'mid_result_uploading_permission' ? 'mid' : ($permission->name == 'final_result_uploading_permission' ? 'final' : 'test');
                             $year = $permission->year;
                         @endphp
-                        <li><a href="{{ $permission->status ? route('teacher.result_upload.create', [$year, $type]) : '#' }}">{!! $permission->status?'<i class="fa-regular fa-cloud-arrow-up"></i>':'<i class="fa-regular fa-cloud-slash"></i>' !!} {{ $name }}</a></li>
+                        @if ($permission->status)
+                        <li><a href="{{ $permission->status ? route('teacher.result_upload.index', [$year, $type]) : '#' }}">{!! $permission->status?'<i class="fa-regular fa-list-ol"></i>':'<i class="fa-regular fa-cloud-slash"></i>' !!} View {{ $name }}</a></li>
+                        <li><a href="{{ $permission->status ? route('teacher.result_upload.create', [$year, $type]) : '#' }}">{!! $permission->status?'<i class="fa-regular fa-cloud-arrow-up"></i>':'<i class="fa-regular fa-cloud-slash"></i>' !!} Upload {{ $name }}</a></li>
+                        @endif
                         @endforeach
                     </ul>
                 </li>

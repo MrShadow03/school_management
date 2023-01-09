@@ -3,7 +3,7 @@
     $today = \Carbon\Carbon::now()->dayName;
 @endphp
 @props(['routine','times'])
-<div class="table_box grid-row2">
+<div class="table_box grid-row2 m-3">
     <div class="title">
         <h2 class="text-title pb-2">Students</h2>
     </div>

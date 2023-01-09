@@ -48,6 +48,7 @@ Route::group(['middleware' => 'auth:teacher', 'prefix' => 'teacher/', 'as' => 't
     Route::get('attendance/update/{id}', [AttendanceController::class, 'update'])->name('attendance.update');
 
     //Result Upload
+    Route::get('result_upload/index/{session}/{type}/{section_id?}/{subject_id?}', [ResultController::class, 'index'])->name('result_upload.index');
     Route::get('result_upload/create/{session}/{type}/{section_id?}/{subject_id?}', [ResultController::class, 'create'])->name('result_upload.create');
     Route::post('result_upload/store', [ResultController::class, 'store'])->name('result_upload.store');
 });
