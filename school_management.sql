@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2023 at 10:19 AM
+-- Generation Time: Jan 11, 2023 at 12:01 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -34,6 +34,7 @@ CREATE TABLE `admins` (
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'images/default.png',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -42,9 +43,9 @@ CREATE TABLE `admins` (
 -- Dumping data for table `admins`
 --
 
-INSERT INTO `admins` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Galib-Admin', 'rj.rafi35@gmail.com', NULL, '$2y$10$2wqQeps7Zoit8ivnodFmbODgAWiPsW9.K6gCAg78jxQdqTDqjnP6m', NULL, '2022-11-15 01:43:23', '2022-11-15 01:43:23'),
-(2, 'Farhana-Admin', 'reserved@admin.com', NULL, '$2y$10$ddT4dyT5pI30GyBE6aphB.XNgP.FL.JcWQmJ7MpWOLf6NURxGozBy', NULL, '2022-11-15 02:15:54', '2022-11-15 02:15:54');
+INSERT INTO `admins` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `image`, `created_at`, `updated_at`) VALUES
+(1, 'Galib-Admin', 'rj.rafi35@gmail.com', NULL, '$2y$10$2wqQeps7Zoit8ivnodFmbODgAWiPsW9.K6gCAg78jxQdqTDqjnP6m', NULL, 'images/default.png', '2022-11-15 01:43:23', '2022-11-15 01:43:23'),
+(2, 'Farhana-Admin', 'reserved@admin.com', NULL, '$2y$10$ddT4dyT5pI30GyBE6aphB.XNgP.FL.JcWQmJ7MpWOLf6NURxGozBy', NULL, 'images/default.png', '2022-11-15 02:15:54', '2022-11-15 02:15:54');
 
 -- --------------------------------------------------------
 
@@ -89,6 +90,33 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grades`
+--
+
+CREATE TABLE `grades` (
+  `id` bigint(20) NOT NULL,
+  `name` varchar(2) NOT NULL,
+  `score` int(5) NOT NULL,
+  `comment` varchar(20) DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `grades`
+--
+
+INSERT INTO `grades` (`id`, `name`, `score`, `comment`, `updated_at`, `created_at`) VALUES
+(1, 'A+', 80, 'Excellent', '2023-01-11 08:42:55', '2023-01-11 08:42:55'),
+(2, 'A', 70, 'Very Good', '2023-01-11 08:42:55', '2023-01-11 08:42:55'),
+(3, 'A-', 60, 'Good', '2023-01-11 08:42:55', '2023-01-11 08:42:55'),
+(4, 'B', 50, 'Satisfactory', '2023-01-11 08:42:55', '2023-01-11 08:42:55'),
+(5, 'C', 40, 'Unsatisfactory', '2023-01-11 04:18:05', '2023-01-11 08:42:55'),
+(6, 'F', 0, 'Fail', '2023-01-11 08:45:45', '2023-01-11 08:45:45');
 
 -- --------------------------------------------------------
 
@@ -607,6 +635,13 @@ ALTER TABLE `failed_jobs`
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
+-- Indexes for table `grades`
+--
+ALTER TABLE `grades`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -761,6 +796,12 @@ ALTER TABLE `attendances`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grades`
+--
+ALTER TABLE `grades`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `migrations`

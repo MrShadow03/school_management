@@ -36,7 +36,7 @@ $logout_route = $guard == 'student'? 'logout' : $guard.'.logout';
         axios.get(`/admin/section/axios/${section_name}`)
         .then(function (response) {
             data = response.data;
-            name.value = data.name; 
+            name.value = data.name;
 
         })
         .catch(function (error) {

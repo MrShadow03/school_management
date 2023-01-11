@@ -2,6 +2,7 @@
 
 use App\Models\Section;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GradeController;
 use App\Http\Controllers\RoutineController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\StudentController;
@@ -78,6 +79,11 @@ Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin/', 'as' => 'admin
     //Settings and permissions
     Route::get('exam_permission/index', [ExamPermissionController::class, 'index'])->name('exam_permission.index');
     Route::patch('exam_permission/update', [ExamPermissionController::class, 'update'])->name('exam_permission.update');
+    
+    //grades
+    Route::get('grade/index', [GradeController::class, 'index'])->name('grade.index');
+    Route::patch('grade/update', [GradeController::class, 'update'])->name('grade.update');
+
 
     Route::get('section/axios/{name}', [SectionController::class, 'axios'])->name('section.axios');
 });

@@ -15,7 +15,7 @@
                 <img class="profile_img" src="{{asset('storage')}}/{{Auth::guard('student')->user()->student_image}}" alt="img">
             @endif
             @if (Auth::guard('admin')->check())
-                <img class="profile_img" src="{{asset('storage')}}/{{Auth::guard('admin')->user()->admin_image}}" alt="img">
+                <img class="profile_img" src="{{asset('storage')}}/{{Auth::guard('admin')->user()->image}}" alt="img">
             @endif
             @if (Auth::guard('teacher')->check())
                 <img class="profile_img" src="{{asset('storage')}}/{{Auth::guard('teacher')->user()->teacher_image}}" alt="img">
@@ -26,7 +26,7 @@
                     <img src="{{asset('storage')}}/{{Auth::guard('student')->user()->student_image}}" alt="img">
                 @endif
                 @if (Auth::guard('admin')->check())
-                    <img src="{{asset('storage')}}/{{Auth::guard('admin')->user()->admin_image}}" alt="img">
+                    <img src="{{asset('storage')}}/{{Auth::guard('admin')->user()->image}}" alt="img">
                 @endif
                 @if (Auth::guard('teacher')->check())
                     <img src="{{asset('storage')}}/{{Auth::guard('teacher')->user()->teacher_image}}" alt="img">

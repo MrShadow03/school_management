@@ -32,9 +32,9 @@ input {
     color: #000;
     transition: .3s linear;
     &::placeholder{
-        font-size: 1.5rem;
-        font-style: italic;
-        color: rgb(158, 152, 152);
+        font-size: 1.4rem;
+        color: $primary;
+        opacity: .5;
     } 
 }
 
