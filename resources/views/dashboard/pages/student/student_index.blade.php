@@ -8,7 +8,7 @@
         }
     }
 $user = Auth::guard($guard)->user() ?? 'invalid user';
-$logout_route = $guard == 'student'? 'logout' : $guard.'.logout';
+$logout_route = $guard.'.logout';
 @endphp
 
 

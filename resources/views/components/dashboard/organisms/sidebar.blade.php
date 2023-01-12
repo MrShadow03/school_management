@@ -8,8 +8,8 @@
                 {{-- sidebar for students --}}
                 @if (Auth::guard('student')->check())
                 <li><a href="index.html"><i class="menu_icon fa-light fa-user"></i>Dashboard</a></li>
-                <li><a href="{{ route('routine') }}"><i class="menu_icon fa-light fa-calendar-days"></i>Routine</a></li>
-                <li><a href="index.html"><i class="menu_icon fa-light fa-bell"></i>Notice</a></li>
+                <li><a href="{{ route('student.routine') }}"><i class="menu_icon fa-light fa-calendar-days"></i>Routine</a></li>
+                <li><a href="{{ route('student.result') }}"><i class="menu_icon fa-light fa-bell"></i>Results</a></li>
                 <li><a href="index.html"><i class="menu_icon fa-light fa-user-graduate"></i>Teachers</a></li>
                 <li><a class="toggle_btn" href="#"><i class="las menu_icon la-cog"></i>Setting<i class="las sub_icon la-angle-down"></i></a>
                     <ul class="sub_menu">
@@ -63,7 +63,7 @@
                 
                 <li><a class="toggle_btn" href="#"><i class="fa-regular fa-calendar-days menu_icon"></i>Attendance<i class="las sub_icon la-angle-down"></i></a>
                     <ul class="sub_menu">
-                        <li><a href="{{ route('teacher.attendance.create') }}"><i class="menu_icon fa-light fa-graduation-cap"></i>Take Attendance</a></li>
+                        <li><a href="{{ route('teacher.attendance.create') }}"><i class="fa-light fa-graduation-cap"></i>Take Attendance</a></li>
                         <li><a href="{{ route('teacher.attendance.index') }}"><i class="fa-regular fa-calendars"></i></i>View Attendance</a></li>
                     </ul>
                 </li>

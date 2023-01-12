@@ -18,12 +18,11 @@ $logout_route = $guard.'.logout';
 @section('exclusive_styles')
 @endsection
 @section('main')
-
     <x-dashboard.organisms.sidebar/>
     <div class="right_content">
         <x-dashboard.organisms.nav :username="$user->name" :logout_route="$logout_route" />
         <div>
-            <x-dashboard.organisms.teacher-routine-view-table-sm :routine="$routine" :times="$times"/>
+            <x-dashboard.organisms.result_table :section="$section" :results="$results" :class="$class"/>
         </div> 
     </div>
 @endsection

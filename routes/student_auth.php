@@ -2,6 +2,7 @@
 //dd();
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoutineController;
+use App\Http\Controllers\StudentResultController;
 use App\Http\Controllers\Auth\Student\NewPasswordController;
 use App\Http\Controllers\Auth\Student\VerifyEmailController;
 use App\Http\Controllers\Auth\Student\PasswordResetLinkController;
@@ -22,7 +23,7 @@ Route::group(['middleware' => 'guest'], function(){
     Route::post('reset-password', [NewPasswordController::class, 'store'])->name('password.update');
 });
 
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => 'auth','prefix' => 'student/', 'as' => 'student.'], function(){
     Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])->name('verification.notice');
     Route::get('verify-email/{id}/{hash}', [VerifyEmailController::class, '__invoke'])->middleware(['signed', 'throttle:6,1'])->name('verification.verify');
     Route::post('email/verification-notification', [EmailVerificationNotificationController::class, 'store'])->middleware('throttle:6,1')->name('verification.send');
@@ -32,6 +33,9 @@ Route::group(['middleware' => 'auth'], function(){
 
     //routine view
     Route::get('routine', [RoutineController::class, 'index'])->name('routine');
+    
+    //Result view
+    Route::get('result', [StudentResultController::class, 'index'])->name('result');
 });
 
 Route::get('/dashboard', function () {
