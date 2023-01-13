@@ -9,4 +9,10 @@ class Subject extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    //subject has many results
+    public function results()
+    {
+        return $this->hasMany(Result::class);
+    }
 }

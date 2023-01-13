@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 11, 2023 at 12:01 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Jan 13, 2023 at 05:19 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -223,14 +223,17 @@ CREATE TABLE `personal_access_tokens` (
 
 CREATE TABLE `results` (
   `id` bigint(20) NOT NULL,
-  `student_id` bigint(20) NOT NULL,
-  `section_id` int(11) NOT NULL,
-  `subject_id` bigint(20) NOT NULL,
-  `year` year(4) NOT NULL,
-  `type` varchar(10) NOT NULL,
-  `cq` int(3) NOT NULL,
+  `student_id` bigint(20) DEFAULT NULL,
+  `section_id` int(11) DEFAULT NULL,
+  `subject_id` bigint(20) DEFAULT NULL,
+  `year` year(4) DEFAULT NULL,
+  `type` varchar(10) DEFAULT NULL,
+  `cq` int(3) DEFAULT NULL,
   `mcq` int(3) DEFAULT NULL,
   `practical` int(3) DEFAULT NULL,
+  `grand_total` tinyint(1) DEFAULT 0,
+  `total` int(10) DEFAULT NULL,
+  `grade` varchar(2) DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -239,10 +242,17 @@ CREATE TABLE `results` (
 -- Dumping data for table `results`
 --
 
-INSERT INTO `results` (`id`, `student_id`, `section_id`, `subject_id`, `year`, `type`, `cq`, `mcq`, `practical`, `updated_at`, `created_at`) VALUES
-(7, 26, 1, 1, 2023, 'final', 86, NULL, NULL, '2023-01-07 03:17:40', '2023-01-07 03:17:40'),
-(8, 24, 12, 11, 2023, 'final', 54, 30, NULL, '2023-01-07 03:17:58', '2023-01-07 03:17:58'),
-(9, 25, 12, 11, 2023, 'final', 55, 21, NULL, '2023-01-07 03:18:10', '2023-01-07 03:18:10');
+INSERT INTO `results` (`id`, `student_id`, `section_id`, `subject_id`, `year`, `type`, `cq`, `mcq`, `practical`, `grand_total`, `total`, `grade`, `updated_at`, `created_at`) VALUES
+(11, 25, 12, 7, 2023, 'final', 46, NULL, NULL, 0, 46, NULL, '2023-01-13 07:23:42', '2023-01-13 07:23:42'),
+(13, 25, 12, 11, 2023, 'final', 54, 25, NULL, 0, 79, NULL, '2023-01-13 07:24:22', '2023-01-13 07:24:22'),
+(20, 24, 12, NULL, 2023, 'final', NULL, NULL, NULL, 1, 308, NULL, '2023-01-13 10:13:53', '2023-01-13 08:21:58'),
+(21, 25, 12, 12, 2023, 'final', 67, 21, NULL, 0, 88, NULL, '2023-01-13 08:22:42', '2023-01-13 08:22:42'),
+(22, 25, 12, NULL, 2023, 'final', NULL, NULL, NULL, 1, 299, NULL, '2023-01-13 08:28:27', '2023-01-13 08:22:42'),
+(23, 24, 12, 13, 2023, 'final', 98, NULL, NULL, 0, 98, NULL, '2023-01-13 08:25:56', '2023-01-13 08:25:56'),
+(24, 25, 12, 13, 2023, 'final', 86, NULL, NULL, 0, 86, NULL, '2023-01-13 08:28:27', '2023-01-13 08:28:27'),
+(25, 24, 12, 7, 2023, 'final', 42, NULL, NULL, 0, 42, NULL, '2023-01-13 08:28:48', '2023-01-13 08:28:48'),
+(26, 24, 12, 11, 2023, 'final', 61, 23, NULL, 0, 84, NULL, '2023-01-13 08:29:19', '2023-01-13 08:29:19'),
+(27, 24, 12, 12, 2023, 'final', 61, 23, NULL, 0, 84, 'A+', '2023-01-13 10:13:53', '2023-01-13 10:13:53');
 
 -- --------------------------------------------------------
 
@@ -401,7 +411,7 @@ CREATE TABLE `students` (
   `student_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `class` int(10) DEFAULT NULL,
   `section_id` bigint(20) DEFAULT NULL,
-  `status` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT 'active',
+  `status` tinyint(1) DEFAULT 1,
   `class_roll` int(10) DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -416,9 +426,9 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `name`, `username`, `email`, `birth_certificate_number`, `present_address`, `permanent_address`, `birth_date`, `gender`, `religion`, `blood_group`, `father_name`, `father_contact`, `father_profession`, `father_nid`, `mother_name`, `mother_contact`, `mother_profession`, `mother_nid`, `local_guardian_name`, `local_guardian_contact`, `father_image`, `mother_image`, `student_image`, `class`, `section_id`, `status`, `class_roll`, `email_verified_at`, `password`, `parent_id`, `remember_token`, `created_at`, `updated_at`) VALUES
-(24, 'Farhana Akter', 'farhana_akter052', NULL, '54546546545545', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2022-02-23', 'Female', 'Islam', 'B+', 'Dewan Lutfur Rahman', '01747371076', NULL, '132546981356', 'Salma Begum', '01747371076', NULL, '151325464681', 'Dewan Lutfur Rahman', '01747371076', 'student_images/mQ2o3gPBneBmRGoMequfLgkK7f5W1BdFsGdgxP33.png', 'student_images/nBWkRo8Y5zsZrAD2KIfXXIRl3jVpQ4oZOg3rjLiL.png', 'student_images/FP4HHbGrYEShd4K5g7JgbzVWIpfuKiMI8L7QbNn3.png', 8, 12, 'active', 2, NULL, '$2y$10$w0U3nxCyOv1jZiLxO9T1L./AfoZCbsk5X43.2WOldjXY6BkyGl0ya', 5, NULL, '2022-11-27 01:19:09', '2022-11-27 01:19:09'),
-(25, 'Faaris', 'faaris106', NULL, '132546813212', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2022-12-13', 'Male', 'Islam', 'B+', 'Galib Jaman', '01766555213', NULL, '5451321321321', 'Farhana Akter', '01766555213', NULL, '3541231321321', 'Galib Jaman', '01766555213', 'student_images/T6bjTkPEIH0BqhY2C62VIR3J1r8eCXtkhag950i4.png', 'student_images/ZqZnpJ2rWWkFbo6X6LvJ6MljFEpKIT9xtSg2i1sV.png', 'student_images/XNNXVRccegUu6r23E6MPyYM20JL1MyURP4vvFYKj.png', 8, 12, 'active', 6, NULL, '$2y$10$kVQIGAM36uvWgq0P8WtuQu8ADEnXteYLbhC9aDCPydP5mHt.7QybG', 6, NULL, '2022-12-22 01:54:02', '2022-12-22 01:54:02'),
-(26, 'Shawal Rahman', 'shawal_rahman37', NULL, '111321321325', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2008-01-08', 'Male', 'Islam', 'B+', 'Goku', '01766635213', NULL, '54654654654546', 'Shakura', '01766635213', NULL, '54685465465464', 'Goku', '01766635213', 'student_images/dPkuVL6i3kLRC0lAogA5DamCOE0AMqymeNvlauUB.png', 'student_images/GXB23BrAw6laqD78cbwMbtX2djdt4NUG71ONLOFf.png', 'student_images/OHD9TiszKXwjWsXCxdjbQbibnhGtKcOo61ARnawA.png', 3, 1, 'active', 7, NULL, '$2y$10$ogq75jODSAqObxCS96WQieFCDmCaEDuNc.5N3heCdrG9sauqwOeq.', 7, NULL, '2023-01-07 02:47:34', '2023-01-07 02:47:34');
+(24, 'Farhana Akter', 'farhana_akter052', NULL, '54546546545545', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2022-02-23', 'Female', 'Islam', 'B+', 'Dewan Lutfur Rahman', '01747371076', NULL, '132546981356', 'Salma Begum', '01747371076', NULL, '151325464681', 'Dewan Lutfur Rahman', '01747371076', 'student_images/mQ2o3gPBneBmRGoMequfLgkK7f5W1BdFsGdgxP33.png', 'student_images/nBWkRo8Y5zsZrAD2KIfXXIRl3jVpQ4oZOg3rjLiL.png', 'student_images/FP4HHbGrYEShd4K5g7JgbzVWIpfuKiMI8L7QbNn3.png', 8, 12, 1, 2, NULL, '$2y$10$w0U3nxCyOv1jZiLxO9T1L./AfoZCbsk5X43.2WOldjXY6BkyGl0ya', 5, NULL, '2022-11-27 01:19:09', '2022-11-27 01:19:09'),
+(25, 'Faaris', 'faaris106', NULL, '132546813212', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2022-12-13', 'Male', 'Islam', 'B+', 'Galib Jaman', '01766555213', NULL, '5451321321321', 'Farhana Akter', '01766555213', NULL, '3541231321321', 'Galib Jaman', '01766555213', 'student_images/T6bjTkPEIH0BqhY2C62VIR3J1r8eCXtkhag950i4.png', 'student_images/ZqZnpJ2rWWkFbo6X6LvJ6MljFEpKIT9xtSg2i1sV.png', 'student_images/XNNXVRccegUu6r23E6MPyYM20JL1MyURP4vvFYKj.png', 8, 12, 1, 6, NULL, '$2y$10$kVQIGAM36uvWgq0P8WtuQu8ADEnXteYLbhC9aDCPydP5mHt.7QybG', 6, NULL, '2022-12-22 01:54:02', '2022-12-22 01:54:02'),
+(26, 'Shawal Rahman', 'shawal_rahman37', NULL, '111321321325', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2008-01-08', 'Male', 'Islam', 'B+', 'Goku', '01766635213', NULL, '54654654654546', 'Shakura', '01766635213', NULL, '54685465465464', 'Goku', '01766635213', 'student_images/dPkuVL6i3kLRC0lAogA5DamCOE0AMqymeNvlauUB.png', 'student_images/GXB23BrAw6laqD78cbwMbtX2djdt4NUG71ONLOFf.png', 'student_images/OHD9TiszKXwjWsXCxdjbQbibnhGtKcOo61ARnawA.png', 3, 1, 1, 7, NULL, '$2y$10$ogq75jODSAqObxCS96WQieFCDmCaEDuNc.5N3heCdrG9sauqwOeq.', 7, NULL, '2023-01-07 02:47:34', '2023-01-07 02:47:34');
 
 -- --------------------------------------------------------
 
@@ -506,8 +516,8 @@ INSERT INTO `subjects` (`id`, `name`, `class`, `total_marks`, `cq`, `mcq`, `prac
 (9, 'কৃষি শিক্ষা', 8, 0, 1, NULL, NULL, '2022-12-29 02:54:27', '2022-12-29 02:54:27'),
 (10, 'শারীরিক শিক্ষা ও স্বাস্থ্য', 8, 0, 1, NULL, NULL, '2022-12-29 02:54:38', '2022-12-29 02:54:38'),
 (11, 'ইসলাম ও নৈতিক শিক্ষা', 8, 100, 70, 30, 0, '2022-12-29 02:54:52', '2023-01-03 23:53:29'),
-(12, 'বিজ্ঞান', 8, 0, 1, NULL, NULL, '2022-12-29 02:55:06', '2022-12-29 02:55:06'),
-(13, 'English Grammer', 8, 0, 1, NULL, NULL, '2022-12-29 02:56:06', '2022-12-29 02:56:06'),
+(12, 'বিজ্ঞান', 8, 100, 70, 30, 0, '2022-12-29 02:55:06', '2023-01-13 08:11:11'),
+(13, 'English Grammer', 8, 100, 100, 0, 0, '2022-12-29 02:56:06', '2023-01-13 08:10:53'),
 (14, 'English for Today', 8, 0, 1, NULL, NULL, '2022-12-29 02:56:19', '2022-12-29 02:56:19'),
 (15, 'তথ্য ও যোগাযোগ প্রযুক্তি', 8, 0, 1, NULL, NULL, '2022-12-29 02:56:32', '2022-12-29 02:56:32');
 
@@ -541,7 +551,9 @@ INSERT INTO `subject_teachers` (`id`, `class`, `subject_id`, `teacher_id`, `sect
 (9, 10, 5, 8, 11, '2022-12-20 23:07:05', '2022-12-20 23:07:58'),
 (10, 8, 7, 6, 12, '2022-12-29 03:23:04', '2022-12-29 03:23:04'),
 (11, 3, 3, 6, 1, '2022-12-29 03:51:09', '2022-12-29 03:51:09'),
-(12, 8, 11, 6, 12, '2023-01-06 23:00:15', '2023-01-06 23:00:15');
+(12, 8, 11, 6, 12, '2023-01-06 23:00:15', '2023-01-06 23:00:15'),
+(13, 8, 12, 6, 12, '2023-01-13 08:11:26', '2023-01-13 08:11:26'),
+(14, 8, 13, 6, 12, '2023-01-13 08:11:35', '2023-01-13 08:11:35');
 
 -- --------------------------------------------------------
 
@@ -825,7 +837,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `results`
 --
 ALTER TABLE `results`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -879,7 +891,7 @@ ALTER TABLE `subjects`
 -- AUTO_INCREMENT for table `subject_teachers`
 --
 ALTER TABLE `subject_teachers`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `teachers`

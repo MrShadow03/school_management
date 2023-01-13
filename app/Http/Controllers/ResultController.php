@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Grade;
 use App\Models\Result;
 use App\Models\Section;
 use App\Models\Setting;
@@ -163,10 +164,25 @@ class ResultController extends Controller
         $request->has('practical_'.$request->student_id) ? $total += $request->input('practical_'.$request->student_id) : '';
         $data['total'] = $total;
 
+        //From the total marks calculate the grade based on the grade table
+        $highest_marks = Subject::find($request->subject_id)->total_marks;
+        $total_percentage = ($total/$highest_marks)*100;
+        $grade = Grade::where('score','<=',$total_percentage)->orderBy('score','desc')->first()->name;
+        $data['grade'] = $grade;
 
-        //dd($validation);
+        //Create the result
         $result = Result::create($data);
 
+        //calulate the grand total
+        $grand_total = Result::where('student_id',$request->student_id)->where('section_id', $request->section_id)->where('year',$request->year)->where('type',$request->type)->where('grand_total', 0)->sum('total');
+
+        //Create or update the grand total
+        $grand_total = Result::updateOrCreate(
+            ['student_id' => $request->student_id, 'section_id' => $request->section_id, 'year' => $request->year, 'type' => $request->type, 'grand_total' => 1],
+            ['total' => $grand_total, 'student_id' => $request->student_id, 'section_id' => $request->section_id, 'year' => $request->year, 'type' => $request->type, 'grand_total' => 1]
+        );
+
+        //return back with message
         return $result? back()->with('success','Result added successfully') : back()->with('error','Something went wrong');
     }
 }
