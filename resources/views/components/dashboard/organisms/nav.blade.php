@@ -48,10 +48,10 @@
                     <i class="fa-regular fa-gear"></i>
                     <a href="#">Settings</a>
                 </div>
-                <form method="POST" action="{{ route($logout_route) }}" class="profile_sub_item">
+                <form method="POST" action="{{ route($logout_route) }}" class="profile_sub_item" onclick="event.preventDefault(); this.closest('form').submit();">
                     @csrf
                     <i class="fa-regular fa-power-off"></i>
-                    <a href="#" onclick="event.preventDefault(); this.closest('form').submit();" >Logout</a>
+                    <a href="#" >Logout</a>
                 </form>
             </div>
         </div>

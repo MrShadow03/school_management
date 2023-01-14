@@ -8,6 +8,7 @@
                 <tr class="heading-row">
                     <th class="heading-column text-title-column">Permissions</th>
                     <th class="heading-column text-title-column">Current Status</th>
+                    <th class="heading-column text-title-column">Ending date</th>
                     <th class="heading-column text-title-column">Change</th>
                 </tr>
             </thead>
@@ -21,6 +22,7 @@
                 <tr class="body-row">
                     <td class="body-column text-body-column">{{ $name }}</td>
                     <td class="body-column text-body-column"><span class="{{ $permission->status ? 'alert-success' : 'alert-danger' }}">{!! $permission->status?'<i class="fa-regular fa-unlock"></i>':'<i class="fa-regular fa-lock"></i>' !!} &nbsp; {{ $current_status }}</span></td>
+                    <td class="body-column text-body-column">@php if(isset($permission->expire_date)){echo(Carbon\Carbon::parse($permission->expire_date)->format('d F'));} @endphp</td>
                     <td class="body-column text-body-column">
                         <form action="{{ route('admin.exam_permission.update') }}" method="POST">
                             @csrf

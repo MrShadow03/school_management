@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 13, 2023 at 05:19 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Generation Time: Jan 14, 2023 at 11:03 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -73,7 +73,10 @@ INSERT INTO `attendances` (`id`, `student_id`, `date`, `attendance`, `updated_at
 (34, 24, '2023-10-25', 1, '2023-01-03 11:23:34', '2023-01-03 11:23:34'),
 (35, 25, '2023-01-03', 1, '2023-01-03 05:26:40', '2023-01-03 05:26:40'),
 (36, 24, '2023-01-03', 0, '2023-01-03 05:26:43', '2023-01-03 05:26:43'),
-(37, 24, '2023-01-03', 0, '2023-01-03 05:26:47', '2023-01-03 05:26:47');
+(37, 24, '2023-01-03', 0, '2023-01-03 05:26:47', '2023-01-03 05:26:47'),
+(38, 24, '2023-01-14', 1, '2023-01-14 03:05:54', '2023-01-14 03:05:54'),
+(40, 27, '2023-01-14', 1, '2023-01-14 03:05:58', '2023-01-14 03:05:58'),
+(41, 25, '2023-01-14', 0, '2023-01-14 03:06:16', '2023-01-14 03:06:05');
 
 -- --------------------------------------------------------
 
@@ -232,6 +235,7 @@ CREATE TABLE `results` (
   `mcq` int(3) DEFAULT NULL,
   `practical` int(3) DEFAULT NULL,
   `grand_total` tinyint(1) DEFAULT 0,
+  `final_total` tinyint(1) NOT NULL DEFAULT 0,
   `total` int(10) DEFAULT NULL,
   `grade` varchar(2) DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -242,17 +246,41 @@ CREATE TABLE `results` (
 -- Dumping data for table `results`
 --
 
-INSERT INTO `results` (`id`, `student_id`, `section_id`, `subject_id`, `year`, `type`, `cq`, `mcq`, `practical`, `grand_total`, `total`, `grade`, `updated_at`, `created_at`) VALUES
-(11, 25, 12, 7, 2023, 'final', 46, NULL, NULL, 0, 46, NULL, '2023-01-13 07:23:42', '2023-01-13 07:23:42'),
-(13, 25, 12, 11, 2023, 'final', 54, 25, NULL, 0, 79, NULL, '2023-01-13 07:24:22', '2023-01-13 07:24:22'),
-(20, 24, 12, NULL, 2023, 'final', NULL, NULL, NULL, 1, 308, NULL, '2023-01-13 10:13:53', '2023-01-13 08:21:58'),
-(21, 25, 12, 12, 2023, 'final', 67, 21, NULL, 0, 88, NULL, '2023-01-13 08:22:42', '2023-01-13 08:22:42'),
-(22, 25, 12, NULL, 2023, 'final', NULL, NULL, NULL, 1, 299, NULL, '2023-01-13 08:28:27', '2023-01-13 08:22:42'),
-(23, 24, 12, 13, 2023, 'final', 98, NULL, NULL, 0, 98, NULL, '2023-01-13 08:25:56', '2023-01-13 08:25:56'),
-(24, 25, 12, 13, 2023, 'final', 86, NULL, NULL, 0, 86, NULL, '2023-01-13 08:28:27', '2023-01-13 08:28:27'),
-(25, 24, 12, 7, 2023, 'final', 42, NULL, NULL, 0, 42, NULL, '2023-01-13 08:28:48', '2023-01-13 08:28:48'),
-(26, 24, 12, 11, 2023, 'final', 61, 23, NULL, 0, 84, NULL, '2023-01-13 08:29:19', '2023-01-13 08:29:19'),
-(27, 24, 12, 12, 2023, 'final', 61, 23, NULL, 0, 84, 'A+', '2023-01-13 10:13:53', '2023-01-13 10:13:53');
+INSERT INTO `results` (`id`, `student_id`, `section_id`, `subject_id`, `year`, `type`, `cq`, `mcq`, `practical`, `grand_total`, `final_total`, `total`, `grade`, `updated_at`, `created_at`) VALUES
+(11, 25, 12, 7, 2023, 'final', 46, NULL, NULL, 0, 0, 46, NULL, '2023-01-13 07:23:42', '2023-01-13 07:23:42'),
+(13, 25, 12, 11, 2023, 'final', 54, 25, NULL, 0, 0, 79, NULL, '2023-01-13 07:24:22', '2023-01-13 07:24:22'),
+(20, 24, 12, NULL, 2023, 'final', NULL, NULL, NULL, 1, 0, 348, 'C', '2023-01-14 03:03:56', '2023-01-13 08:21:58'),
+(21, 25, 12, 12, 2023, 'final', 67, 21, NULL, 0, 0, 88, NULL, '2023-01-13 08:22:42', '2023-01-13 08:22:42'),
+(22, 25, 12, NULL, 2023, 'final', NULL, NULL, NULL, 1, 0, 349, 'C', '2023-01-14 03:04:08', '2023-01-13 08:22:42'),
+(23, 24, 12, 13, 2023, 'final', 98, NULL, NULL, 0, 0, 98, NULL, '2023-01-13 08:25:56', '2023-01-13 08:25:56'),
+(24, 25, 12, 13, 2023, 'final', 86, NULL, NULL, 0, 0, 86, NULL, '2023-01-13 08:28:27', '2023-01-13 08:28:27'),
+(25, 24, 12, 7, 2023, 'final', 42, NULL, NULL, 0, 0, 42, NULL, '2023-01-13 08:28:48', '2023-01-13 08:28:48'),
+(26, 24, 12, 11, 2023, 'final', 61, 23, NULL, 0, 0, 84, NULL, '2023-01-13 08:29:19', '2023-01-13 08:29:19'),
+(27, 24, 12, 12, 2023, 'final', 61, 23, NULL, 0, 0, 84, 'A+', '2023-01-13 10:13:53', '2023-01-13 10:13:53'),
+(28, 24, 12, 11, 2023, 'mid', 63, 19, NULL, 0, 0, 82, 'A+', '2023-01-13 22:57:36', '2023-01-13 22:57:36'),
+(29, 24, 12, NULL, 2023, 'mid', NULL, NULL, NULL, 1, 0, 82, NULL, '2023-01-13 22:57:36', '2023-01-13 22:57:36'),
+(31, 27, 12, NULL, 2023, 'mid', NULL, NULL, NULL, 1, 0, 356, 'F', '2023-01-14 01:27:17', '2023-01-14 00:30:23'),
+(32, 27, 12, 15, 2023, 'mid', 16, 6, NULL, 0, 0, 22, 'C', '2023-01-14 00:32:29', '2023-01-14 00:32:29'),
+(33, 27, 12, 14, 2023, 'mid', 33, NULL, NULL, 0, 0, 33, 'F', '2023-01-14 00:32:47', '2023-01-14 00:32:47'),
+(34, 27, 12, 10, 2023, 'mid', 25, NULL, NULL, 0, 0, 25, 'B', '2023-01-14 00:32:55', '2023-01-14 00:32:55'),
+(36, 27, 12, 8, 2023, 'mid', 70, 10, NULL, 0, 0, 80, 'A+', '2023-01-14 00:33:16', '2023-01-14 00:33:16'),
+(37, 27, 12, 13, 2023, 'mid', 45, NULL, NULL, 0, 0, 45, 'C', '2023-01-14 00:33:25', '2023-01-14 00:33:25'),
+(38, 27, 12, 12, 2023, 'mid', 13, 11, NULL, 0, 0, 24, 'F', '2023-01-14 00:33:42', '2023-01-14 00:33:42'),
+(39, 27, 12, 11, 2023, 'mid', 6, 12, NULL, 0, 0, 18, 'F', '2023-01-14 00:33:55', '2023-01-14 00:33:55'),
+(41, 27, 12, NULL, 2023, 'final', NULL, NULL, NULL, 1, 0, 387, 'F', '2023-01-14 01:29:29', '2023-01-14 00:36:48'),
+(42, 27, 12, 15, 2023, 'final', 17, 19, NULL, 0, 0, 36, 'A', '2023-01-14 00:37:07', '2023-01-14 00:37:07'),
+(43, 27, 12, 14, 2023, 'final', 46, NULL, NULL, 0, 0, 46, 'C', '2023-01-14 00:37:16', '2023-01-14 00:37:16'),
+(46, 27, 12, 8, 2023, 'final', 28, 18, NULL, 0, 0, 46, 'C', '2023-01-14 00:37:53', '2023-01-14 00:37:53'),
+(47, 27, 12, 13, 2023, 'final', 46, NULL, NULL, 0, 0, 46, 'C', '2023-01-14 00:38:02', '2023-01-14 00:38:02'),
+(48, 27, 12, 12, 2023, 'final', 11, 15, NULL, 0, 0, 26, 'F', '2023-01-14 00:38:15', '2023-01-14 00:38:15'),
+(49, 27, 12, 11, 2023, 'final', 28, 17, NULL, 0, 0, 45, 'C', '2023-01-14 00:38:26', '2023-01-14 00:38:26'),
+(50, 27, 12, 7, 2023, 'final', 34, NULL, NULL, 0, 0, 34, 'A-', '2023-01-14 00:50:33', '2023-01-14 00:50:33'),
+(51, 27, 12, 10, 2023, 'final', 38, NULL, NULL, 0, 0, 38, 'A', '2023-01-14 00:54:27', '2023-01-14 00:54:27'),
+(52, 27, 12, 7, 2023, 'mid', 34, NULL, NULL, 0, 0, 34, 'A-', '2023-01-14 00:56:34', '2023-01-14 00:56:34'),
+(53, 27, 12, 9, 2023, 'mid', 55, 20, NULL, 0, 0, 75, 'A', '2023-01-14 01:27:17', '2023-01-14 01:27:17'),
+(54, 27, 12, 9, 2023, 'final', 48, 22, NULL, 0, 0, 70, 'A', '2023-01-14 01:29:29', '2023-01-14 01:29:29'),
+(55, 24, 12, 15, 2023, 'final', 27, 13, NULL, 0, 0, 40, 'A+', '2023-01-14 03:03:56', '2023-01-14 03:03:56'),
+(56, 25, 12, 15, 2023, 'final', 30, 20, NULL, 0, 0, 50, 'A+', '2023-01-14 03:04:08', '2023-01-14 03:04:08');
 
 -- --------------------------------------------------------
 
@@ -321,7 +349,8 @@ INSERT INTO `routines` (`id`, `class`, `section_id`, `subject_id`, `day`, `start
 (47, 8, 12, 13, 'Saturday', '12:15:00.000000', '2022-12-29 02:59:31', '2022-12-29 02:59:31'),
 (48, 8, 12, 14, 'Sunday', '13:15:00.000000', '2022-12-29 02:59:51', '2022-12-29 02:59:51'),
 (49, 8, 12, 7, 'Sunday', '07:00:00.000000', '2022-12-29 03:00:19', '2022-12-29 03:00:19'),
-(50, 3, 1, 1, 'Sunday', '10:00:00.000000', '2022-12-31 02:46:32', '2022-12-31 02:46:32');
+(50, 3, 1, 1, 'Sunday', '10:00:00.000000', '2022-12-31 02:46:32', '2022-12-31 02:46:32'),
+(51, 3, 1, 1, 'Saturday', '09:00:00.000000', '2023-01-13 22:49:59', '2023-01-13 22:49:59');
 
 -- --------------------------------------------------------
 
@@ -352,7 +381,8 @@ INSERT INTO `sections` (`id`, `name`, `class`, `teacher_id`, `updated_at`, `crea
 (11, 'Electron', 10, 8, '2022-12-22 01:01:59', '2022-12-20 03:09:59'),
 (12, 'Uranus', 8, 6, '2023-01-03 03:02:48', '2022-12-20 23:06:22'),
 (13, 'Neutron', 10, 8, '2022-12-22 03:33:59', '2022-12-22 03:33:59'),
-(14, 'Mango', 9, 7, '2022-12-24 02:35:59', '2022-12-24 02:35:59');
+(14, 'Mango', 9, 7, '2022-12-24 02:35:59', '2022-12-24 02:35:59'),
+(15, 'Yellow', 4, 7, '2023-01-13 22:42:32', '2023-01-13 22:42:32');
 
 -- --------------------------------------------------------
 
@@ -365,6 +395,7 @@ CREATE TABLE `settings` (
   `name` varchar(255) NOT NULL,
   `year` year(4) DEFAULT NULL,
   `status` tinyint(1) DEFAULT NULL,
+  `expire_date` date DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -373,10 +404,10 @@ CREATE TABLE `settings` (
 -- Dumping data for table `settings`
 --
 
-INSERT INTO `settings` (`id`, `name`, `year`, `status`, `updated_at`, `created_at`) VALUES
-(1, 'mid_result_uploading_permission', 2023, 0, '2023-01-07 02:27:01', '2023-01-04 08:18:58'),
-(2, 'final_result_uploading_permission', 2023, 1, '2023-01-07 02:26:59', '2023-01-04 08:55:42'),
-(3, 'test_result_uploading_permission', 2022, 0, '2023-01-05 02:14:24', '2023-01-04 08:57:43');
+INSERT INTO `settings` (`id`, `name`, `year`, `status`, `expire_date`, `updated_at`, `created_at`) VALUES
+(1, 'mid_result_uploading_permission', 2023, 0, NULL, '2023-01-14 03:02:32', '2023-01-04 08:18:58'),
+(2, 'final_result_uploading_permission', 2023, 1, '2023-01-29', '2023-01-14 03:02:34', '2023-01-04 08:55:42'),
+(3, 'test_result_uploading_permission', 2023, 0, NULL, '2023-01-14 02:59:02', '2023-01-04 08:57:43');
 
 -- --------------------------------------------------------
 
@@ -428,7 +459,8 @@ CREATE TABLE `students` (
 INSERT INTO `students` (`id`, `name`, `username`, `email`, `birth_certificate_number`, `present_address`, `permanent_address`, `birth_date`, `gender`, `religion`, `blood_group`, `father_name`, `father_contact`, `father_profession`, `father_nid`, `mother_name`, `mother_contact`, `mother_profession`, `mother_nid`, `local_guardian_name`, `local_guardian_contact`, `father_image`, `mother_image`, `student_image`, `class`, `section_id`, `status`, `class_roll`, `email_verified_at`, `password`, `parent_id`, `remember_token`, `created_at`, `updated_at`) VALUES
 (24, 'Farhana Akter', 'farhana_akter052', NULL, '54546546545545', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2022-02-23', 'Female', 'Islam', 'B+', 'Dewan Lutfur Rahman', '01747371076', NULL, '132546981356', 'Salma Begum', '01747371076', NULL, '151325464681', 'Dewan Lutfur Rahman', '01747371076', 'student_images/mQ2o3gPBneBmRGoMequfLgkK7f5W1BdFsGdgxP33.png', 'student_images/nBWkRo8Y5zsZrAD2KIfXXIRl3jVpQ4oZOg3rjLiL.png', 'student_images/FP4HHbGrYEShd4K5g7JgbzVWIpfuKiMI8L7QbNn3.png', 8, 12, 1, 2, NULL, '$2y$10$w0U3nxCyOv1jZiLxO9T1L./AfoZCbsk5X43.2WOldjXY6BkyGl0ya', 5, NULL, '2022-11-27 01:19:09', '2022-11-27 01:19:09'),
 (25, 'Faaris', 'faaris106', NULL, '132546813212', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2022-12-13', 'Male', 'Islam', 'B+', 'Galib Jaman', '01766555213', NULL, '5451321321321', 'Farhana Akter', '01766555213', NULL, '3541231321321', 'Galib Jaman', '01766555213', 'student_images/T6bjTkPEIH0BqhY2C62VIR3J1r8eCXtkhag950i4.png', 'student_images/ZqZnpJ2rWWkFbo6X6LvJ6MljFEpKIT9xtSg2i1sV.png', 'student_images/XNNXVRccegUu6r23E6MPyYM20JL1MyURP4vvFYKj.png', 8, 12, 1, 6, NULL, '$2y$10$kVQIGAM36uvWgq0P8WtuQu8ADEnXteYLbhC9aDCPydP5mHt.7QybG', 6, NULL, '2022-12-22 01:54:02', '2022-12-22 01:54:02'),
-(26, 'Shawal Rahman', 'shawal_rahman37', NULL, '111321321325', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2008-01-08', 'Male', 'Islam', 'B+', 'Goku', '01766635213', NULL, '54654654654546', 'Shakura', '01766635213', NULL, '54685465465464', 'Goku', '01766635213', 'student_images/dPkuVL6i3kLRC0lAogA5DamCOE0AMqymeNvlauUB.png', 'student_images/GXB23BrAw6laqD78cbwMbtX2djdt4NUG71ONLOFf.png', 'student_images/OHD9TiszKXwjWsXCxdjbQbibnhGtKcOo61ARnawA.png', 3, 1, 1, 7, NULL, '$2y$10$ogq75jODSAqObxCS96WQieFCDmCaEDuNc.5N3heCdrG9sauqwOeq.', 7, NULL, '2023-01-07 02:47:34', '2023-01-07 02:47:34');
+(26, 'Shawal Rahman', 'shawal_rahman37', NULL, '111321321325', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2008-01-08', 'Male', 'Islam', 'B+', 'Goku', '01766635213', NULL, '54654654654546', 'Shakura', '01766635213', NULL, '54685465465464', 'Goku', '01766635213', 'student_images/dPkuVL6i3kLRC0lAogA5DamCOE0AMqymeNvlauUB.png', 'student_images/GXB23BrAw6laqD78cbwMbtX2djdt4NUG71ONLOFf.png', 'student_images/OHD9TiszKXwjWsXCxdjbQbibnhGtKcOo61ARnawA.png', 3, 1, 1, 7, NULL, '$2y$10$ogq75jODSAqObxCS96WQieFCDmCaEDuNc.5N3heCdrG9sauqwOeq.', 7, NULL, '2023-01-07 02:47:34', '2023-01-07 02:47:34'),
+(27, 'Mushfiqur Rahman', 'mushfiqur_rahman87', NULL, '54613213254654', 'Amirabad, Jhalokathi', 'Amirabad, Jhalokathi', '2008-01-14', 'Male', 'Islam', 'B+', 'Lutfur Rahman', '01747371076', NULL, '13254641132132', 'Salma Begum', '01769543257', NULL, '54132231325467', 'Lutfur Rahman', '01747371076', 'student_images/Wl58SXTz11QfkHxZYjcCpdQyNqewfqnT6TNamCF0.png', 'student_images/rMSusb6yZ3uNU0h0CTqCyr3c0pNWjotmoox9GaWP.jpg', 'student_images/LNRl08rYHWujHIteYCwOKmWQ6nZsrjAwJZKwifme.png', 8, 12, 1, 7, NULL, '$2y$10$cPvH8XIsKr3EZtGLe8s7/.xE0mR6nF50RR0v4LVw8lpdXODpWepiG', 5, NULL, '2023-01-14 00:14:47', '2023-01-14 00:14:47');
 
 -- --------------------------------------------------------
 
@@ -512,14 +544,14 @@ INSERT INTO `subjects` (`id`, `name`, `class`, `total_marks`, `cq`, `mcq`, `prac
 (5, 'রসায়ন', 10, 0, 1, NULL, NULL, '2022-12-19 03:05:12', '2022-12-19 03:05:12'),
 (6, 'পদার্থবিদ্যা', 10, 0, 1, NULL, NULL, '2022-12-19 03:05:32', '2022-12-19 03:05:32'),
 (7, 'আনন্দ পাঠ', 8, 50, 50, 0, 0, '2022-12-29 02:54:01', '2023-01-07 02:36:53'),
-(8, 'বাংলা ব্যকরণ ও নির্মিতি', 8, 0, 1, NULL, NULL, '2022-12-29 02:54:13', '2022-12-29 02:54:13'),
-(9, 'কৃষি শিক্ষা', 8, 0, 1, NULL, NULL, '2022-12-29 02:54:27', '2022-12-29 02:54:27'),
-(10, 'শারীরিক শিক্ষা ও স্বাস্থ্য', 8, 0, 1, NULL, NULL, '2022-12-29 02:54:38', '2022-12-29 02:54:38'),
+(8, 'বাংলা ব্যকরণ ও নির্মিতি', 8, 100, 70, 30, 0, '2022-12-29 02:54:13', '2023-01-14 00:26:24'),
+(9, 'কৃষি শিক্ষা', 8, 100, 70, 30, 0, '2022-12-29 02:54:27', '2023-01-14 00:24:59'),
+(10, 'শারীরিক শিক্ষা ও স্বাস্থ্য', 8, 50, 50, 0, 0, '2022-12-29 02:54:38', '2023-01-14 00:26:59'),
 (11, 'ইসলাম ও নৈতিক শিক্ষা', 8, 100, 70, 30, 0, '2022-12-29 02:54:52', '2023-01-03 23:53:29'),
 (12, 'বিজ্ঞান', 8, 100, 70, 30, 0, '2022-12-29 02:55:06', '2023-01-13 08:11:11'),
 (13, 'English Grammer', 8, 100, 100, 0, 0, '2022-12-29 02:56:06', '2023-01-13 08:10:53'),
-(14, 'English for Today', 8, 0, 1, NULL, NULL, '2022-12-29 02:56:19', '2022-12-29 02:56:19'),
-(15, 'তথ্য ও যোগাযোগ প্রযুক্তি', 8, 0, 1, NULL, NULL, '2022-12-29 02:56:32', '2022-12-29 02:56:32');
+(14, 'English for Today', 8, 100, 100, 0, 0, '2022-12-29 02:56:19', '2023-01-14 00:32:05'),
+(15, 'তথ্য ও যোগাযোগ প্রযুক্তি', 8, 50, 30, 20, 0, '2022-12-29 02:56:32', '2023-01-14 00:31:53');
 
 -- --------------------------------------------------------
 
@@ -553,7 +585,12 @@ INSERT INTO `subject_teachers` (`id`, `class`, `subject_id`, `teacher_id`, `sect
 (11, 3, 3, 6, 1, '2022-12-29 03:51:09', '2022-12-29 03:51:09'),
 (12, 8, 11, 6, 12, '2023-01-06 23:00:15', '2023-01-06 23:00:15'),
 (13, 8, 12, 6, 12, '2023-01-13 08:11:26', '2023-01-13 08:11:26'),
-(14, 8, 13, 6, 12, '2023-01-13 08:11:35', '2023-01-13 08:11:35');
+(14, 8, 13, 6, 12, '2023-01-13 08:11:35', '2023-01-13 08:11:35'),
+(15, 8, 8, 6, 12, '2023-01-14 00:23:38', '2023-01-14 00:23:38'),
+(16, 8, 9, 6, 12, '2023-01-14 00:27:25', '2023-01-14 00:27:25'),
+(17, 8, 10, 6, 12, '2023-01-14 00:27:31', '2023-01-14 00:27:31'),
+(18, 8, 14, 6, 12, '2023-01-14 00:27:38', '2023-01-14 00:27:38'),
+(19, 8, 15, 6, 12, '2023-01-14 00:27:46', '2023-01-14 00:27:46');
 
 -- --------------------------------------------------------
 
@@ -801,7 +838,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `attendances`
 --
 ALTER TABLE `attendances`
-  MODIFY `id` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -837,7 +874,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `results`
 --
 ALTER TABLE `results`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -849,13 +886,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `routines`
 --
 ALTER TABLE `routines`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `sections`
 --
 ALTER TABLE `sections`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `settings`
@@ -867,7 +904,7 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `student_parents`
@@ -891,7 +928,7 @@ ALTER TABLE `subjects`
 -- AUTO_INCREMENT for table `subject_teachers`
 --
 ALTER TABLE `subject_teachers`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `teachers`

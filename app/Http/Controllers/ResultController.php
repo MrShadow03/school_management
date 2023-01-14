@@ -168,6 +168,12 @@ class ResultController extends Controller
         $highest_marks = Subject::find($request->subject_id)->total_marks;
         $total_percentage = ($total/$highest_marks)*100;
         $grade = Grade::where('score','<=',$total_percentage)->orderBy('score','desc')->first()->name;
+
+        //for class 9 and 10, c grade is from 33%
+        if(Section::find($request->section_id)->class == 9 || Section::find($request->section_id)->class == 10){
+            $grade = $total_percentage >= 33 ? $grade : 'C';
+        }
+        
         $data['grade'] = $grade;
 
         //Create the result
@@ -176,10 +182,24 @@ class ResultController extends Controller
         //calulate the grand total
         $grand_total = Result::where('student_id',$request->student_id)->where('section_id', $request->section_id)->where('year',$request->year)->where('type',$request->type)->where('grand_total', 0)->sum('total');
 
+        //calculate the grand grade
+        $highest_grand_total = Subject::where('class', Section::find($request->section_id)->class)->sum('total_marks');
+        $grand_total_percentage = ($grand_total/$highest_grand_total)*100;
+        $grand_grade = Grade::where('score','<=',$grand_total_percentage)->orderBy('score','desc')->first()->name;
+
+        
+        //for class 9 and 10 c grade is from 33%
+        if(Section::find($request->section_id)->class == 9 || Section::find($request->section_id)->class == 10){
+            $grand_grade = $grand_total_percentage >= 33 ? $grand_grade : 'C';
+        }
+
+        //if one of the subject is F then grand total is F
+        $grand_grade = Result::where('student_id',$request->student_id)->where('section_id', $request->section_id)->where('type',$request->type)->where('grand_total', 0)->where('grade','F')->exists() ? 'F' : $grand_grade;
+        
         //Create or update the grand total
         $grand_total = Result::updateOrCreate(
             ['student_id' => $request->student_id, 'section_id' => $request->section_id, 'year' => $request->year, 'type' => $request->type, 'grand_total' => 1],
-            ['total' => $grand_total, 'student_id' => $request->student_id, 'section_id' => $request->section_id, 'year' => $request->year, 'type' => $request->type, 'grand_total' => 1]
+            ['total' => $grand_total, 'student_id' => $request->student_id, 'section_id' => $request->section_id, 'year' => $request->year, 'type' => $request->type, 'grand_total' => 1, 'grade' => $grand_grade]
         );
 
         //return back with message

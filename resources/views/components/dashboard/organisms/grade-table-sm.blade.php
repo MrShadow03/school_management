@@ -3,6 +3,7 @@
     <div class="table-wrapper">
         <h1 class="text-title pb-1 text-center">Grade Table</h1>
         <p class="fs-14 text-primary text-center pb-2 border-bottom">Session: {{ Carbon\Carbon::parse(Carbon\Carbon::now())->format('Y') }}</p>
+        <p class="form_subtitle mt-1 mb-1"><i class="fa-solid fa-info-circle"></i> For class 9 & 10 passing mark is 33 and above.</p>
         <table class="w-100 mt-2 settings-table">
             <thead>
                 <tr class="heading-row">
