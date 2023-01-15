@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 14, 2023 at 11:03 AM
+-- Generation Time: Jan 15, 2023 at 02:45 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -264,7 +264,6 @@ INSERT INTO `results` (`id`, `student_id`, `section_id`, `subject_id`, `year`, `
 (33, 27, 12, 14, 2023, 'mid', 33, NULL, NULL, 0, 0, 33, 'F', '2023-01-14 00:32:47', '2023-01-14 00:32:47'),
 (34, 27, 12, 10, 2023, 'mid', 25, NULL, NULL, 0, 0, 25, 'B', '2023-01-14 00:32:55', '2023-01-14 00:32:55'),
 (36, 27, 12, 8, 2023, 'mid', 70, 10, NULL, 0, 0, 80, 'A+', '2023-01-14 00:33:16', '2023-01-14 00:33:16'),
-(37, 27, 12, 13, 2023, 'mid', 45, NULL, NULL, 0, 0, 45, 'C', '2023-01-14 00:33:25', '2023-01-14 00:33:25'),
 (38, 27, 12, 12, 2023, 'mid', 13, 11, NULL, 0, 0, 24, 'F', '2023-01-14 00:33:42', '2023-01-14 00:33:42'),
 (39, 27, 12, 11, 2023, 'mid', 6, 12, NULL, 0, 0, 18, 'F', '2023-01-14 00:33:55', '2023-01-14 00:33:55'),
 (41, 27, 12, NULL, 2023, 'final', NULL, NULL, NULL, 1, 0, 387, 'F', '2023-01-14 01:29:29', '2023-01-14 00:36:48'),
@@ -280,7 +279,9 @@ INSERT INTO `results` (`id`, `student_id`, `section_id`, `subject_id`, `year`, `
 (53, 27, 12, 9, 2023, 'mid', 55, 20, NULL, 0, 0, 75, 'A', '2023-01-14 01:27:17', '2023-01-14 01:27:17'),
 (54, 27, 12, 9, 2023, 'final', 48, 22, NULL, 0, 0, 70, 'A', '2023-01-14 01:29:29', '2023-01-14 01:29:29'),
 (55, 24, 12, 15, 2023, 'final', 27, 13, NULL, 0, 0, 40, 'A+', '2023-01-14 03:03:56', '2023-01-14 03:03:56'),
-(56, 25, 12, 15, 2023, 'final', 30, 20, NULL, 0, 0, 50, 'A+', '2023-01-14 03:04:08', '2023-01-14 03:04:08');
+(56, 25, 12, 15, 2023, 'final', 30, 20, NULL, 0, 0, 50, 'A+', '2023-01-14 03:04:08', '2023-01-14 03:04:08'),
+(57, 27, 12, 13, 2023, 'mid', 45, NULL, NULL, 0, 0, 45, 'C', '2023-01-15 07:36:12', '2023-01-15 07:36:12'),
+(58, 27, 12, NULL, 2023, NULL, NULL, NULL, NULL, 0, 1, 374, 'F', '2023-01-15 07:36:12', '2023-01-15 07:36:12');
 
 -- --------------------------------------------------------
 
@@ -405,8 +406,8 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `name`, `year`, `status`, `expire_date`, `updated_at`, `created_at`) VALUES
-(1, 'mid_result_uploading_permission', 2023, 0, NULL, '2023-01-14 03:02:32', '2023-01-04 08:18:58'),
-(2, 'final_result_uploading_permission', 2023, 1, '2023-01-29', '2023-01-14 03:02:34', '2023-01-04 08:55:42'),
+(1, 'mid_result_uploading_permission', 2023, 1, '2023-01-30', '2023-01-15 07:22:03', '2023-01-04 08:18:58'),
+(2, 'final_result_uploading_permission', 2023, 0, NULL, '2023-01-15 07:22:01', '2023-01-04 08:55:42'),
 (3, 'test_result_uploading_permission', 2023, 0, NULL, '2023-01-14 02:59:02', '2023-01-04 08:57:43');
 
 -- --------------------------------------------------------
@@ -874,7 +875,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `results`
 --
 ALTER TABLE `results`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `roles`

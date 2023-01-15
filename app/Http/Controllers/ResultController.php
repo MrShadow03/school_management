@@ -180,7 +180,13 @@ class ResultController extends Controller
         $result = Result::create($data);
 
         //calulate the grand total
-        $grand_total = Result::where('student_id',$request->student_id)->where('section_id', $request->section_id)->where('year',$request->year)->where('type',$request->type)->where('grand_total', 0)->sum('total');
+        $grand_total = Result::where('student_id',$request->student_id)
+                             ->where('section_id', $request->section_id)
+                             ->where('year',$request->year)
+                             ->where('type',$request->type)
+                             ->where('grand_total', 0)
+                             ->where('final_total', 0)
+                             ->sum('total');
 
         //calculate the grand grade
         $highest_grand_total = Subject::where('class', Section::find($request->section_id)->class)->sum('total_marks');
@@ -194,12 +200,98 @@ class ResultController extends Controller
         }
 
         //if one of the subject is F then grand total is F
-        $grand_grade = Result::where('student_id',$request->student_id)->where('section_id', $request->section_id)->where('type',$request->type)->where('grand_total', 0)->where('grade','F')->exists() ? 'F' : $grand_grade;
+        $grand_grade = Result::where('student_id',$request->student_id)
+                             ->where('section_id', $request->section_id)
+                             ->where('type',$request->type)
+                             ->where('grand_total', 0)
+                             ->where('final_total', 0)
+                             ->where('grade','F')
+                             ->exists() ? 'F' : $grand_grade;
         
         //Create or update the grand total
         $grand_total = Result::updateOrCreate(
-            ['student_id' => $request->student_id, 'section_id' => $request->section_id, 'year' => $request->year, 'type' => $request->type, 'grand_total' => 1],
-            ['total' => $grand_total, 'student_id' => $request->student_id, 'section_id' => $request->section_id, 'year' => $request->year, 'type' => $request->type, 'grand_total' => 1, 'grade' => $grand_grade]
+            [
+                'student_id' => $request->student_id,
+                'section_id' => $request->section_id,
+                'year' => $request->year,
+                'type' => $request->type,
+                'grand_total' => 1
+            ],
+            [
+                'total' => $grand_total, 
+                'student_id' => $request->student_id, 
+                'section_id' => $request->section_id, 
+                'year' => $request->year, 
+                'type' => $request->type, 
+                'grand_total' => 1,
+                'grade' => $grand_grade
+            ]
+        );
+
+        //if result for the student where section is this section and year is this year and type of both mid and final exists then calculate the final total
+        $subjects = Subject::where('class', Section::find($request->section_id)->class)->get()->pluck('id')->toArray();
+
+        $final_total = 0;
+        $fail = false;
+        foreach($subjects as $subject){
+            $mid_result = Result::where('subject_id',$subject)
+                                ->where('student_id',$request->student_id)
+                                ->where('section_id',$request->section_id)
+                                ->where('year',$request->year)
+                                ->where('type','mid');
+            $final_result = Result::where('subject_id',$subject)
+                                ->where('student_id',$request->student_id)
+                                ->where('section_id',$request->section_id)
+                                ->where('year',$request->year)
+                                ->where('type','final');
+
+            if($mid_result->exists() && $final_result->exists()){
+                $subject_total = round(($mid_result->first()->total)*(.5) + ($final_result->first()->total)*(.5));
+                $final_total += round(($mid_result->first()->total)*(.5) + ($final_result->first()->total)*(.5));
+
+                //calculate grade for the subject total
+                $subject_highest_marks = Subject::find($subject)->total_marks;
+                $subject_total_percentage = ($subject_total/$subject_highest_marks)*100;
+                $subject_grade = Grade::where('score','<=',$subject_total_percentage)->orderBy('score','desc')->first()->name;
+
+                //for class 9 and 10 c subject_grade is from 33%
+                if(Section::find($request->section_id)->class == 9 || Section::find($request->section_id)->class == 10){
+                    $subject_grade = $subject_total_percentage >= 33 ? $subject_grade : 'C';
+                }
+
+                //if one of the subject is F then final total is F
+                if($subject_grade == 'F'){
+                    $fail = true;
+                }
+
+            }
+        }
+
+        //calculate the final grade
+        $final_total_percentage = ($final_total/$highest_grand_total)*100;
+        $final_grade = Grade::where('score','<=',$final_total_percentage)->orderBy('score','desc')->first()->name;
+
+        //for class 9 and 10 c grade is from 33%
+        if(Section::find($request->section_id)->class == 9 || Section::find($request->section_id)->class == 10){
+            $final_grade = $final_total_percentage >= 33 ? $final_grade : 'C';
+        }
+
+        //create the final total
+        $final_total = Result::updateOrCreate(
+            [
+                'student_id' => $request->student_id,
+                'section_id' => $request->section_id,
+                'year' => $request->year,
+                'final_total' => 1
+            ],
+            [
+                'total' => $final_total,
+                'student_id' => $request->student_id,
+                'section_id' => $request->section_id, 
+                'year' => $request->year,
+                'final_total' => 1,
+                'grade' => $fail ? 'F' : $final_grade
+            ]
         );
 
         //return back with message
