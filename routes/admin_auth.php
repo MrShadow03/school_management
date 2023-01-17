@@ -10,6 +10,7 @@ use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\ExamPermissionController;
 use App\Http\Controllers\SubjectTeacherController;
+use App\Http\Controllers\StudentPromotionController;
 use App\Http\Controllers\Auth\Admin\NewPasswordController;
 use App\Http\Controllers\Auth\Admin\VerifyEmailController;
 use App\Http\Controllers\student\StudentRegisterController;
@@ -83,6 +84,10 @@ Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin/', 'as' => 'admin
     //grades
     Route::get('grade/index', [GradeController::class, 'index'])->name('grade.index');
     Route::patch('grade/update', [GradeController::class, 'update'])->name('grade.update');
+    
+    //student promotion routes
+    Route::get('promotion/index', [StudentPromotionController::class, 'index'])->name('promotion.index');
+    Route::patch('promotion/update', [StudentPromotionController::class, 'update'])->name('promotion.update');
 
 
     Route::get('section/axios/{name}', [SectionController::class, 'axios'])->name('section.axios');

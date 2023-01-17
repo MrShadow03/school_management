@@ -22,8 +22,8 @@ $logout_route = $guard.'.logout';
     <x-dashboard.organisms.sidebar/>
     <div class="right_content">
         <x-dashboard.organisms.nav :username="$user->name" :logout_route="$logout_route" />
-            <x-dashboard.organisms.class-bar />
-            <div class="display-grid three-grid min-h-86">
+        <x-dashboard.organisms.class-bar />
+        <div class="display-grid three-grid min-h-86">
             <x-dashboard.organisms.routine-form-sm />
             <x-dashboard.organisms.routine-table-sm :routines="$routines"/>
         </div> 
