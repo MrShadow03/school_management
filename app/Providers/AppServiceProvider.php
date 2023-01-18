@@ -42,7 +42,6 @@ class AppServiceProvider extends ServiceProvider
             $permission->year == $year ? '' : $permission->update(['status' => 0]);
             isset($permission->expire_date) && ($permission->expire_date < date('Y-m-d') ? $permission->update(['status' => 0, 'expire_date' => null]) : '');
         }
-
         //make the settings available in all views
         view()->share('result_uploading_permissions', $result_uploading_permission);
     }

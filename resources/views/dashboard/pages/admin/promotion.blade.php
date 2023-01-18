@@ -21,9 +21,8 @@ $logout_route = $guard.'.logout';
     <x-dashboard.organisms.sidebar/>
     <div class="right_content">
         <x-dashboard.organisms.nav :username="$user->name" :logout_route="$logout_route" />
-        <div class="display-grid three-grid min-h-86">
-            <x-dashboard.organisms.promotion-form-sm :sections="$sections" />
-            <x-dashboard.organisms.promotion-table-sm />
+        <div>
+            <x-dashboard.organisms.promotion-table-sm :sections="$sections"/>
         </div>
     </div>
 
@@ -31,8 +30,7 @@ $logout_route = $guard.'.logout';
 @section('exclusive_scripts')
 <script>
     //Tom selects
-    new TomSelect("#teacher_id",{
-        create: false,
+    new TomSelect("#current_section_id",{
         sortField: {
             field: "text",
             direction: "asc"

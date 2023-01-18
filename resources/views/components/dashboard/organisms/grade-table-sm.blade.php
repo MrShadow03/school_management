@@ -32,7 +32,7 @@
             @csrf
             <div class="input_group" style="grid-gap: 1rem">
                 <div class="input_field">
-                    <select name="name" id="name" required>
+                    <select name="name" id="name" style="margin: 0 !important;" required>
                         <option value="" selected disabled>Select section</option>
                         @foreach($grades as $grade)
                             <option value="{{ $grade->name }}">{{ $grade->name }}</option>

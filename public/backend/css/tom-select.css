@@ -343,14 +343,18 @@
 .ts-dropdown [data-selectable].option {
   opacity: 1;
   cursor: pointer;
+  padding-left: 2rem;
 }
 .ts-dropdown .optgroup:first-child .optgroup-header {
   border-top: 0 none;
 }
 .ts-dropdown .optgroup-header {
-  color: #303030;
+  color: #01284f;
   background: #fff;
   cursor: default;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #01284f14;
 }
 .ts-dropdown .active {
   background-color: #f5fafd;

@@ -63,6 +63,50 @@
   });
 })(jQuery)
 
+if(document.querySelectorAll('.custom_scrollbar')){
+  const custom_scrollbar = document.querySelectorAll('.custom_scrollbar');
+  console.log (custom_scrollbar);
+  custom_scrollbar.forEach(scrollbar => {
+    new SimpleBar(scrollbar);
+  });
+}
+
+function getAvailableSections(section_id){
+  let promoted_section = document.getElementById('promoted_section_id');
+  //get sections with axios
+  axios.get(`getSections/${section_id}`)
+  .then(function(response){
+    //first empty the select
+    while(promoted_section.firstChild){
+      promoted_section.removeChild(promoted_section.firstChild);
+    }
+    let data = response.data;
+    if(typeof data == 'string'){
+      let option = document.createElement('option');
+      option.value = '';
+      option.innerText = data;
+      option.disabled = true;
+      option.selected = true;
+      promoted_section.appendChild(option);
+    }else{
+      //create optgroup
+      let optgroup = document.createElement('optgroup');
+      optgroup.label = `Class: ${data[0].class}`;
+      promoted_section.appendChild(optgroup);
+      data.forEach(section => {
+        let option = document.createElement('option');
+        option.value = section.id;
+        option.innerText = section.name;
+        optgroup.appendChild(option);
+        console.log(section);
+      });
+    }
+  })
+  .catch(function(error){
+    console.log(error);
+  })
+}
+
 function inputFocusAnimation(input) {
 
   let label = input.parentNode.children[0];
@@ -115,7 +159,6 @@ function readURL(input) {
     reader.onload = function (e) {
       $('#blah').attr('src', e.target.result);
     }
-
     reader.readAsDataURL(input.files[0]);
   }
 }

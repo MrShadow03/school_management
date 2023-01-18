@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 15, 2023 at 02:45 PM
+-- Generation Time: Jan 18, 2023 at 12:44 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -249,16 +249,16 @@ CREATE TABLE `results` (
 INSERT INTO `results` (`id`, `student_id`, `section_id`, `subject_id`, `year`, `type`, `cq`, `mcq`, `practical`, `grand_total`, `final_total`, `total`, `grade`, `updated_at`, `created_at`) VALUES
 (11, 25, 12, 7, 2023, 'final', 46, NULL, NULL, 0, 0, 46, NULL, '2023-01-13 07:23:42', '2023-01-13 07:23:42'),
 (13, 25, 12, 11, 2023, 'final', 54, 25, NULL, 0, 0, 79, NULL, '2023-01-13 07:24:22', '2023-01-13 07:24:22'),
-(20, 24, 12, NULL, 2023, 'final', NULL, NULL, NULL, 1, 0, 348, 'C', '2023-01-14 03:03:56', '2023-01-13 08:21:58'),
+(20, 24, 12, NULL, 2023, 'final', NULL, NULL, NULL, 1, 0, 636, 'A+', '2023-01-18 05:42:25', '2023-01-13 08:21:58'),
 (21, 25, 12, 12, 2023, 'final', 67, 21, NULL, 0, 0, 88, NULL, '2023-01-13 08:22:42', '2023-01-13 08:22:42'),
-(22, 25, 12, NULL, 2023, 'final', NULL, NULL, NULL, 1, 0, 349, 'C', '2023-01-14 03:04:08', '2023-01-13 08:22:42'),
+(22, 25, 12, NULL, 2023, 'final', NULL, NULL, NULL, 1, 0, 624, 'A+', '2023-01-18 05:42:31', '2023-01-13 08:22:42'),
 (23, 24, 12, 13, 2023, 'final', 98, NULL, NULL, 0, 0, 98, NULL, '2023-01-13 08:25:56', '2023-01-13 08:25:56'),
 (24, 25, 12, 13, 2023, 'final', 86, NULL, NULL, 0, 0, 86, NULL, '2023-01-13 08:28:27', '2023-01-13 08:28:27'),
 (25, 24, 12, 7, 2023, 'final', 42, NULL, NULL, 0, 0, 42, NULL, '2023-01-13 08:28:48', '2023-01-13 08:28:48'),
 (26, 24, 12, 11, 2023, 'final', 61, 23, NULL, 0, 0, 84, NULL, '2023-01-13 08:29:19', '2023-01-13 08:29:19'),
 (27, 24, 12, 12, 2023, 'final', 61, 23, NULL, 0, 0, 84, 'A+', '2023-01-13 10:13:53', '2023-01-13 10:13:53'),
 (28, 24, 12, 11, 2023, 'mid', 63, 19, NULL, 0, 0, 82, 'A+', '2023-01-13 22:57:36', '2023-01-13 22:57:36'),
-(29, 24, 12, NULL, 2023, 'mid', NULL, NULL, NULL, 1, 0, 82, NULL, '2023-01-13 22:57:36', '2023-01-13 22:57:36'),
+(29, 24, 12, NULL, 2023, 'mid', NULL, NULL, NULL, 1, 0, 584, 'A', '2023-01-18 05:39:01', '2023-01-13 22:57:36'),
 (31, 27, 12, NULL, 2023, 'mid', NULL, NULL, NULL, 1, 0, 356, 'F', '2023-01-14 01:27:17', '2023-01-14 00:30:23'),
 (32, 27, 12, 15, 2023, 'mid', 16, 6, NULL, 0, 0, 22, 'C', '2023-01-14 00:32:29', '2023-01-14 00:32:29'),
 (33, 27, 12, 14, 2023, 'mid', 33, NULL, NULL, 0, 0, 33, 'F', '2023-01-14 00:32:47', '2023-01-14 00:32:47'),
@@ -281,7 +281,56 @@ INSERT INTO `results` (`id`, `student_id`, `section_id`, `subject_id`, `year`, `
 (55, 24, 12, 15, 2023, 'final', 27, 13, NULL, 0, 0, 40, 'A+', '2023-01-14 03:03:56', '2023-01-14 03:03:56'),
 (56, 25, 12, 15, 2023, 'final', 30, 20, NULL, 0, 0, 50, 'A+', '2023-01-14 03:04:08', '2023-01-14 03:04:08'),
 (57, 27, 12, 13, 2023, 'mid', 45, NULL, NULL, 0, 0, 45, 'C', '2023-01-15 07:36:12', '2023-01-15 07:36:12'),
-(58, 27, 12, NULL, 2023, NULL, NULL, NULL, NULL, 0, 1, 374, 'F', '2023-01-15 07:36:12', '2023-01-15 07:36:12');
+(58, 27, 12, NULL, 2023, NULL, NULL, NULL, NULL, 0, 1, 374, 'F', '2023-01-15 07:36:12', '2023-01-15 07:36:12'),
+(59, 24, 12, 9, 2023, 'mid', 66, 15, NULL, 0, 0, 81, 'A+', '2023-01-18 02:28:54', '2023-01-18 02:28:54'),
+(60, 24, 12, NULL, 2023, NULL, NULL, NULL, NULL, 0, 1, 613, 'A+', '2023-01-18 05:42:25', '2023-01-18 02:28:54'),
+(61, 25, 12, 9, 2023, 'mid', 54, 26, NULL, 0, 0, 80, 'A+', '2023-01-18 02:29:02', '2023-01-18 02:29:02'),
+(62, 25, 12, NULL, 2023, 'mid', NULL, NULL, NULL, 1, 0, 597, 'A', '2023-01-18 05:39:06', '2023-01-18 02:29:02'),
+(63, 25, 12, NULL, 2023, NULL, NULL, NULL, NULL, 0, 1, 613, 'A+', '2023-01-18 05:42:31', '2023-01-18 02:29:02'),
+(64, 26, 12, 9, 2023, 'mid', 36, 30, NULL, 0, 0, 66, 'A-', '2023-01-18 02:29:09', '2023-01-18 02:29:09'),
+(65, 26, 12, NULL, 2023, 'mid', NULL, NULL, NULL, 1, 0, 583, 'A', '2023-01-18 05:39:10', '2023-01-18 02:29:09'),
+(66, 26, 12, NULL, 2023, NULL, NULL, NULL, NULL, 0, 1, 584, 'A', '2023-01-18 05:43:03', '2023-01-18 02:29:09'),
+(67, 24, 12, 8, 2023, 'mid', 70, 0, NULL, 0, 0, 70, 'A', '2023-01-18 02:29:22', '2023-01-18 02:29:22'),
+(68, 25, 12, 8, 2023, 'mid', 62, 22, NULL, 0, 0, 84, 'A+', '2023-01-18 02:29:37', '2023-01-18 02:29:37'),
+(69, 26, 12, 8, 2023, 'mid', 66, 21, NULL, 0, 0, 87, 'A+', '2023-01-18 02:29:46', '2023-01-18 02:29:46'),
+(70, 24, 12, 13, 2023, 'mid', 81, NULL, NULL, 0, 0, 81, 'A+', '2023-01-18 02:30:03', '2023-01-18 02:30:03'),
+(71, 25, 12, 13, 2023, 'mid', 82, NULL, NULL, 0, 0, 82, 'A+', '2023-01-18 02:30:07', '2023-01-18 02:30:07'),
+(72, 26, 12, 13, 2023, 'mid', 79, NULL, NULL, 0, 0, 79, 'A', '2023-01-18 02:30:16', '2023-01-18 02:30:16'),
+(73, 24, 12, 12, 2023, 'mid', 58, 23, NULL, 0, 0, 81, 'A+', '2023-01-18 02:30:33', '2023-01-18 02:30:33'),
+(74, 25, 12, 12, 2023, 'mid', 46, 21, NULL, 0, 0, 67, 'A-', '2023-01-18 02:30:39', '2023-01-18 02:30:39'),
+(75, 26, 12, 12, 2023, 'mid', 47, 29, NULL, 0, 0, 76, 'A', '2023-01-18 02:30:48', '2023-01-18 02:30:48'),
+(76, 25, 12, 11, 2023, 'mid', 65, 30, NULL, 0, 0, 95, 'A+', '2023-01-18 02:31:09', '2023-01-18 02:31:09'),
+(77, 26, 12, 11, 2023, 'mid', 46, 26, NULL, 0, 0, 72, 'A', '2023-01-18 02:31:27', '2023-01-18 02:31:27'),
+(78, 24, 12, 7, 2023, 'mid', 31, NULL, NULL, 0, 0, 31, 'A-', '2023-01-18 02:31:34', '2023-01-18 02:31:34'),
+(79, 25, 12, 7, 2023, 'mid', 41, NULL, NULL, 0, 0, 41, 'A+', '2023-01-18 02:31:39', '2023-01-18 02:31:39'),
+(80, 26, 12, 7, 2023, 'mid', 50, NULL, NULL, 0, 0, 50, 'A+', '2023-01-18 02:31:43', '2023-01-18 02:31:43'),
+(81, 24, 12, 15, 2023, 'mid', 30, 10, NULL, 0, 0, 40, 'A+', '2023-01-18 02:32:04', '2023-01-18 02:32:04'),
+(82, 25, 12, 15, 2023, 'mid', 25, 10, NULL, 0, 0, 35, 'A', '2023-01-18 02:32:15', '2023-01-18 02:32:15'),
+(83, 26, 12, 15, 2023, 'mid', 21, 19, NULL, 0, 0, 40, 'A+', '2023-01-18 02:32:25', '2023-01-18 02:32:25'),
+(84, 24, 12, 10, 2023, 'mid', 37, NULL, NULL, 0, 0, 37, 'A', '2023-01-18 05:38:39', '2023-01-18 05:38:39'),
+(85, 25, 12, 10, 2023, 'mid', 48, NULL, NULL, 0, 0, 48, 'A+', '2023-01-18 05:38:43', '2023-01-18 05:38:43'),
+(86, 26, 12, 10, 2023, 'mid', 41, NULL, NULL, 0, 0, 41, 'A+', '2023-01-18 05:38:48', '2023-01-18 05:38:48'),
+(87, 24, 12, 14, 2023, 'mid', 81, NULL, NULL, 0, 0, 81, 'A+', '2023-01-18 05:39:01', '2023-01-18 05:39:01'),
+(88, 25, 12, 14, 2023, 'mid', 65, NULL, NULL, 0, 0, 65, 'A-', '2023-01-18 05:39:06', '2023-01-18 05:39:06'),
+(89, 26, 12, 14, 2023, 'mid', 72, NULL, NULL, 0, 0, 72, 'A', '2023-01-18 05:39:10', '2023-01-18 05:39:10'),
+(90, 24, 12, 9, 2023, 'final', 61, 23, NULL, 0, 0, 84, 'A+', '2023-01-18 05:40:03', '2023-01-18 05:40:03'),
+(91, 25, 12, 9, 2023, 'final', 51, 21, NULL, 0, 0, 72, 'A', '2023-01-18 05:40:09', '2023-01-18 05:40:09'),
+(92, 26, 12, 9, 2023, 'final', 41, 26, NULL, 0, 0, 67, 'A-', '2023-01-18 05:40:18', '2023-01-18 05:40:18'),
+(93, 26, 12, NULL, 2023, 'final', NULL, NULL, NULL, 1, 0, 579, 'A', '2023-01-18 05:43:03', '2023-01-18 05:40:18'),
+(94, 24, 12, 10, 2023, 'final', 48, NULL, NULL, 0, 0, 48, 'A+', '2023-01-18 05:40:31', '2023-01-18 05:40:31'),
+(95, 25, 12, 10, 2023, 'final', 47, NULL, NULL, 0, 0, 47, 'A+', '2023-01-18 05:40:36', '2023-01-18 05:40:36'),
+(96, 26, 12, 10, 2023, 'final', 50, NULL, NULL, 0, 0, 50, 'A+', '2023-01-18 05:40:40', '2023-01-18 05:40:40'),
+(97, 24, 12, 14, 2023, 'final', 88, NULL, NULL, 0, 0, 88, 'A+', '2023-01-18 05:40:48', '2023-01-18 05:40:48'),
+(98, 25, 12, 14, 2023, 'final', 87, NULL, NULL, 0, 0, 87, 'A+', '2023-01-18 05:40:52', '2023-01-18 05:40:52'),
+(99, 26, 12, 14, 2023, 'final', 62, NULL, NULL, 0, 0, 62, 'A-', '2023-01-18 05:40:55', '2023-01-18 05:40:55'),
+(100, 26, 12, 15, 2023, 'final', 30, 20, NULL, 0, 0, 50, 'A+', '2023-01-18 05:41:09', '2023-01-18 05:41:09'),
+(101, 26, 12, 7, 2023, 'final', 41, NULL, NULL, 0, 0, 41, 'A+', '2023-01-18 05:41:24', '2023-01-18 05:41:24'),
+(102, 26, 12, 11, 2023, 'final', 63, 28, NULL, 0, 0, 91, 'A+', '2023-01-18 05:41:34', '2023-01-18 05:41:34'),
+(103, 26, 12, 12, 2023, 'final', 51, 27, NULL, 0, 0, 78, 'A', '2023-01-18 05:41:47', '2023-01-18 05:41:47'),
+(104, 26, 12, 13, 2023, 'final', 66, NULL, NULL, 0, 0, 66, 'A-', '2023-01-18 05:41:54', '2023-01-18 05:41:54'),
+(105, 24, 12, 8, 2023, 'final', 42, 26, NULL, 0, 0, 68, 'A-', '2023-01-18 05:42:25', '2023-01-18 05:42:25'),
+(106, 25, 12, 8, 2023, 'final', 50, 19, NULL, 0, 0, 69, 'A-', '2023-01-18 05:42:31', '2023-01-18 05:42:31'),
+(107, 26, 12, 8, 2023, 'final', 48, 26, NULL, 0, 0, 74, 'A', '2023-01-18 05:43:03', '2023-01-18 05:43:03');
 
 -- --------------------------------------------------------
 
@@ -407,7 +456,7 @@ CREATE TABLE `settings` (
 
 INSERT INTO `settings` (`id`, `name`, `year`, `status`, `expire_date`, `updated_at`, `created_at`) VALUES
 (1, 'mid_result_uploading_permission', 2023, 1, '2023-01-30', '2023-01-15 07:22:03', '2023-01-04 08:18:58'),
-(2, 'final_result_uploading_permission', 2023, 0, NULL, '2023-01-15 07:22:01', '2023-01-04 08:55:42'),
+(2, 'final_result_uploading_permission', 2023, 1, NULL, '2023-01-15 07:22:01', '2023-01-04 08:55:42'),
 (3, 'test_result_uploading_permission', 2023, 0, NULL, '2023-01-14 02:59:02', '2023-01-04 08:57:43');
 
 -- --------------------------------------------------------
@@ -445,6 +494,8 @@ CREATE TABLE `students` (
   `section_id` bigint(20) DEFAULT NULL,
   `status` tinyint(1) DEFAULT 1,
   `class_roll` int(10) DEFAULT NULL,
+  `new` tinyint(1) NOT NULL DEFAULT 0,
+  `previous_roll` int(5) DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `parent_id` bigint(10) DEFAULT NULL,
@@ -457,11 +508,11 @@ CREATE TABLE `students` (
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`id`, `name`, `username`, `email`, `birth_certificate_number`, `present_address`, `permanent_address`, `birth_date`, `gender`, `religion`, `blood_group`, `father_name`, `father_contact`, `father_profession`, `father_nid`, `mother_name`, `mother_contact`, `mother_profession`, `mother_nid`, `local_guardian_name`, `local_guardian_contact`, `father_image`, `mother_image`, `student_image`, `class`, `section_id`, `status`, `class_roll`, `email_verified_at`, `password`, `parent_id`, `remember_token`, `created_at`, `updated_at`) VALUES
-(24, 'Farhana Akter', 'farhana_akter052', NULL, '54546546545545', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2022-02-23', 'Female', 'Islam', 'B+', 'Dewan Lutfur Rahman', '01747371076', NULL, '132546981356', 'Salma Begum', '01747371076', NULL, '151325464681', 'Dewan Lutfur Rahman', '01747371076', 'student_images/mQ2o3gPBneBmRGoMequfLgkK7f5W1BdFsGdgxP33.png', 'student_images/nBWkRo8Y5zsZrAD2KIfXXIRl3jVpQ4oZOg3rjLiL.png', 'student_images/FP4HHbGrYEShd4K5g7JgbzVWIpfuKiMI8L7QbNn3.png', 8, 12, 1, 2, NULL, '$2y$10$w0U3nxCyOv1jZiLxO9T1L./AfoZCbsk5X43.2WOldjXY6BkyGl0ya', 5, NULL, '2022-11-27 01:19:09', '2022-11-27 01:19:09'),
-(25, 'Faaris', 'faaris106', NULL, '132546813212', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2022-12-13', 'Male', 'Islam', 'B+', 'Galib Jaman', '01766555213', NULL, '5451321321321', 'Farhana Akter', '01766555213', NULL, '3541231321321', 'Galib Jaman', '01766555213', 'student_images/T6bjTkPEIH0BqhY2C62VIR3J1r8eCXtkhag950i4.png', 'student_images/ZqZnpJ2rWWkFbo6X6LvJ6MljFEpKIT9xtSg2i1sV.png', 'student_images/XNNXVRccegUu6r23E6MPyYM20JL1MyURP4vvFYKj.png', 8, 12, 1, 6, NULL, '$2y$10$kVQIGAM36uvWgq0P8WtuQu8ADEnXteYLbhC9aDCPydP5mHt.7QybG', 6, NULL, '2022-12-22 01:54:02', '2022-12-22 01:54:02'),
-(26, 'Shawal Rahman', 'shawal_rahman37', NULL, '111321321325', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2008-01-08', 'Male', 'Islam', 'B+', 'Goku', '01766635213', NULL, '54654654654546', 'Shakura', '01766635213', NULL, '54685465465464', 'Goku', '01766635213', 'student_images/dPkuVL6i3kLRC0lAogA5DamCOE0AMqymeNvlauUB.png', 'student_images/GXB23BrAw6laqD78cbwMbtX2djdt4NUG71ONLOFf.png', 'student_images/OHD9TiszKXwjWsXCxdjbQbibnhGtKcOo61ARnawA.png', 3, 1, 1, 7, NULL, '$2y$10$ogq75jODSAqObxCS96WQieFCDmCaEDuNc.5N3heCdrG9sauqwOeq.', 7, NULL, '2023-01-07 02:47:34', '2023-01-07 02:47:34'),
-(27, 'Mushfiqur Rahman', 'mushfiqur_rahman87', NULL, '54613213254654', 'Amirabad, Jhalokathi', 'Amirabad, Jhalokathi', '2008-01-14', 'Male', 'Islam', 'B+', 'Lutfur Rahman', '01747371076', NULL, '13254641132132', 'Salma Begum', '01769543257', NULL, '54132231325467', 'Lutfur Rahman', '01747371076', 'student_images/Wl58SXTz11QfkHxZYjcCpdQyNqewfqnT6TNamCF0.png', 'student_images/rMSusb6yZ3uNU0h0CTqCyr3c0pNWjotmoox9GaWP.jpg', 'student_images/LNRl08rYHWujHIteYCwOKmWQ6nZsrjAwJZKwifme.png', 8, 12, 1, 7, NULL, '$2y$10$cPvH8XIsKr3EZtGLe8s7/.xE0mR6nF50RR0v4LVw8lpdXODpWepiG', 5, NULL, '2023-01-14 00:14:47', '2023-01-14 00:14:47');
+INSERT INTO `students` (`id`, `name`, `username`, `email`, `birth_certificate_number`, `present_address`, `permanent_address`, `birth_date`, `gender`, `religion`, `blood_group`, `father_name`, `father_contact`, `father_profession`, `father_nid`, `mother_name`, `mother_contact`, `mother_profession`, `mother_nid`, `local_guardian_name`, `local_guardian_contact`, `father_image`, `mother_image`, `student_image`, `class`, `section_id`, `status`, `class_roll`, `new`, `previous_roll`, `email_verified_at`, `password`, `parent_id`, `remember_token`, `created_at`, `updated_at`) VALUES
+(24, 'Farhana Akter', 'farhana_akter052', NULL, '54546546545545', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2022-02-23', 'Female', 'Islam', 'B+', 'Dewan Lutfur Rahman', '01747371076', NULL, '132546981356', 'Salma Begum', '01747371076', NULL, '151325464681', 'Dewan Lutfur Rahman', '01747371076', 'student_images/mQ2o3gPBneBmRGoMequfLgkK7f5W1BdFsGdgxP33.png', 'student_images/nBWkRo8Y5zsZrAD2KIfXXIRl3jVpQ4oZOg3rjLiL.png', 'student_images/FP4HHbGrYEShd4K5g7JgbzVWIpfuKiMI8L7QbNn3.png', 8, 12, 1, 2, 0, NULL, NULL, '$2y$10$w0U3nxCyOv1jZiLxO9T1L./AfoZCbsk5X43.2WOldjXY6BkyGl0ya', 5, NULL, '2022-11-27 01:19:09', '2022-11-27 01:19:09'),
+(25, 'Faaris', 'faaris106', NULL, '132546813212', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2022-12-13', 'Male', 'Islam', 'B+', 'Galib Jaman', '01766555213', NULL, '5451321321321', 'Farhana Akter', '01766555213', NULL, '3541231321321', 'Galib Jaman', '01766555213', 'student_images/T6bjTkPEIH0BqhY2C62VIR3J1r8eCXtkhag950i4.png', 'student_images/ZqZnpJ2rWWkFbo6X6LvJ6MljFEpKIT9xtSg2i1sV.png', 'student_images/XNNXVRccegUu6r23E6MPyYM20JL1MyURP4vvFYKj.png', 8, 12, 1, 6, 0, NULL, NULL, '$2y$10$kVQIGAM36uvWgq0P8WtuQu8ADEnXteYLbhC9aDCPydP5mHt.7QybG', 6, NULL, '2022-12-22 01:54:02', '2022-12-22 01:54:02'),
+(26, 'Shawal Rahman', 'shawal_rahman37', NULL, '111321321325', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2008-01-08', 'Male', 'Islam', 'B+', 'Goku', '01766635213', NULL, '54654654654546', 'Shakura', '01766635213', NULL, '54685465465464', 'Goku', '01766635213', 'student_images/dPkuVL6i3kLRC0lAogA5DamCOE0AMqymeNvlauUB.png', 'student_images/GXB23BrAw6laqD78cbwMbtX2djdt4NUG71ONLOFf.png', 'student_images/OHD9TiszKXwjWsXCxdjbQbibnhGtKcOo61ARnawA.png', 8, 12, 1, 10, 0, NULL, NULL, '$2y$10$ogq75jODSAqObxCS96WQieFCDmCaEDuNc.5N3heCdrG9sauqwOeq.', 7, NULL, '2023-01-07 02:47:34', '2023-01-07 02:47:34'),
+(27, 'Mushfiqur Rahman', 'mushfiqur_rahman87', NULL, '54613213254654', 'Amirabad, Jhalokathi', 'Amirabad, Jhalokathi', '2008-01-14', 'Male', 'Islam', 'B+', 'Lutfur Rahman', '01747371076', NULL, '13254641132132', 'Salma Begum', '01769543257', NULL, '54132231325467', 'Lutfur Rahman', '01747371076', 'student_images/Wl58SXTz11QfkHxZYjcCpdQyNqewfqnT6TNamCF0.png', 'student_images/rMSusb6yZ3uNU0h0CTqCyr3c0pNWjotmoox9GaWP.jpg', 'student_images/LNRl08rYHWujHIteYCwOKmWQ6nZsrjAwJZKwifme.png', 8, 12, 1, 7, 0, NULL, NULL, '$2y$10$cPvH8XIsKr3EZtGLe8s7/.xE0mR6nF50RR0v4LVw8lpdXODpWepiG', 5, NULL, '2023-01-14 00:14:47', '2023-01-14 00:14:47');
 
 -- --------------------------------------------------------
 
@@ -875,7 +926,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `results`
 --
 ALTER TABLE `results`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- AUTO_INCREMENT for table `roles`

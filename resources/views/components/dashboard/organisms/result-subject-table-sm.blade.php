@@ -1,6 +1,6 @@
 @props(['subjects', 'year', 'type', 'current_subject_id', 'current_section_id'])
 <div class="table_box grid-row1" style="padding-inline: 15px;">
-    <div class="table-wrapper">
+    <div class="table-wrapper" data-simplebar>
         <div>            
             <h2 class="text-title pt-2 pb-2">My Subjects</h2>
             @foreach ($subjects as $subject)

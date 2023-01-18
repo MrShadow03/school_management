@@ -41,3 +41,6 @@ html::-webkit-scrollbar-thumb {
   border-radius: 5rem;
 
 }
+div::-webkit-scrollbar {
+  display: none;
+}

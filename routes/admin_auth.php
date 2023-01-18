@@ -86,6 +86,7 @@ Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin/', 'as' => 'admin
     Route::patch('grade/update', [GradeController::class, 'update'])->name('grade.update');
     
     //student promotion routes
+    Route::get('promotion/getSections/{section_id}', [StudentPromotionController::class, 'getSections'])->name('promotion.getSections');
     Route::get('promotion/index', [StudentPromotionController::class, 'index'])->name('promotion.index');
     Route::patch('promotion/update', [StudentPromotionController::class, 'update'])->name('promotion.update');
 
