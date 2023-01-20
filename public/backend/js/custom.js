@@ -73,14 +73,20 @@ if(document.querySelectorAll('.custom_scrollbar')){
 
 function getAvailableSections(section_id){
   let promoted_section = document.getElementById('promoted_section_id');
+  let table_wrapper = document.getElementById('table-wrapper');
+  let table_body = document.getElementById('table-body');
   //get sections with axios
   axios.get(`getSections/${section_id}`)
   .then(function(response){
+    let data = response.data.sections;
+    let students = response.data.students;
+
+    console.log(students);
+
     //first empty the select
     while(promoted_section.firstChild){
       promoted_section.removeChild(promoted_section.firstChild);
     }
-    let data = response.data;
     if(typeof data == 'string'){
       let option = document.createElement('option');
       option.value = '';
@@ -98,9 +104,31 @@ function getAvailableSections(section_id){
         option.value = section.id;
         option.innerText = section.name;
         optgroup.appendChild(option);
-        console.log(section);
       });
     }
+
+    //Load the students inside the table body
+    table_wrapper.classList.remove('d-none');
+    //if there is any child remove it
+    while(table_body.firstChild){
+      table_body.removeChild(table_body.firstChild);
+    }
+    //if students are not available then show the message
+    if(students.length == 0){
+      table_wrapper.innerHTML = `<div class="alert alert-danger text-center">No promotable students are available in this section</div>`;
+    }
+    //if students are available then show them
+    let i = 1;
+    students.forEach(result => {
+      let style = result.grade == 'F' ? 'alert alert-danger' : 'alert alert-success';
+      table_body.innerHTML += `<tr class="body-row ${style}">
+                                  <td class="body-column text-body-column">${i}</td>
+                                  <td class="body-column text-body-column">${result.student.name}</td>
+                                  <td class="body-column text-body-column">${result.total}</td>
+                                  <td class="body-column text-body-column">${result.grade}</td>
+                                </tr>`;
+      i++;
+    });
   })
   .catch(function(error){
     console.log(error);

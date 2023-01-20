@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Grade;
 use App\Models\Result;
 use App\Models\Section;

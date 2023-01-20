@@ -31,24 +31,21 @@
             <button type="submit" class="btn mt-1" style="padding-block: 11px; margin-top: 26px;"><i class="fa-regular fa-arrow-up-wide-short"></i> Promote</button>
         </div>
     </form>
-    <div class="table-wrapper border-top d-none">
+    <div class="table-wrapper border-top d-none" id="table-wrapper">
         <table class="w-100">
             <thead>
                 <tr class="heading-row">
-                    <th class="heading-column text-title-column">Class</th>
-                    <th class="heading-column text-title-column">Section</th>
-                    <th class="heading-column text-title-column">Subject</th>
-                    <th class="heading-column text-title-column">Day</th>
+                    <th class="heading-column text-title-column">Merit Position</th>
+                    <th class="heading-column text-title-column">Name</th>
+                    <th class="heading-column text-title-column">Total Marks</th>
+                    <th class="heading-column text-title-column">Grade</th>
                 </tr>
             </thead>
             <tbody id="table-body">
                 <tr class="body-row">
-                    <td class="body-column text-body-column"></td>
-                    <td class="body-column text-body-column"></td>
-                    <td class="body-column text-body-column"></td>
-                    <td class="body-column text-body-column"></td>
                 </tr>
             </tbody>
         </table>
+        <p class="form_subtitle text-alert pt-1"><i class="fa-solid fa-info-circle"></i> Failed Students Will not be promoted automatically.</p>
     </div>
 </div>
