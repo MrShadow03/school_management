@@ -46,6 +46,7 @@ Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin/', 'as' => 'admin
     Route::get('register-student/create', [StudentRegisterController::class, 'create'])->name('register-student.create');
     Route::post('register-student/store', [StudentRegisterController::class, 'store'])->name('register-student.store');
     Route::get('register-student/getRoll/{section_id}', [StudentRegisterController::class, 'getRoll'])->name('register-student.getRoll');
+    
     //Teacher
     Route::get('register-teacher/create', [TeacherRegisterController::class, 'create'])->name('register-teacher.create');
     Route::post('register-teacher/store', [TeacherRegisterController::class, 'store'])->name('register-teacher.store');
@@ -89,7 +90,7 @@ Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin/', 'as' => 'admin
     Route::get('promotion/getSections/{section_id}', [StudentPromotionController::class, 'getSections'])->name('promotion.getSections');
     Route::get('promotion/index', [StudentPromotionController::class, 'index'])->name('promotion.index');
     Route::patch('promotion/update', [StudentPromotionController::class, 'update'])->name('promotion.update');
-
+    Route::patch('promotion/roll_back', [StudentPromotionController::class, 'rollBack'])->name('promotion.roll_back');
 
     Route::get('section/axios/{name}', [SectionController::class, 'axios'])->name('section.axios');
 });

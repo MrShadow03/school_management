@@ -22,21 +22,14 @@ $logout_route = $guard.'.logout';
     <div class="right_content">
         <x-dashboard.organisms.nav :username="$user->name" :logout_route="$logout_route" />
         <div>
-            <x-dashboard.organisms.promotion-table-sm :sections="$sections"/>
+            <x-dashboard.organisms.roll_back-form />
         </div>
     </div>
-
 @endsection
 @section('exclusive_scripts')
 <script>
     //Tom selects
     new TomSelect("#current_section_id",{
-        sortField: {
-            field: "text",
-            direction: "asc"
-        }
-    });
-    new TomSelect("#roll_back_section",{
         sortField: {
             field: "text",
             direction: "asc"

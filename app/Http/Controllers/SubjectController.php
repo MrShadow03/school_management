@@ -43,8 +43,8 @@ class SubjectController extends Controller
         ])->validateWithBag('store');
 
         //return with withInput() to keep the form data
-        dd($validation);
-        return  $validation->fails() ? redirect()->back()->withInput($validation, 'form_store') : '';
+        //dd($validation);
+        //return  $validation->fails() ? redirect()->back()->withInput($validation, 'form_store') : '';
 
         $subject = Subject::create($validation);
 

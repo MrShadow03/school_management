@@ -32,12 +32,12 @@
                     <td class="body-column text-body-column">{!! ($mid_results->where('subject_id', $subject->id)->first() ?? '') ? ($mid_results->where('subject_id', $subject->id)->first()->cq ?? '<i class="las la-ellipsis-h"></i>') : '<i class="fa-light fa-cloud-slash"></i>' !!}</td>
                     <td class="body-column text-body-column">{!! ($mid_results->where('subject_id', $subject->id)->first() ?? '') ? ($mid_results->where('subject_id', $subject->id)->first()->mcq ?? '<i class="las la-ellipsis-h"></i>') : '<i class="fa-light fa-cloud-slash"></i>' !!}</td>
                     <td class="body-column text-body-column">{{ $mid_results->where('subject_id', $subject->id)->first()->total ?? '' }}</td>
-                    <td class="body-column text-title-column border-right {{  $mid_results->where('subject_id', $subject->id)->first()->grade == 'F' ? 'text-alert':'' }}">{{ $mid_results->where('subject_id', $subject->id)->first()->grade ?? '' }}</td>
+                    <td class="body-column text-title-column border-right {{ $mid_results->where('subject_id', $subject->id)->first() == null ? '' : ($mid_results->where('subject_id', $subject->id)->first()->grade == 'F' ? 'text-alert' : '') }}">{{ $mid_results->where('subject_id', $subject->id)->first()->grade ?? '' }}</td>
                     
                     <td class="body-column text-body-column">{!! ($final_results->where('subject_id', $subject->id)->first() ?? '') ? ($final_results->where('subject_id', $subject->id)->first()->cq ?? '<i class="las la-ellipsis-h"></i>') : '<i class="fa-light fa-cloud-slash"></i>' !!}</td>
                     <td class="body-column text-body-column">{!! ($final_results->where('subject_id', $subject->id)->first() ?? '') ? ($final_results->where('subject_id', $subject->id)->first()->mcq ?? '<i class="las la-ellipsis-h"></i>') : '<i class="fa-light fa-cloud-slash"></i>' !!}</td>
                     <td class="body-column text-body-column">{{ $final_results->where('subject_id', $subject->id)->first()->total ?? '' }}</td>
-                    <td class="body-column text-title-column {{  $final_results->where('subject_id', $subject->id)->first()->grade == 'F' ? 'text-alert':'' }} ">{{ $final_results->where('subject_id', $subject->id)->first()->grade ?? '' }}</td>
+                    <td class="body-column text-title-column {{ $final_results->where('subject_id', $subject->id)->first() == null ? '' : ($final_results->where('subject_id', $subject->id)->first()->grade == 'F' ? 'text-alert' : '') }} ">{{ $final_results->where('subject_id', $subject->id)->first()->grade ?? '' }}</td>
                     @php
                         $total_marks += $subject->total_marks;
                     @endphp

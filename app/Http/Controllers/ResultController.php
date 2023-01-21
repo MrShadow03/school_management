@@ -163,6 +163,9 @@ class ResultController extends Controller
         $request->has('practical_'.$request->student_id) ? $total += $request->input('practical_'.$request->student_id) : '';
         $data['total'] = $total;
 
+        //lowest score from grade table
+        $lowest_score = Grade::where('name','C')->first()->score;
+
         //From the total marks calculate the grade based on the grade table
         $highest_marks = Subject::find($request->subject_id)->total_marks;
         $total_percentage = ($total/$highest_marks)*100;
@@ -170,7 +173,7 @@ class ResultController extends Controller
 
         //for class 9 and 10, c grade is from 33%
         if(Section::find($request->section_id)->class == 9 || Section::find($request->section_id)->class == 10){
-            $grade = $total_percentage >= 33 ? $grade : 'C';
+            $grade = $total_percentage >= 33 && $total_percentage < $lowest_score ? 'C' : $grade;
         }
         
         $data['grade'] = $grade;
@@ -195,7 +198,7 @@ class ResultController extends Controller
         
         //for class 9 and 10 c grade is from 33%
         if(Section::find($request->section_id)->class == 9 || Section::find($request->section_id)->class == 10){
-            $grand_grade = $grand_total_percentage >= 33 ? $grand_grade : 'C';
+            $grand_grade = $grand_total_percentage >= 33 && $grand_total_percentage < $lowest_score ? 'C' : $grand_grade;
         }
 
         //if one of the subject is F then grand total is F
@@ -255,7 +258,7 @@ class ResultController extends Controller
 
                 //for class 9 and 10 c subject_grade is from 33%
                 if(Section::find($request->section_id)->class == 9 || Section::find($request->section_id)->class == 10){
-                    $subject_grade = $subject_total_percentage >= 33 ? $subject_grade : 'C';
+                    $subject_grade = $subject_total_percentage >= 33 && $subject_total_percentage < $lowest_score ? 'C' : $subject_grade;
                 }
 
                 //if one of the subject is F then final total is F
@@ -270,9 +273,10 @@ class ResultController extends Controller
         $final_total_percentage = ($final_total/$highest_grand_total)*100;
         $final_grade = Grade::where('score','<=',$final_total_percentage)->orderBy('score','desc')->first()->name;
 
+
         //for class 9 and 10 c grade is from 33%
         if(Section::find($request->section_id)->class == 9 || Section::find($request->section_id)->class == 10){
-            $final_grade = $final_total_percentage >= 33 ? $final_grade : 'C';
+            $final_grade = $final_total_percentage >= 33 && $final_total_percentage < $lowest_score ? 'C' : $final_grade;
         }
 
         //create the final total
@@ -289,7 +293,7 @@ class ResultController extends Controller
                 'section_id' => $request->section_id, 
                 'year' => $request->year,
                 'final_total' => 1,
-                'grade' => $fail ? 'F' : $final_grade
+                'grade' => $final_grade
             ]
         );
 

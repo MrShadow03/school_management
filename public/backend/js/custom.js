@@ -74,7 +74,6 @@ if(document.querySelectorAll('.custom_scrollbar')){
 function getAvailableSections(section_id){
   let promoted_section = document.getElementById('promoted_section_id');
   let table_wrapper = document.getElementById('table-wrapper');
-  let table_body = document.getElementById('table-body');
   //get sections with axios
   axios.get(`getSections/${section_id}`)
   .then(function(response){
@@ -95,40 +94,70 @@ function getAvailableSections(section_id){
       option.selected = true;
       promoted_section.appendChild(option);
     }else{
-      //create optgroup
-      let optgroup = document.createElement('optgroup');
-      optgroup.label = `Class: ${data[0].class}`;
-      promoted_section.appendChild(optgroup);
-      data.forEach(section => {
+      if(data.length){
+        let optgroup = document.createElement('optgroup');
+        optgroup.label = `Class: ${data[0].class}`;
+        promoted_section.appendChild(optgroup);
+        data.forEach(section => {
+          let option = document.createElement('option');
+          option.value = section.id;
+          option.innerText = section.name;
+          optgroup.appendChild(option);
+        });
+      }else{
         let option = document.createElement('option');
-        option.value = section.id;
-        option.innerText = section.name;
-        optgroup.appendChild(option);
-      });
+        option.value = '';
+        option.innerText = 'No section available';
+        option.disabled = true;
+        option.selected = true;
+        promoted_section.appendChild(option);
+      }
     }
 
     //Load the students inside the table body
     table_wrapper.classList.remove('d-none');
-    //if there is any child remove it
-    while(table_body.firstChild){
-      table_body.removeChild(table_body.firstChild);
-    }
+
     //if students are not available then show the message
     if(students.length == 0){
       table_wrapper.innerHTML = `<div class="alert alert-danger text-center">No promotable students are available in this section</div>`;
+    }else{
+      //if students are available then show them
+      //set table wrapper to default
+      table_wrapper.innerHTML = `<table class="w-100">
+                                    <thead>
+                                        <tr class="heading-row">
+                                            <th class="heading-column text-title-column">Merit Position</th>
+                                            <th class="heading-column text-title-column">Name</th>
+                                            <th class="heading-column text-title-column">Total Marks</th>
+                                            <th class="heading-column text-title-column">Grade</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-body">
+                                        <tr class="body-row">
+                                        </tr>
+                                    </tbody>
+                                  </table>
+                                  <p class="form_subtitle text-warning pt-1"><i class="fa-solid fa-info-circle"></i> Failed Students Will not be promoted automatically.</p>`;
+      //get the table body
+      let table_body = document.getElementById('table-body');
+
+      //if there is any child remove it
+      while(table_body && table_body.firstChild){
+        table_body.removeChild(table_body.firstChild);
+      }
+
+      let i = 1;
+      students.forEach(result => {
+        let style = result.grade == 'F' ? 'alert alert-danger' : 'alert alert-success';
+        table_body.innerHTML += `<tr class="body-row ${style}">
+                                    <td class="body-column text-body-column">${i}</td>
+                                    <td class="body-column text-body-column">${result.student.name}</td>
+                                    <td class="body-column text-body-column">${result.total}</td>
+                                    <td class="body-column text-body-column">${result.grade}</td>
+                                  </tr>`;
+        i++;
+      });
     }
-    //if students are available then show them
-    let i = 1;
-    students.forEach(result => {
-      let style = result.grade == 'F' ? 'alert alert-danger' : 'alert alert-success';
-      table_body.innerHTML += `<tr class="body-row ${style}">
-                                  <td class="body-column text-body-column">${i}</td>
-                                  <td class="body-column text-body-column">${result.student.name}</td>
-                                  <td class="body-column text-body-column">${result.total}</td>
-                                  <td class="body-column text-body-column">${result.grade}</td>
-                                </tr>`;
-      i++;
-    });
   })
   .catch(function(error){
     console.log(error);

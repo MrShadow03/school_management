@@ -283,7 +283,7 @@ $logout_route = $guard.'.logout';
                     </div>
                     <div class="input_field">
                         <label for="class_roll">Class Roll</label>
-                        <input value="{{old('class_roll')}}" type="number" id="class_roll" name="class_roll" onkeyup="createUsername()">
+                        <input value="{{old('class_roll')}}" type="number" id="class_roll" name="class_roll" onchange="createUsername()">
                         @error('class_roll')
                             <p class="input_error">{{$message}}</p>
                         @enderror

@@ -194,6 +194,8 @@
 
 .ts-wrapper {
   position: relative;
+  opacity: 1 !important;
+  z-index: 0;
 }
 
 .ts-dropdown,
