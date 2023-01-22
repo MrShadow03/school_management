@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2023 at 01:51 PM
+-- Generation Time: Jan 22, 2023 at 01:28 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -350,7 +350,58 @@ INSERT INTO `results` (`id`, `student_id`, `section_id`, `subject_id`, `year`, `
 (136, 31, 10, 5, 2023, 'final', 20, 10, 2, 0, 0, 32, 'F', '2023-01-21 05:29:39', '2023-01-21 05:29:39'),
 (137, 31, 10, NULL, 2023, 'final', NULL, NULL, NULL, 1, 0, 32, 'F', '2023-01-21 05:29:39', '2023-01-21 05:29:39'),
 (144, 31, 10, 5, 2023, 'mid', 20, 10, 7, 0, 0, 37, 'C', '2023-01-21 06:33:59', '2023-01-21 06:33:59'),
-(145, 31, 10, NULL, 2023, NULL, NULL, NULL, NULL, 0, 1, 35, 'C', '2023-01-21 06:34:00', '2023-01-21 06:34:00');
+(145, 31, 10, NULL, 2023, NULL, NULL, NULL, NULL, 0, 1, 35, 'C', '2023-01-21 06:34:00', '2023-01-21 06:34:00'),
+(146, 34, 16, 22, 2023, 'mid', 78, NULL, NULL, 0, 0, 78, 'A', '2023-01-22 05:10:41', '2023-01-22 05:10:41'),
+(147, 34, 16, NULL, 2023, 'mid', NULL, NULL, NULL, 1, 0, 427, 'A-', '2023-01-22 05:23:45', '2023-01-22 05:10:41'),
+(148, 34, 16, NULL, 2023, NULL, NULL, NULL, NULL, 0, 1, 453, 'A', '2023-01-22 05:48:30', '2023-01-22 05:10:41'),
+(149, 32, 16, 22, 2023, 'mid', 89, NULL, NULL, 0, 0, 89, 'A+', '2023-01-22 05:10:47', '2023-01-22 05:10:47'),
+(150, 32, 16, NULL, 2023, 'mid', NULL, NULL, NULL, 1, 0, 492, 'A', '2023-01-22 05:23:20', '2023-01-22 05:10:47'),
+(151, 32, 16, NULL, 2023, NULL, NULL, NULL, NULL, 0, 1, 488, 'A', '2023-01-22 05:27:34', '2023-01-22 05:10:47'),
+(152, 33, 16, 22, 2023, 'mid', 72, NULL, NULL, 0, 0, 72, 'A', '2023-01-22 05:10:51', '2023-01-22 05:10:51'),
+(153, 33, 16, NULL, 2023, 'mid', NULL, NULL, NULL, 1, 0, 407, 'F', '2023-01-22 05:23:30', '2023-01-22 05:10:51'),
+(154, 33, 16, NULL, 2023, NULL, NULL, NULL, NULL, 0, 1, 471, 'A', '2023-01-22 05:27:47', '2023-01-22 05:10:51'),
+(155, 32, 16, 21, 2023, 'mid', 65, 23, NULL, 0, 0, 88, 'A+', '2023-01-22 05:11:36', '2023-01-22 05:11:36'),
+(156, 33, 16, 21, 2023, 'mid', 39, 25, NULL, 0, 0, 64, 'A-', '2023-01-22 05:11:45', '2023-01-22 05:11:45'),
+(157, 34, 16, 21, 2023, 'mid', 69, 18, NULL, 0, 0, 87, 'A+', '2023-01-22 05:11:57', '2023-01-22 05:11:57'),
+(158, 32, 16, 20, 2023, 'mid', 32, 18, NULL, 0, 0, 50, 'B', '2023-01-22 05:12:23', '2023-01-22 05:12:23'),
+(159, 33, 16, 20, 2023, 'mid', 46, 26, NULL, 0, 0, 72, 'A', '2023-01-22 05:12:45', '2023-01-22 05:12:45'),
+(160, 34, 16, 20, 2023, 'mid', 26, 30, NULL, 0, 0, 56, 'B', '2023-01-22 05:13:03', '2023-01-22 05:13:03'),
+(161, 32, 16, 19, 2023, 'mid', 69, 23, NULL, 0, 0, 92, 'A+', '2023-01-22 05:13:19', '2023-01-22 05:13:19'),
+(162, 34, 16, 19, 2023, 'mid', 37, 17, NULL, 0, 0, 54, 'B', '2023-01-22 05:13:34', '2023-01-22 05:13:34'),
+(163, 33, 16, 19, 2023, 'mid', 2, 9, NULL, 0, 0, 11, 'F', '2023-01-22 05:13:39', '2023-01-22 05:13:39'),
+(164, 33, 16, 18, 2023, 'mid', 46, 23, NULL, 0, 0, 69, 'A-', '2023-01-22 05:13:56', '2023-01-22 05:13:56'),
+(165, 34, 16, 18, 2023, 'mid', 34, 13, NULL, 0, 0, 47, 'C', '2023-01-22 05:14:11', '2023-01-22 05:14:11'),
+(166, 32, 16, 18, 2023, 'mid', 34, 15, NULL, 0, 0, 49, 'C', '2023-01-22 05:14:26', '2023-01-22 05:14:26'),
+(167, 32, 16, 24, 2023, 'mid', 56, 28, NULL, 0, 0, 84, 'A+', '2023-01-22 05:14:42', '2023-01-22 05:14:42'),
+(168, 33, 16, 24, 2023, 'mid', 49, 26, NULL, 0, 0, 75, 'A', '2023-01-22 05:15:01', '2023-01-22 05:15:01'),
+(169, 34, 16, 24, 2023, 'mid', 48, 23, NULL, 0, 0, 71, 'A', '2023-01-22 05:15:07', '2023-01-22 05:15:07'),
+(170, 32, 16, 23, 2023, 'mid', NULL, 20, 20, 0, 0, 40, 'A+', '2023-01-22 05:23:20', '2023-01-22 05:23:20'),
+(171, 33, 16, 23, 2023, 'mid', NULL, 19, 25, 0, 0, 44, 'A+', '2023-01-22 05:23:30', '2023-01-22 05:23:30'),
+(172, 34, 16, 23, 2023, 'mid', NULL, 16, 18, 0, 0, 34, 'A-', '2023-01-22 05:23:44', '2023-01-22 05:23:44'),
+(173, 32, 16, 23, 2023, 'final', NULL, 19, 21, 0, 0, 40, 'A+', '2023-01-22 05:24:17', '2023-01-22 05:24:17'),
+(174, 32, 16, NULL, 2023, 'final', NULL, NULL, NULL, 1, 0, 480, 'A', '2023-01-22 05:27:34', '2023-01-22 05:24:17'),
+(175, 34, 16, 23, 2023, 'final', NULL, 18, 16, 0, 0, 34, 'A-', '2023-01-22 05:24:22', '2023-01-22 05:24:22'),
+(176, 34, 16, NULL, 2023, 'final', NULL, NULL, NULL, 1, 0, 476, 'A', '2023-01-22 05:27:39', '2023-01-22 05:24:22'),
+(177, 33, 16, 23, 2023, 'final', NULL, 22, 23, 0, 0, 45, 'A+', '2023-01-22 05:24:26', '2023-01-22 05:24:26'),
+(178, 33, 16, NULL, 2023, 'final', NULL, NULL, NULL, 1, 0, 531, 'A+', '2023-01-22 05:27:47', '2023-01-22 05:24:26'),
+(180, 32, 16, 24, 2023, 'final', 49, 21, NULL, 0, 0, 70, 'A', '2023-01-22 05:24:59', '2023-01-22 05:24:59'),
+(181, 33, 16, 24, 2023, 'final', 51, 27, NULL, 0, 0, 78, 'A', '2023-01-22 05:25:16', '2023-01-22 05:25:16'),
+(182, 32, 16, 18, 2023, 'final', 42, 22, NULL, 0, 0, 64, 'A-', '2023-01-22 05:25:28', '2023-01-22 05:25:28'),
+(183, 33, 16, 18, 2023, 'final', 67, 12, NULL, 0, 0, 79, 'A', '2023-01-22 05:25:35', '2023-01-22 05:25:35'),
+(184, 34, 16, 18, 2023, 'final', 48, 13, NULL, 0, 0, 61, 'A-', '2023-01-22 05:25:43', '2023-01-22 05:25:43'),
+(185, 33, 16, 19, 2023, 'final', 65, 28, NULL, 0, 0, 93, 'A+', '2023-01-22 05:26:02', '2023-01-22 05:26:02'),
+(186, 34, 16, 19, 2023, 'final', 44, 25, NULL, 0, 0, 69, 'A-', '2023-01-22 05:26:11', '2023-01-22 05:26:11'),
+(187, 32, 16, 19, 2023, 'final', 54, 23, NULL, 0, 0, 77, 'A', '2023-01-22 05:26:25', '2023-01-22 05:26:25'),
+(188, 33, 16, 20, 2023, 'final', 43, 16, NULL, 0, 0, 59, 'B', '2023-01-22 05:26:32', '2023-01-22 05:26:32'),
+(189, 34, 16, 20, 2023, 'final', 55, 23, NULL, 0, 0, 78, 'A', '2023-01-22 05:26:43', '2023-01-22 05:26:43'),
+(190, 32, 16, 20, 2023, 'final', 55, 20, NULL, 0, 0, 75, 'A', '2023-01-22 05:27:05', '2023-01-22 05:27:05'),
+(191, 34, 16, 21, 2023, 'final', 59, 23, NULL, 0, 0, 82, 'A+', '2023-01-22 05:27:15', '2023-01-22 05:27:15'),
+(192, 33, 16, 21, 2023, 'final', 55, 24, NULL, 0, 0, 79, 'A', '2023-01-22 05:27:20', '2023-01-22 05:27:20'),
+(193, 32, 16, 21, 2023, 'final', 54, 26, NULL, 0, 0, 80, 'A+', '2023-01-22 05:27:29', '2023-01-22 05:27:29'),
+(194, 32, 16, 22, 2023, 'final', 74, NULL, NULL, 0, 0, 74, 'A', '2023-01-22 05:27:34', '2023-01-22 05:27:34'),
+(195, 34, 16, 22, 2023, 'final', 56, NULL, NULL, 0, 0, 56, 'B', '2023-01-22 05:27:39', '2023-01-22 05:27:39'),
+(196, 33, 16, 22, 2023, 'final', 98, NULL, NULL, 0, 0, 98, 'A+', '2023-01-22 05:27:47', '2023-01-22 05:27:47'),
+(197, 34, 16, 24, 2023, 'final', 68, 28, NULL, 0, 0, 96, 'A+', '2023-01-22 05:48:30', '2023-01-22 05:48:30');
 
 -- --------------------------------------------------------
 
@@ -452,7 +503,8 @@ INSERT INTO `sections` (`id`, `name`, `class`, `teacher_id`, `updated_at`, `crea
 (12, 'Uranus', 8, 6, '2023-01-03 03:02:48', '2022-12-20 23:06:22'),
 (13, 'Neutron', 10, 8, '2022-12-22 03:33:59', '2022-12-22 03:33:59'),
 (14, 'Mango', 9, 6, '2023-01-21 04:54:53', '2022-12-24 02:35:59'),
-(15, 'Yellow', 4, 7, '2023-01-13 22:42:32', '2023-01-13 22:42:32');
+(15, 'Yellow', 4, 7, '2023-01-13 22:42:32', '2023-01-13 22:42:32'),
+(16, 'Sun', 7, 8, '2023-01-22 04:55:32', '2023-01-22 04:50:19');
 
 -- --------------------------------------------------------
 
@@ -530,14 +582,17 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `name`, `username`, `email`, `birth_certificate_number`, `present_address`, `permanent_address`, `birth_date`, `gender`, `religion`, `blood_group`, `father_name`, `father_contact`, `father_profession`, `father_nid`, `mother_name`, `mother_contact`, `mother_profession`, `mother_nid`, `local_guardian_name`, `local_guardian_contact`, `father_image`, `mother_image`, `student_image`, `class`, `section_id`, `status`, `class_roll`, `new`, `previous_roll`, `previous_section_id`, `email_verified_at`, `password`, `parent_id`, `remember_token`, `created_at`, `updated_at`) VALUES
-(24, 'Farhana Akter', 'farhana_akter052', NULL, '54546546545545', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2022-02-23', 'Female', 'Islam', 'B+', 'Dewan Lutfur Rahman', '01747371076', NULL, '132546981356', 'Salma Begum', '01747371076', NULL, '151325464681', 'Dewan Lutfur Rahman', '01747371076', 'student_images/mQ2o3gPBneBmRGoMequfLgkK7f5W1BdFsGdgxP33.png', 'student_images/nBWkRo8Y5zsZrAD2KIfXXIRl3jVpQ4oZOg3rjLiL.png', 'student_images/FP4HHbGrYEShd4K5g7JgbzVWIpfuKiMI8L7QbNn3.png', 9, 14, 1, 2, 1, 2, 12, NULL, '$2y$10$w0U3nxCyOv1jZiLxO9T1L./AfoZCbsk5X43.2WOldjXY6BkyGl0ya', 5, NULL, '2022-11-27 01:19:09', '2023-01-21 04:09:56'),
-(25, 'Faaris', 'faaris106', NULL, '132546813212', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2022-12-13', 'Male', 'Islam', 'B+', 'Galib Jaman', '01766555213', NULL, '5451321321321', 'Farhana Akter', '01766555213', NULL, '3541231321321', 'Galib Jaman', '01766555213', 'student_images/T6bjTkPEIH0BqhY2C62VIR3J1r8eCXtkhag950i4.png', 'student_images/ZqZnpJ2rWWkFbo6X6LvJ6MljFEpKIT9xtSg2i1sV.png', 'student_images/XNNXVRccegUu6r23E6MPyYM20JL1MyURP4vvFYKj.png', 9, 14, 1, 1, 1, 6, 12, NULL, '$2y$10$kVQIGAM36uvWgq0P8WtuQu8ADEnXteYLbhC9aDCPydP5mHt.7QybG', 6, NULL, '2022-12-22 01:54:02', '2023-01-21 04:09:56'),
-(26, 'Shawal Rahman', 'shawal_rahman37', NULL, '111321321325', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2008-01-08', 'Male', 'Islam', 'B+', 'Goku', '01766635213', NULL, '54654654654546', 'Shakura', '01766635213', NULL, '54685465465464', 'Goku', '01766635213', 'student_images/dPkuVL6i3kLRC0lAogA5DamCOE0AMqymeNvlauUB.png', 'student_images/GXB23BrAw6laqD78cbwMbtX2djdt4NUG71ONLOFf.png', 'student_images/OHD9TiszKXwjWsXCxdjbQbibnhGtKcOo61ARnawA.png', 9, 14, 1, 3, 1, 10, 12, NULL, '$2y$10$ogq75jODSAqObxCS96WQieFCDmCaEDuNc.5N3heCdrG9sauqwOeq.', 7, NULL, '2023-01-07 02:47:34', '2023-01-21 04:09:56'),
+(24, 'Farhana Akter', 'farhana_akter052', NULL, '54546546545545', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2022-02-23', 'Female', 'Islam', 'B+', 'Dewan Lutfur Rahman', '01747371076', NULL, '132546981356', 'Salma Begum', '01747371076', NULL, '151325464681', 'Dewan Lutfur Rahman', '01747371076', 'student_images/mQ2o3gPBneBmRGoMequfLgkK7f5W1BdFsGdgxP33.png', 'student_images/nBWkRo8Y5zsZrAD2KIfXXIRl3jVpQ4oZOg3rjLiL.png', 'student_images/FP4HHbGrYEShd4K5g7JgbzVWIpfuKiMI8L7QbNn3.png', 8, 12, 1, 2, 0, NULL, NULL, NULL, '$2y$10$w0U3nxCyOv1jZiLxO9T1L./AfoZCbsk5X43.2WOldjXY6BkyGl0ya', 5, NULL, '2022-11-27 01:19:09', '2023-01-21 22:37:38'),
+(25, 'Faaris', 'faaris106', NULL, '132546813212', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2022-12-13', 'Male', 'Islam', 'B+', 'Galib Jaman', '01766555213', NULL, '5451321321321', 'Farhana Akter', '01766555213', NULL, '3541231321321', 'Galib Jaman', '01766555213', 'student_images/T6bjTkPEIH0BqhY2C62VIR3J1r8eCXtkhag950i4.png', 'student_images/ZqZnpJ2rWWkFbo6X6LvJ6MljFEpKIT9xtSg2i1sV.png', 'student_images/XNNXVRccegUu6r23E6MPyYM20JL1MyURP4vvFYKj.png', 8, 12, 1, 6, 0, NULL, NULL, NULL, '$2y$10$kVQIGAM36uvWgq0P8WtuQu8ADEnXteYLbhC9aDCPydP5mHt.7QybG', 6, NULL, '2022-12-22 01:54:02', '2023-01-21 22:37:38'),
+(26, 'Shawal Rahman', 'shawal_rahman37', NULL, '111321321325', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2008-01-08', 'Male', 'Islam', 'B+', 'Goku', '01766635213', NULL, '54654654654546', 'Shakura', '01766635213', NULL, '54685465465464', 'Goku', '01766635213', 'student_images/dPkuVL6i3kLRC0lAogA5DamCOE0AMqymeNvlauUB.png', 'student_images/GXB23BrAw6laqD78cbwMbtX2djdt4NUG71ONLOFf.png', 'student_images/OHD9TiszKXwjWsXCxdjbQbibnhGtKcOo61ARnawA.png', 8, 12, 1, 10, 0, NULL, NULL, NULL, '$2y$10$ogq75jODSAqObxCS96WQieFCDmCaEDuNc.5N3heCdrG9sauqwOeq.', 7, NULL, '2023-01-07 02:47:34', '2023-01-21 22:37:38'),
 (27, 'Mushfiqur Rahman', 'mushfiqur_rahman87', NULL, '54613213254654', 'Amirabad, Jhalokathi', 'Amirabad, Jhalokathi', '2008-01-14', 'Male', 'Islam', 'B+', 'Lutfur Rahman', '01747371076', NULL, '13254641132132', 'Salma Begum', '01769543257', NULL, '54132231325467', 'Lutfur Rahman', '01747371076', 'student_images/Wl58SXTz11QfkHxZYjcCpdQyNqewfqnT6TNamCF0.png', 'student_images/rMSusb6yZ3uNU0h0CTqCyr3c0pNWjotmoox9GaWP.jpg', 'student_images/LNRl08rYHWujHIteYCwOKmWQ6nZsrjAwJZKwifme.png', 8, 12, 1, 7, 0, NULL, NULL, NULL, '$2y$10$cPvH8XIsKr3EZtGLe8s7/.xE0mR6nF50RR0v4LVw8lpdXODpWepiG', 5, NULL, '2023-01-14 00:14:47', '2023-01-14 00:14:47'),
 (28, 'Veda Kelly', 'veda_kelly94', NULL, '116154132132132', 'In consequat Nostru', 'In consequat Nostru', '2004-04-07', 'Female', 'Islam', 'A+', 'Alisa Britt', '01755666213', NULL, '5415454613254', 'Rhona Gilmore', '01755666213', NULL, '3495468546546', 'Alisa Britt', '01755666213', 'student_images/bNKXn2Pg8vuzL5JfnxagKLp3eVdcZvLN2AopQDUW.png', 'student_images/kmeRwGGkdh5XDWwiYBeUnQuE0fmRfWuWiMnWYIIQ.png', 'student_images/Lp58VvdoFd6w0dBuUyAEcAYklWC2c7Y7ZaZwHnYp.png', 9, 14, 1, 4, 0, NULL, NULL, NULL, '$2y$10$VLvqv8xXRKF7VdrgulaTxeRFtPu1jw1L9X9yVks5TfNhPGUCLHaoa', 8, NULL, '2023-01-21 04:47:16', '2023-01-21 04:47:16'),
 (29, 'Renee Sherman', 'renee_sherman91', NULL, '3954554654654', 'Illo sed molestias q', 'Sed magni et asperna', '1971-09-19', 'Male', 'Islam', 'AB-', 'Lenore Wynn', '01755666213', NULL, '7385465465456', 'Cyrus Sharpe', '01755666213', NULL, '3795465546545', 'Lenore Wynn', '01755666213', 'student_images/tcgpHZuFXJKupZ22DJzJ296jzZLKHLnpY55TBuQB.png', 'student_images/Ejwy1uFGXnhmnCYkTTAUOPgd1fVYV9XrilqiZpQl.png', 'student_images/GJ0HVlTMYuTa2jjmqxClOsPktNSl3OWZHwRFI4Fs.png', 9, 14, 1, 5, 0, NULL, NULL, NULL, '$2y$10$lQM.MDglGu33luk/PLqqJOGIOn1E.kW6ruDJtgutxOFkweiR0Hzqq', 8, NULL, '2023-01-21 04:53:33', '2023-01-21 04:53:33'),
 (30, 'Ryan Chan', 'ryan_chan41', NULL, '6375465465454', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '1973-12-19', 'Female', 'Islam', 'B-', 'Keiko David', '01755666213', NULL, '51256546546', 'Blossom Coleman', '01766555213', NULL, '60545465464', 'Keiko David', '01755666213', 'student_images/HfF0TN9A3eI9wcimKNVm4Jf2WulNxlorxFzai9Uf.png', 'student_images/5FgBJwVN2JtWXbZvnZmetYubxtcyrseSO7mi2iyv.png', 'student_images/cXN5FxCyxxIR8pkgDcv0RwhqObzSWUSBqNz8526u.png', 4, 2, 1, 1, 0, NULL, NULL, NULL, '$2y$10$a82ImCXoXQ/CGMYlCzYDxeKKUyRBdyFvsmpYO1IiG0vrpw.C5Taau', 8, NULL, '2023-01-21 05:09:12', '2023-01-21 05:09:12'),
-(31, 'Unamed Student', 'unamed_student101', NULL, '925546546546', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '1997-08-14', 'Female', 'Islam', 'A+', 'Austin Todd', '01766555213', NULL, '46468546546', 'Callie Sears', '01766555213', NULL, '201978546854', 'Austin Todd', '01766555213', 'student_images/YXJaikUYlkbjnZvHu1TVUqms7xkm3L6YQw7n2rWe.png', 'student_images/DSoTmgBThZHSickWv7KYHpTwQVPn5TmluXr3TWRs.png', 'student_images/TmNYf7qKdeWh9yekOAJwjk6TOM5ufXdA1QZGcjVK.png', 10, 10, 1, 1, 0, NULL, NULL, NULL, '$2y$10$NOsQDcY2QTXOTCNRG2DF2OKxBWsPX1GHJfwU7BLY8BdMYEe6OfJlG', 6, NULL, '2023-01-21 05:24:26', '2023-01-21 05:24:26');
+(31, 'Unamed Student', 'unamed_student101', NULL, '925546546546', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '1997-08-14', 'Female', 'Islam', 'A+', 'Austin Todd', '01766555213', NULL, '46468546546', 'Callie Sears', '01766555213', NULL, '201978546854', 'Austin Todd', '01766555213', 'student_images/YXJaikUYlkbjnZvHu1TVUqms7xkm3L6YQw7n2rWe.png', 'student_images/DSoTmgBThZHSickWv7KYHpTwQVPn5TmluXr3TWRs.png', 'student_images/TmNYf7qKdeWh9yekOAJwjk6TOM5ufXdA1QZGcjVK.png', 10, 10, 1, 1, 0, NULL, NULL, NULL, '$2y$10$NOsQDcY2QTXOTCNRG2DF2OKxBWsPX1GHJfwU7BLY8BdMYEe6OfJlG', 6, NULL, '2023-01-21 05:24:26', '2023-01-21 05:24:26'),
+(32, 'Shea Barrett', 'shea_barrett71', NULL, '793546546', 'Praesentium aut et q', 'Velit aut consequun', '2017-04-22', 'Male', 'Islam', 'AB-', 'Lee Burris', '01712345678', NULL, '20354654674', 'Paula Peters', '01712345678', NULL, '95774854546', 'Lee Burris', '01712345678', 'student_images/iGh2Z748e8FPJXsOu3XLqhuwPoJ6tyeon6VtPYPU.png', 'student_images/uK98R1eRiEN1kUqQLla8Zed5RXlye3bYGU5ROpws.png', 'student_images/k3cDGrC74ojtJvRt8nVqwng13pQ1E3Aq12pp4giV.png', 7, 16, 1, 1, 0, NULL, NULL, NULL, '$2y$10$Hd0bUr3jJndxQ5i3wT3x8u6M.KMNzq2NtstuLMF9511iibsXw2/Vi', 9, NULL, '2023-01-22 04:57:11', '2023-01-22 04:57:12'),
+(33, 'Spongebob Squarepants', 'spongebob_squarepants72', NULL, '793546546', 'Praesentium aut et q', 'Velit aut consequun', '2017-04-22', 'Male', 'Islam', 'AB-', 'Lee Burris', '01712345678', NULL, '20354654674', 'Paula Peters', '01712345678', NULL, '95774854546', 'Lee Burris', '01712345678', 'student_images/tUVpV0yPOTNxkPWewQ5bdSPI66AcTVsd3caVb0cX.png', 'student_images/lPcCkFGSyJbwNyT73nDmoOCADHtL8IvYu2TvbyJl.png', 'student_images/ToXqR0LIXoc9oGi94j4oGheUtRp3CnkruhWfMMCV.png', 7, 16, 1, 2, 0, NULL, NULL, NULL, '$2y$10$.7Oysq/konyViXpi3pDRQeVR2Z3i0K7Ch/HRlXTJFoxfyc/km7O0a', 9, NULL, '2023-01-22 05:08:07', '2023-01-22 05:08:07'),
+(34, 'Bolbasour', 'bolbasour72', NULL, '793546546', 'Praesentium aut et q', 'Velit aut consequun', '2017-04-22', 'Male', 'Islam', 'AB-', 'Lee Burris', '01712345678', NULL, '20354654674', 'Paula Peters', '01712345678', NULL, '95774854546', 'Lee Burris', '01712345678', 'student_images/AZwwr93gKRrNaHCyNeLgXkfoIbs1vUj4RUT5MoER.png', 'student_images/c4XJj7i8SDv8lcxsFXPz9EzazkE88May6ULbF4Pq.png', 'student_images/dEmP3G0jSPhfkh1czqySigEsYXuqEffJhKT7UFVG.png', 7, 16, 1, 3, 0, NULL, NULL, NULL, '$2y$10$X6rrBEtT3Fg.ffe.3VxSSe5DoISdI0U1kNcrYMScpJiuGTi8lptGu', 9, NULL, '2023-01-22 05:09:12', '2023-01-22 05:09:12');
 
 -- --------------------------------------------------------
 
@@ -566,7 +621,8 @@ INSERT INTO `student_parents` (`id`, `name`, `email`, `phone_number`, `email_ver
 (5, 'Dewan Lutfur Rahman', NULL, '01747371076', NULL, '$2y$10$y7pLfAnscBJSkMllc4mX7uLOF15tQh/8QFmnfb7OT43o2Qn08biSu', NULL, '2022-11-27 01:19:09', '2022-11-27 01:19:09'),
 (6, 'Galib Jaman', NULL, '01766555213', NULL, '$2y$10$Lxtj.ffTcN1LNzBFri.Zx.5Vz4sfBiE1uTp07XP6jnfQ88kx3YRN.', NULL, '2022-12-22 01:54:02', '2022-12-22 01:54:02'),
 (7, 'Goku', NULL, '01766635213', NULL, '$2y$10$I6.M7hoErV62.bm4jX8qzO/X70GM53LZWWRDkWUgecDbCr57WEh6u', NULL, '2023-01-07 02:47:34', '2023-01-07 02:47:34'),
-(8, 'Alisa Britt', NULL, '01755666213', NULL, '$2y$10$6ZFNBG1ZMEStwnEsAMJIqOZuEG7X8Ghh4eP3DBvow1F7wx48rgfOa', NULL, '2023-01-21 04:47:16', '2023-01-21 04:47:16');
+(8, 'Alisa Britt', NULL, '01755666213', NULL, '$2y$10$6ZFNBG1ZMEStwnEsAMJIqOZuEG7X8Ghh4eP3DBvow1F7wx48rgfOa', NULL, '2023-01-21 04:47:16', '2023-01-21 04:47:16'),
+(9, 'Lee Burris', NULL, '01712345678', NULL, '$2y$10$zuX6QFl2Rz.fgD26/gjd5eZwnS3gn1iEzwqLu8zzwzjhSayJV7A2O', NULL, '2023-01-22 04:57:12', '2023-01-22 04:57:12');
 
 -- --------------------------------------------------------
 
@@ -631,7 +687,14 @@ INSERT INTO `subjects` (`id`, `name`, `class`, `total_marks`, `cq`, `mcq`, `prac
 (14, 'English for Today', 8, 100, 100, 0, 0, '2022-12-29 02:56:19', '2023-01-14 00:32:05'),
 (15, 'তথ্য ও যোগাযোগ প্রযুক্তি', 8, 50, 30, 20, 0, '2022-12-29 02:56:32', '2023-01-14 00:31:53'),
 (16, 'English Grammer', 9, 100, 100, 0, 0, '2023-01-21 02:19:21', '2023-01-21 02:19:21'),
-(17, 'English for Today', 4, 100, 100, 0, 0, '2023-01-21 05:09:59', '2023-01-21 05:09:59');
+(17, 'English for Today', 4, 100, 100, 0, 0, '2023-01-21 05:09:59', '2023-01-21 05:09:59'),
+(18, 'বাংলা', 7, 100, 70, 30, 0, '2023-01-22 04:50:54', '2023-01-22 04:50:54'),
+(19, 'বাংলা ব্যকরণ', 7, 100, 70, 30, 0, '2023-01-22 04:51:17', '2023-01-22 04:51:17'),
+(20, 'বিজ্ঞান', 7, 100, 70, 30, 0, '2023-01-22 04:51:36', '2023-01-22 04:51:36'),
+(21, 'ইসলাম ও নৈতিক শিক্ষা', 7, 100, 70, 30, 0, '2023-01-22 04:51:54', '2023-01-22 04:51:54'),
+(22, 'English for Today', 7, 100, 100, 0, 0, '2023-01-22 04:52:10', '2023-01-22 04:52:10'),
+(23, 'ICT', 7, 50, 0, 25, 25, '2023-01-22 04:52:38', '2023-01-22 04:52:38'),
+(24, 'Mathematics', 7, 100, 70, 30, 0, '2023-01-22 04:53:58', '2023-01-22 04:53:58');
 
 -- --------------------------------------------------------
 
@@ -672,7 +735,14 @@ INSERT INTO `subject_teachers` (`id`, `class`, `subject_id`, `teacher_id`, `sect
 (18, 8, 14, 6, 12, '2023-01-14 00:27:38', '2023-01-14 00:27:38'),
 (19, 8, 15, 6, 12, '2023-01-14 00:27:46', '2023-01-14 00:27:46'),
 (20, 9, 16, 6, 14, '2023-01-21 02:19:45', '2023-01-21 02:19:45'),
-(21, 4, 17, 6, 2, '2023-01-21 05:12:50', '2023-01-21 05:12:50');
+(21, 4, 17, 6, 2, '2023-01-21 05:12:50', '2023-01-21 05:12:50'),
+(22, 7, 18, 8, 16, '2023-01-22 04:54:30', '2023-01-22 04:54:30'),
+(23, 7, 19, 8, 16, '2023-01-22 04:54:40', '2023-01-22 04:54:40'),
+(24, 7, 20, 8, 16, '2023-01-22 04:54:48', '2023-01-22 04:54:48'),
+(25, 7, 21, 8, 16, '2023-01-22 04:54:58', '2023-01-22 04:54:58'),
+(26, 7, 22, 8, 16, '2023-01-22 04:55:06', '2023-01-22 04:55:06'),
+(27, 7, 23, 8, 16, '2023-01-22 04:55:13', '2023-01-22 04:55:13'),
+(28, 7, 24, 8, 16, '2023-01-22 04:55:20', '2023-01-22 04:55:20');
 
 -- --------------------------------------------------------
 
@@ -956,7 +1026,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `results`
 --
 ALTER TABLE `results`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=198;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -974,7 +1044,7 @@ ALTER TABLE `routines`
 -- AUTO_INCREMENT for table `sections`
 --
 ALTER TABLE `sections`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `settings`
@@ -986,13 +1056,13 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `student_parents`
 --
 ALTER TABLE `student_parents`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `stuffs`
@@ -1004,13 +1074,13 @@ ALTER TABLE `stuffs`
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `subject_teachers`
 --
 ALTER TABLE `subject_teachers`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `teachers`
