@@ -115,24 +115,6 @@ class StudentPromotionController extends Controller
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function getSections(Request $request){
 
         if(Section::where('id',$request->section_id)->exists()){

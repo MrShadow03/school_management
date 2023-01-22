@@ -123,7 +123,7 @@ class ResultController extends Controller
             'subject_id' => 'required',
             'student_id' => 'required',
             'section_id' => 'required',
-            'cq_'.$request->student_id => 'required|numeric|max:'.$max_cq,
+            'cq_'.$request->student_id => 'nullable|numeric|max:'.$max_cq,
             'mcq_'.$request->student_id => 'nullable|numeric|max:'.$max_mcq,
             'practical_'.$request->student_id => 'nullable|numeric|max:'.$max_practical,
             'year' => 'required|numeric|digits:4',
@@ -148,17 +148,18 @@ class ResultController extends Controller
             'subject_id' => $request->subject_id,
             'student_id' => $request->student_id,
             'section_id' => $request->section_id,
-            'cq' => $request->input('cq_'.$request->student_id),
             'year' => $request->year,
             'type' => $request->type,
         ];
 
         //if practical or mcq is set then add to data array
+        $request->has('cq_'.$request->student_id) ? $data['cq'] = $request->input('cq_'.$request->student_id) : '';
         $request->has('mcq_'.$request->student_id) ? $data['mcq'] = $request->input('mcq_'.$request->student_id) : '';
         $request->has('practical_'.$request->student_id) ? $data['practical'] = $request->input('practical_'.$request->student_id) : '';
 
         //calulate the total marks
-        $total = $request->input('cq_'.$request->student_id);
+        $total = 0;
+        $request->has('cq_'.$request->student_id) ? $total += $request->input('cq_'.$request->student_id) : '';
         $request->has('mcq_'.$request->student_id) ? $total += $request->input('mcq_'.$request->student_id) : '';
         $request->has('practical_'.$request->student_id) ? $total += $request->input('practical_'.$request->student_id) : '';
         $data['total'] = $total;
@@ -168,7 +169,7 @@ class ResultController extends Controller
 
         //From the total marks calculate the grade based on the grade table
         $highest_marks = Subject::find($request->subject_id)->total_marks;
-        $total_percentage = ($total/$highest_marks)*100;
+        $total_percentage = round(($total/$highest_marks)*100);
         $grade = Grade::where('score','<=',$total_percentage)->orderBy('score','desc')->first()->name;
 
         //for class 9 and 10, c grade is from 33%
@@ -192,7 +193,7 @@ class ResultController extends Controller
 
         //calculate the grand grade
         $highest_grand_total = Subject::where('class', Section::find($request->section_id)->class)->sum('total_marks');
-        $grand_total_percentage = ($grand_total/$highest_grand_total)*100;
+        $grand_total_percentage = round(($grand_total/$highest_grand_total)*100);
         $grand_grade = Grade::where('score','<=',$grand_total_percentage)->orderBy('score','desc')->first()->name;
 
         
@@ -265,12 +266,11 @@ class ResultController extends Controller
                 if($subject_grade == 'F'){
                     $fail = true;
                 }
-
             }
         }
 
         //calculate the final grade
-        $final_total_percentage = ($final_total/$highest_grand_total)*100;
+        $final_total_percentage = round(($final_total/$highest_grand_total)*100);
         $final_grade = Grade::where('score','<=',$final_total_percentage)->orderBy('score','desc')->first()->name;
 
 

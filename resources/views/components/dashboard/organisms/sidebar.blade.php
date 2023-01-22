@@ -50,7 +50,8 @@
                 </li>
                 <li><a class="toggle_btn" href="#"><i class="fa-solid fa-arrow-up-wide-short menu_icon"></i>Promote Students<i class="las sub_icon la-angle-down"></i></a>
                     <ul class="sub_menu">
-                        <li><a href="{{ route('admin.promotion.index') }}"><i class="fa-regular fa-layer-plus"></i>Promote Section</a></li>
+                        <li><a href="{{ route('admin.promotion.index') }}"><i class="fa-regular fa-layer-plus"></i>Mass Promotion</a></li>
+                        <li><a href="{{ route('admin.promotion.single.index') }}"><i class="fa-regular fa-layer-plus"></i>Single Promotion</a></li>
                     </ul>
                 </li>
                 <li><a class="toggle_btn" href="#"><i class="fa-regular fa-gear menu_icon"></i>Settings & Permissions<i class="las sub_icon la-angle-down"></i></a>

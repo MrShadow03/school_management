@@ -13,6 +13,7 @@ use App\Http\Controllers\SubjectTeacherController;
 use App\Http\Controllers\StudentPromotionController;
 use App\Http\Controllers\Auth\Admin\NewPasswordController;
 use App\Http\Controllers\Auth\Admin\VerifyEmailController;
+use App\Http\Controllers\SingleStudentPromotionController;
 use App\Http\Controllers\student\StudentRegisterController;
 use App\Http\Controllers\teacher\TeacherRegisterController;
 use App\Http\Controllers\Auth\Admin\RegisteredAdminController;
@@ -91,6 +92,9 @@ Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin/', 'as' => 'admin
     Route::get('promotion/index', [StudentPromotionController::class, 'index'])->name('promotion.index');
     Route::patch('promotion/update', [StudentPromotionController::class, 'update'])->name('promotion.update');
     Route::patch('promotion/roll_back', [StudentPromotionController::class, 'rollBack'])->name('promotion.roll_back');
+
+    //Single student promotion routes
+    Route::get('promotion/single/index', [SingleStudentPromotionController::class, 'single'])->name('promotion.single.index');
 
     Route::get('section/axios/{name}', [SectionController::class, 'axios'])->name('section.axios');
 });

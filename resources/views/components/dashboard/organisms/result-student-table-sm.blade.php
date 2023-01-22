@@ -11,7 +11,9 @@
                     <th class="heading-column text-title-column">Roll</th>
                     <th class="heading-column text-title-column">Name</th>
                     <th class="heading-column text-title-column text-center">Class</th>
+                    @if ($subject->cq)
                     <th class="heading-column text-title-column text-center">CQ</th>
+                    @endif
                     @if ($subject->mcq)
                     <th class="heading-column text-title-column text-center">MCQ</th>
                     @endif
@@ -38,12 +40,14 @@
                     <td class="body-column text-body-column text-center">{{ $student->class_roll }}</td>
                     <td class="body-column text-body-column">{{ $student->name }}</td>
                     <td class="body-column text-body-column text-center">{{ $student->class }}</td>
+                    @if ($subject->cq)
                     <td class="body-column text-body-column text-center">
                         <input type="number" name="cq_{{ $student->id }}" id="cq" class="input-box" value="{{ old('cq'.$student->id) }}" required>
                         @error('cq_'.$student->id, 'form'.$student->id)
                             <p class="input_error">{{ $message }}</p>
                         @enderror
                     </td>
+                    @endif
                     @if ($subject->mcq)
                     <td class="body-column text-body-column text-center">
                         <input type="number" name="mcq_{{ $student->id }}" id="mcq" class="input-box" value="{{ old('mcq'.$student->id) }}" required>
