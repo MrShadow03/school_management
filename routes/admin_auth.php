@@ -94,7 +94,7 @@ Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin/', 'as' => 'admin
     Route::patch('promotion/roll_back', [StudentPromotionController::class, 'rollBack'])->name('promotion.roll_back');
 
     //Single student promotion routes
-    Route::get('promotion/single/index', [SingleStudentPromotionController::class, 'single'])->name('promotion.single.index');
+    Route::get('promotion/single/index/{section_id?}', [SingleStudentPromotionController::class, 'index'])->name('promotion.single.index');
 
     Route::get('section/axios/{name}', [SectionController::class, 'axios'])->name('section.axios');
 });

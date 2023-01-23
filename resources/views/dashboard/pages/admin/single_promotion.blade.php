@@ -22,8 +22,7 @@ $logout_route = $guard.'.logout';
     <div class="right_content">
         <x-dashboard.organisms.nav :username="$user->name" :logout_route="$logout_route" />
         <div class="display-grid three-grid grid-column-20">
-            <x-dashboard.organisms.single_promotion-section-table-sm :subjects="$subjects" :year="$year" :type="$type" :current_subject_id="$current_subject_id" :current_section_id="$current_section_id"/>
-            <x-dashboard.organisms.result-view-student-table-sm :students="$students" :section="$section" :subject="$subject" :year="$year" :type="$type"/>
+            <x-dashboard.organisms.single_promotion-section-table-sm :sections="$sections" :current_section_id="$section" :class="$class"/>
         </div>
     </div>
 

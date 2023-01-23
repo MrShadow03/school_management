@@ -2,13 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Section;
 use Illuminate\Http\Request;
 
 class SingleStudentPromotionController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
+        
+        $current_section = $request->section_id ?? Section::orderBy('class', 'asc')->first()->id;
+        $class = Section::find($current_section)->class;
+
+
         return view('dashboard.pages.admin.single_promotion',[
-            'sections' => Section::orderBy('class', 'desc')->get()
+            'sections' => Section::orderBy('class', 'desc')->get(),
+            'section' => $current_section,
+            'class' => $class,
         ]);
     }
 
