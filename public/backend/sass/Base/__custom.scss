@@ -160,7 +160,7 @@ table{
     border-collapse: collapse;
 }
 .table-wrapper{
-    max-height: 70vh;
+    max-height: 80vh;
     overflow: auto;
 }
 .display-grid{
@@ -435,4 +435,22 @@ tbody.hovarable{
     font-size: 1.8rem;
     width: 4rem;
     margin-left: 2rem;
+}
+
+.column-title{
+    font-size: 1.6rem;
+    font-weight: 600;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.title-select{
+    font-size: 1.6rem;
+    background: transparent;
+    color: #01284f;
+    font-weight: 700;
+}
+
+.h-fit{
+    height: fit-content !important;
 }

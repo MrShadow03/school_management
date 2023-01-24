@@ -95,6 +95,8 @@ Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin/', 'as' => 'admin
 
     //Single student promotion routes
     Route::get('promotion/single/index/{section_id?}', [SingleStudentPromotionController::class, 'index'])->name('promotion.single.index');
+    Route::get('promotion/single/update/{student_id}/{promoted_section_id}', [SingleStudentPromotionController::class, 'update'])->name('promotion.single.update');
+
 
     Route::get('section/axios/{name}', [SectionController::class, 'axios'])->name('section.axios');
 });

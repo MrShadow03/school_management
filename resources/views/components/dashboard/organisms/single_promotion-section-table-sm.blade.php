@@ -1,4 +1,4 @@
-@props(['sections','current_section_id','class'])
+@props(['sections','current_section','class'])
 <div class="content_sidebar">
     <ul class="content_sidebar__list">
         @foreach ($sections->sortBy('class')->unique('class') as $section)
@@ -12,7 +12,7 @@
                         $i = 1;
                     @endphp
                     @foreach ($sections->where('class',$section->class) as $section)
-                        <li class="content_sidebar__subitem {{ $current_section_id == $section->id ? 'content_sidebar__subitem--active' : '' }}">
+                        <li class="content_sidebar__subitem {{ $current_section->id == $section->id ? 'content_sidebar__subitem--active' : '' }}">
                             <a href="{{ route('admin.promotion.single.index', $section->id) }}" class="content_sidebar__sublink">{{$i.'. '.$section->name }}</a>
                         </li>
                         @php
