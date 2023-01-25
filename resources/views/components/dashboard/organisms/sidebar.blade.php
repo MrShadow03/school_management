@@ -58,6 +58,7 @@
                     <ul class="sub_menu">
                         <li><a href="{{ route('admin.exam_permission.index') }}"><i class="fa-regular fa-user-unlock"></i>Result Upload Permissions</a></li>
                         <li><a href="{{ route('admin.grade.index') }}"><i class="fa-solid fa-star-shooting"></i>Grading System</a></li>
+                        <li><a href="{{ route('admin.account.index') }}"><i class="fa-regular fa-book-open"></i>Accounts</a></li>
                         <li><a href="#"><i class="fa-regular fa-calendar-plus"></i>Fee Collection Permission</a></li>
                     </ul>
                 </li>

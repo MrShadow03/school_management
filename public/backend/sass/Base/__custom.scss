@@ -454,3 +454,58 @@ tbody.hovarable{
 .h-fit{
     height: fit-content !important;
 }
+
+.table-card{
+    background-color: #fff;
+    padding: 0 !important;
+    width: 32%;
+    max-height: 78rem;
+    margin-bottom: 2%;
+    cursor: pointer;
+    tbody{
+        height: 100%;
+        overflow-wrap: hidden;
+    }
+    p.form_subtitle{
+        transition: all .15s ease-in-out;
+        i{
+            transition: all .15s ease-in-out;
+        }
+    }
+    &:hover{
+        p.form_subtitle{
+            background-color: #01284f23;
+            i{
+                transform: translateY(3px);
+            }
+        }
+    }
+}
+
+.table-card-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%;
+    margin: 3rem;
+    justify-content: center;
+}
+
+.table-wrapper-card{
+    height: 100%;
+    position: relative;
+    .details{
+        overflow: scroll;
+        padding: 2rem;
+        position: absolute;
+        top: 13rem;
+        left: 0;
+        right: 0;
+        max-height: 437%;
+        background-color: white;
+        z-index: 111;
+    }
+}
+
+.card-content {
+    display: none;
+  }

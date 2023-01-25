@@ -47,6 +47,31 @@
       }
     });
 
+    var currentContent = null;
+    $(".card-head").click(function(e){
+      e.stopPropagation();
+      var current = $(this).find(".card-content");
+      if (currentContent != null && currentContent.is(current)) {
+        currentContent.slideUp();
+        currentContent = null;
+      } else {
+        if(currentContent != null) {
+          currentContent.slideUp();
+        }
+        currentContent = current;
+        currentContent.slideDown();
+      }
+    });
+    $(document).click(function(event) { 
+      if(!$(event.target).closest('.card-head').length) {
+          if(currentContent != null) {
+            currentContent.slideUp();
+            currentContent = null;
+          }
+      }        
+    });
+
+
     // INPUT FILE HERE
     $('input#imges').change(function (e) {
       let img_url = URL.createObjectURL(e.target.files[0]);
