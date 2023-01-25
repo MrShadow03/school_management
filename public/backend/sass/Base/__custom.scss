@@ -161,7 +161,6 @@ table{
 }
 .table-wrapper{
     max-height: 80vh;
-    overflow: auto;
 }
 .display-grid{
     display: grid;
@@ -474,11 +473,12 @@ tbody.hovarable{
     }
     &:hover{
         p.form_subtitle{
-            background-color: #01284f23;
+            background-color: #01284f0a;
             i{
                 transform: translateY(3px);
             }
         }
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     }
 }
 
@@ -503,9 +503,38 @@ tbody.hovarable{
         max-height: 437%;
         background-color: white;
         z-index: 111;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     }
 }
 
 .card-content {
     display: none;
-  }
+}
+
+.input-field-title{
+    border: none !important;
+    border-bottom: 1px solid $border_light !important;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: $primary;
+    &::placeholder{
+        color: $primary;
+        font-size: 1.6rem;
+        font-weight: 600;
+    }
+}
+
+.input-field-select{
+    border: none !important;
+    border-bottom: 1px solid $border_light !important;
+    font-weight: 500 !important;
+    color: #01284fbb !important;
+    background-color: transparent !important;
+    font-family: 'roboto' !important;
+    &::placeholder{
+        color: $primary !important;
+        font-size: 1.6rem !important;
+        font-weight: 600 !important;
+    }
+}

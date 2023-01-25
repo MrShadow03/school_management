@@ -100,6 +100,7 @@ Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin/', 'as' => 'admin
 
     //accounts routes
     Route::get('account/index', [AccountController::class, 'index'])->name('account.index');
+    Route::get('account/create', [AccountController::class, 'create'])->name('account.create');
 
     Route::get('section/axios/{name}', [SectionController::class, 'axios'])->name('section.axios');
 });

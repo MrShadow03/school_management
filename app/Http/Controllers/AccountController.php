@@ -11,4 +11,9 @@ class AccountController extends Controller
     {
         return view('dashboard.pages.admin.account');
     }
+    
+    public function create()
+    {
+        return view('dashboard.pages.admin.account_create');
+    }
 }
