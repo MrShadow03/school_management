@@ -1,0 +1,39 @@
+#counter{
+    width: 100%;
+    padding: 5rem 0;
+    .counter_main{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .counter_contact{
+            margin: auto;
+            margin-bottom: 2rem;
+            width: 18rem;
+            height: 18rem;
+            background-color: $Feijoa-active;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .counter_border{
+                width: 16rem;
+                height: 16rem;
+                border: 2px solid $white;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                h2{
+                    font-size: 4rem;
+                }
+                p{
+                    display: block;
+                    font-size: 1.7rem;
+                    text-align: center;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+}

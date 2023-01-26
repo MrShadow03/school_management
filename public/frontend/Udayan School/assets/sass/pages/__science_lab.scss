@@ -1,0 +1,40 @@
+.science_lab{
+    width: 100%;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    .heading{
+        position: relative;
+        text-align: center;
+        padding-bottom: 2rem;
+        h2{
+            color: $heading;
+            display: inline-block;
+            font-size: 3rem;
+            letter-spacing: 2px;
+        }
+        img{
+            position: absolute;
+            bottom: 0;    
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+    }
+    .lab_images{ 
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        padding-top: 2rem;
+        .img{
+            width: 33.33%;
+            padding: 0.5rem;
+            height: 25rem;
+            img{
+                object-fit: cover;
+                cursor: pointer;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}

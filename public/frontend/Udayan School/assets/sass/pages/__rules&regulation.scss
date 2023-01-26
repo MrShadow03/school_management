@@ -1,0 +1,50 @@
+
+.rules_regulation{
+    .rules_regulation_content{
+        padding-top: 4rem;
+        padding-bottom: 6rem;
+        .center{
+            text-align: center
+        }
+        h3{
+            @include title_heading;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            cursor: pointer;
+            &::before{
+                content: '';
+                position: absolute;
+                width: 88%;
+                margin: auto;
+                height: 0.3rem;
+                background-color: $red;
+                border-radius: 0.2rem;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                transition: 0.5s;
+            }
+            &:hover::before{
+                width: 100%;
+            }
+        }
+        ul{
+            padding-top: 2rem;
+            padding-left: 4rem;
+            li{
+                color: $black;
+                font-size: 1.7rem;
+                line-height: 2;
+                position: relative;
+                &::before{
+                    content: "\f04b";
+                    font-family: 'Font Awesome 5 Free';
+                    font-weight: 600;
+                    color: $black;
+                    padding-right: 1.4rem;
+                }
+            }
+        }
+    }
+}

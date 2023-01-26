@@ -1,0 +1,48 @@
+#teachers{
+    .heading{
+        position: relative;
+        text-align: center;
+        padding-bottom: 2rem;
+        h2{
+            color: $heading;
+            display: inline-block;
+            font-size: 3rem;
+            letter-spacing: 2px;
+        }
+        img{
+            position: absolute;
+            bottom: 0;    
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+    }
+    .teachers_carousel{
+        width: 100%;
+        .teacher_wrap{
+            cursor: pointer;
+            margin: 2rem;
+            box-shadow: 0 0 4px #dbdbdb;
+            .img{
+                width: 100%;
+                img{
+                    object-fit: cover;
+                    width: 100%;
+                }
+            }
+            .teacher_name{
+                padding: 2rem 0;
+                text-align: center;
+                h3{
+                    color: $heading;
+                    font-size: 2rem;
+                    padding-bottom: 0.7rem;
+                }
+                span{
+                    color: $black;
+                    font-size: 1.6rem;
+                }
+            }
+        }
+    }
+}

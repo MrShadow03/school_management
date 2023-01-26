@@ -496,6 +496,7 @@ tbody.hovarable{
     .details{
         overflow: scroll;
         padding: 2rem;
+        padding-bottom: unset;
         position: absolute;
         top: 13rem;
         left: 0;

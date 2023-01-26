@@ -16,9 +16,62 @@
 }
 
 .btn-sm{
-    max-width: 10rem;
-    text-align: center;
+  padding: 1rem 1.5rem;
+  font-size: 1.3rem;
+  border-radius: .5rem;
+  border: 1px solid $border_light;
+  color: $primary;
+  background-color: #fff;
+  opacity: .8;
+  cursor: pointer;
+  i{
+      margin-right: 1rem;
+  }
+  &:hover{
+    opacity: 1;
+    background-color: $primary;
+    color: $white;
+  }
 }
+
+.btn-sm-success{
+  padding: 1rem 1.5rem;
+  font-size: 1.3rem;
+  border-radius: .5rem;
+  border: 1px solid $success;
+  color: $success;
+  background-color: $success-light;
+  opacity: .8;
+  cursor: pointer;
+  i{
+      margin-right: 1rem;
+  }
+  &:hover{
+    opacity: 1;
+    background-color: $success;
+    color: $white;
+  }
+}
+
+.btn-sm-danger{
+  padding: 1rem 1.5rem;
+  font-size: 1.3rem;
+  border-radius: .5rem;
+  border: 1px solid $danger;
+  color: $danger;
+  background-color: $danger-light;
+  opacity: .8;
+  cursor: pointer;
+  i{
+      margin-right: 1rem;
+  }
+  &:hover{
+    opacity: 1;
+    background-color: $danger;
+    color: $white;
+  }
+}
+
 .btn-lg{
     max-width: 20rem;
     text-align: center;
@@ -282,7 +335,6 @@
   cursor: pointer;
   text-align: center;
   border: 0;
-  padding: 1rem 2rem;
   color: #ffffff;
   background: #06325e;
   font-weight: 400;
@@ -294,6 +346,26 @@
   }
   a{
     color: #fff;
+    padding: 1rem 2rem;
+    display: block;
+  }
+}
+
+.button-primary{
+
+  outline: 0;
+  cursor: pointer;
+  text-align: center;
+  border: 0;
+  color: #ffffff;
+  background: #06325e;
+  font-weight: 400;
+  font-size: 14px;
+  padding: 1rem 2rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 0px 0px, rgba(0, 0, 0, 0.2) 0px -1px 0px 0px inset;
+  &:hover {
+    background: #01284F;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 0px 0px, rgba(0, 0, 0, 0.2) 0px -1px 0px 0px inset;
   }
 }
 

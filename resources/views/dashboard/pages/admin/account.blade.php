@@ -23,28 +23,9 @@
         <x-dashboard.organisms.nav :username="$user->name" :logout_route="$logout_route" />
         <x-dashboard.organisms.account-bar route="admin.account.create" inner_text="<i class='fa-regular fa-plus'></i> Create a new list" />
         <div class="table-card-wrapper">
-            <x-dashboard.organisms.account-table-sm />
-            <x-dashboard.organisms.account-table-sm />
-            <x-dashboard.organisms.account-table-sm />
-            <x-dashboard.organisms.account-table-sm />
-            <x-dashboard.organisms.account-table-sm />
-            <x-dashboard.organisms.account-table-sm />
-            <x-dashboard.organisms.account-table-sm />
-            <x-dashboard.organisms.account-table-sm />
-            <x-dashboard.organisms.account-table-sm />
-            <x-dashboard.organisms.account-table-sm />
-            <x-dashboard.organisms.account-table-sm />
-            <x-dashboard.organisms.account-table-sm />
-            <x-dashboard.organisms.account-table-sm />
-            <x-dashboard.organisms.account-table-sm />
-            <x-dashboard.organisms.account-table-sm />
-            <x-dashboard.organisms.account-table-sm />
-            <x-dashboard.organisms.account-table-sm />
-            <x-dashboard.organisms.account-table-sm />
-            <x-dashboard.organisms.account-table-sm />
-            <x-dashboard.organisms.account-table-sm />
-            <x-dashboard.organisms.account-table-sm />
-            <x-dashboard.organisms.account-table-sm />
+            @foreach ($accounts as $account)
+                <x-dashboard.organisms.account-table-sm :account="$account" />
+            @endforeach
         </div>
     </div>
 @endsection

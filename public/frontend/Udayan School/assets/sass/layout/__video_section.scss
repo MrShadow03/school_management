@@ -1,0 +1,55 @@
+#video_section{
+    background-color: $black-700;
+    padding: 4.5rem 0;
+    .heading{
+        position: relative;
+        text-align: center;
+        padding-bottom: 2rem;
+        h2{
+            color: $white;
+            display: inline-block;
+            font-size: 3rem;
+            letter-spacing: 2px;
+        }
+        img{
+            position: absolute;
+            bottom: 0;    
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+    }
+    .video_carousel{
+        padding-top: 2.4rem;
+        .img{
+            position: relative;
+            margin: 1.5rem;
+            overflow: hidden;
+            height: 200px;
+            cursor: pointer;
+            iframe{
+                border: 3px solid $gray;
+            }
+            img{
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+            .academics_img_text{
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+                text-align: center;
+                background-color: $gray;
+                padding: 1.4rem;
+                h3{
+                    color: $Feijoa-active;
+                    font-size: 1.8rem;
+                    letter-spacing: 1px;
+                }
+            }
+        }
+    }
+}

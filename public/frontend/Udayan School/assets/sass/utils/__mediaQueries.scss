@@ -1,0 +1,598 @@
+
+// 1440 RESPONSIVE HERE
+
+@media (max-width: 1440px){
+    // LOGO AND TEXT HERE
+    .container{
+        width: 90%;
+    }
+       .mid_header{  
+        .logo{
+            justify-content: flex-end;
+            width: 40% !important;         
+            .logo_text{
+               flex: none !important;
+            }
+              h1{
+                font-size: 2.5rem !important;
+              }
+              h2{
+                font-size: 2.5rem !important;
+              }
+              p{
+                font-size: 1.6rem !important;
+              }
+        }
+        .school_conatct_details {
+            width: 60% !important;
+            justify-content: center !important;
+            gap: 1rem;
+            .top_contact{
+                padding-left: 4%;
+                .icon{
+                    width: 3rem !important;
+                    height: 3rem !important;
+                    p{
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        }
+       }
+    }
+@media (max-width: 1024px){
+    .container{
+        width: 90%;
+    }
+
+
+    //=================== HOME PAGE =================//
+    // HEADER
+    header{
+        .top_header{
+           .top_header_right{
+            padding-right: 3.2%;
+            ul{
+                padding-right: 0 !important;
+            }
+           } 
+        }
+        .mid_header{
+            padding: .5 !important;
+            margin: auto;
+            .logo{
+                img{
+                    width: 8rem;
+                    height: 8rem;
+                }
+                .logo_text{
+                    padding-left: .5rem;
+                    h1{
+                        font-size: 1.8rem !important;
+                    }
+                    h2{
+                        font-size: 1.8rem !important;
+                    }
+                    p{
+                        font-size: 1.4rem !important;
+                    }
+                }
+               
+            }
+            .school_conatct_details{
+                padding-left: 1rem!important;
+                justify-content: flex-start !important;
+                flex-wrap: wrap;
+                .top_contact{
+                    padding-left: 5%;
+                }
+            }
+        }
+        .navigation .menu-icon .fa-bars{
+            margin-left: 4rem;
+        }
+        .banner{
+            .owl-nav .owl-prev {
+                left: 5rem;
+              }
+          
+              .owl-nav .owl-next {
+                right: 5rem;
+              }
+        }
+    }
+    // HISTORY
+    .institute_history{
+        .institute_image{
+            height: 25rem;
+        }
+    }
+    // COUNTER
+    .counter_main{
+        flex-wrap: wrap;
+    }
+
+    //=================== LIBRARY PAGE =================//
+    .science_lab{
+        .lab_images{
+            .img{
+                width: 50%;
+            }
+        }
+    }
+
+    //=================== CONTACT PAGE =================//
+    #contact{
+        form{
+            .row{
+                flex-wrap: wrap;
+                input{
+                    width: 45%;
+                    margin-bottom: 2rem;
+                    &:last-child{
+                        margin-bottom: 0;
+                    }
+                }
+                .w-100{
+                    width: 100%;
+                }
+
+            }
+        }
+    }
+
+    //=================== AT A GLANCE PAGE =================//
+    .curricular_activity{
+        .curricular_activity_images{
+            .img{
+                width: 50%;
+            }
+        }
+    }
+
+
+}
+
+
+@media (max-width: 768px){
+    //=================== HOME PAGE =============//
+    // HEADER
+    .container{
+        width: 95%;
+    }
+    header{
+        .top_header{
+            .top_header_right{
+                padding-right: 0;
+            }
+        }
+        .mid_header{
+            padding: 0.5rem 0;
+            .logo{
+                width: 52% !important;
+            }
+            .school_conatct_details{
+                width: 48% !important;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: flex-start;
+                padding-left: 5% !important;
+                .top_contact{
+                    flex-wrap: wrap !important;
+                }
+            }
+        }
+    }
+     // mai header 
+     .mid_header {
+        .logo{
+            width: 100% !important;
+            justify-content: center;
+        }
+        .school_conatct_details{
+            width: 80% !important;
+        }
+    }
+    // HISTORY 
+    .institute_history{
+        flex-direction: column;
+        padding: 0;
+        padding-top: 1.5rem;
+        padding-bottom: 0.9rem;
+        padding-left: 0.7rem;
+        .institute_content{
+            width: 100%;
+        }
+        .institute_image{
+            padding-top: 0.8rem;
+            width: 100%;
+            padding-right: 0.7rem;
+        }
+    }
+    // FOOTER
+    footer{
+        flex-wrap: wrap;
+        .col{
+            width: 50% !important;
+            padding-bottom: 2rem;
+        }
+    }
+
+    //=================== OUR MISSION PAGE =================//
+    .our_mission{
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        .institute_image{
+            width: 100%;
+            padding-right: 0;
+            .img{
+                width: 100%;
+                img{
+                    width: 100%;
+                }
+            }
+        }
+        .institute_content{
+            padding: 1rem;
+            p{
+                padding-right: 0;
+            }
+        }
+    }
+
+    //=================== CONTACT PAGE =================//
+    #contact{
+        form{
+            .row{
+                flex-wrap: wrap;
+                input{
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    //=================== AT A GLANCE PAGE =================//
+    .curricular_activity{
+        .curricular_activity_images{
+            .img{
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+        }
+    }
+
+
+}
+
+
+@media (max-width: 600px){
+    //=================== HOME PAGE =============//
+    // HEADER
+    header{
+        .top_header{
+            .top_header_left{
+                width: 15%;
+            }
+            .top_header_right{
+                width: 85%;
+                p{
+                    padding: 0;
+                }
+                ul{
+                    margin-right: 4%;
+                    li{
+                        margin: 0;
+                        margin-right: 0.5rem;
+                    }
+                }
+            }
+        }
+        .mid_header{
+            .d-flex{
+                flex-direction: column;
+                .logo{
+                    width: 100% !important;
+                    border-bottom: 1px solid rgba(128, 128, 128, 0.139);
+                    padding-bottom: 1rem;
+                    img{
+                        width: 10rem !important;
+                        height: 10rem !important;
+                    }
+                    .logo_text{
+                        padding-left: 1.5rem;
+                        h1{
+                            font-size: 2.8rem !important;
+                        }
+                        h2{
+                            font-size: 2.8rem !important;
+                        }
+                        p{
+                            font-size: 1.7rem !important;
+                        }
+                    }
+
+                }
+                .school_conatct_details{
+                    padding: 0 !important;
+                    margin-top: 0.7rem;
+                    width: 100% !important;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: flex-start !important;
+                    .top_contact{
+                        display: flex !important;
+                        flex-wrap: nowrap !important;
+                        .icon{
+                            width: 3.1rem;
+                            height: 3.1rem;
+                        }
+                    }
+                }
+            }
+        }
+        .banner{
+            .owl-nav .owl-prev {
+                left: 2rem;
+              }
+              .owl-nav .owl-next {
+                right: 2rem;
+              }
+        }
+    }
+    // HISTORY 
+    .prin_asprin_msg{
+        flex-direction: column;
+        .principal_msg{
+            width: 100%;
+            margin-bottom: 1.4rem;
+        }
+        .assistant_principal_msg{
+            width: 100%;
+        }
+    }
+    // COUNTER
+    .counter_main{
+        .counter_contact{
+            margin-bottom: 1rem;
+        }
+    }
+
+    //=================== LIBRARY PAGE =================//
+    .science_lab{
+        .lab_images{
+            .img{
+                width: 100%;
+            }
+        }
+    }
+    //=================== AUDITORIUM PAGE =================//
+    .auditorium{
+        .sailent_features_img{
+            height: 25rem;
+        }
+    }
+    
+}
+
+@media (max-width: 500px){
+    header{
+        .top_header{
+            .top_header_left{
+                display: none;
+            }
+            .top_header_right{
+                width: 100%;
+            }
+       }
+       .mid_header{
+        .d-flex{
+            .logo{
+                img{
+                    width: 8rem !important;
+                    height: 8rem !important;
+                }
+                .logo_text{
+                    padding-left: 1.5rem;
+                }
+
+            }
+            .school_conatct_details{
+                width: 100%;
+                .top_contact{
+                    align-items: flex-start;
+                    flex-wrap: wrap !important;
+                    text-align: center;
+                    .icon{
+                        margin: auto;
+                    }
+                }
+            }
+        }
+    }
+    }
+    .navigation .menu-icon .fa-bars{
+        margin-left: 1rem !important;  
+    }   
+    // IMPORTANT DOCUMENT
+    .document_list{
+        ul{
+            flex-wrap: wrap;
+            li{
+                margin-bottom: 2rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 425px){
+    header{
+        .top_header{
+            .top_header_left{
+                display: none;
+            }
+            .top_header_right{
+                width: 100%;
+                p{
+                    line-height: 1;
+                }
+                ul{
+                    li{
+                        padding: 1.2rem;
+                    }
+                }
+            }
+       }
+       // mai header 
+       .mid_header {
+           .d-flex{
+               .logo{
+                   a{
+                       img{
+                           width: 7rem !important;
+                           height: 7rem !important;
+                       }
+                       .logo_text{
+                           padding-left: 0.3rem !important;
+                           h1{
+                               font-size: 2.3rem !important;
+                           }
+                           h2{
+                               font-size: 2.3rem !important;
+                           }
+                           p{
+                               font-size: 1.4rem !important;
+                           }
+                       }
+
+                   }
+               }
+
+           }
+       }
+       .marquee{
+        .announcement{
+            width: 25%;
+            span{
+                width: 1.7rem;
+                height: 1.7rem;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+            }
+        }
+       }
+    }
+}
+
+
+@media (max-width: 375px){
+    header{
+        .top_header{
+            .top_header_left{
+                display: none;
+            }
+       }
+       .mid_header {
+            .d-flex{
+                .logo{
+                    a{
+                        img{
+                            width: 7rem !important;
+                            height: 7rem !important;
+                        }
+                        .logo_text{
+                            padding-left: 1rem !important;
+                            h1{
+                                font-size: 2.2rem !important;
+                            }
+                            h2{
+                                font-size: 2.2rem !important;
+                            }
+                            p{
+                                font-size: 1.5rem !important;
+                            }
+                        }
+                    }
+                }
+            }
+       }
+    }
+}
+
+
+@media (max-width: 352px) {
+    header{
+        .mid_header {
+            .d-flex{
+                .logo{
+                    a{
+                        img{
+                            // width: 7rem !important;
+                            // height: 7rem !important;
+                        }
+                        .logo_text{
+                            padding-left: 0.5rem !important;
+                            h1{
+                                font-size: 1.9rem !important;
+                                word-spacing: -0.3rem;
+                            }
+                            h2{
+                                font-size: 1.9rem !important;
+                            }
+                        }
+                    }
+                }
+            }
+       }
+    }
+    
+}
+
+
+@media (max-width: 320px){
+    header{
+        .mid_header {
+            .d-flex{
+                .logo{
+                    a{
+                        img{
+                            width: 7rem !important;
+                            height: 7rem !important;
+                        }
+                        .logo_text{
+                            padding-left: 0.5rem !important;
+                            h1{
+                                font-size: 2rem !important;
+                                word-spacing: -0.3rem;
+                            }
+                            h2{
+                                font-size: 2.2rem !important;
+                            }
+                            p{
+                                font-size: 1.5rem !important;
+                            }
+                        }
+                    }
+                }
+            }
+       }
+       .marquee{
+        .announcement{
+            width: 26%;
+            span{
+                width: 1.7rem;
+                height: 1.7rem;
+                top: 0;
+                bottom: 0;
+                right: -0.8rem;
+                margin: auto;
+            }
+        }
+       }
+    }
+}
+
+
+

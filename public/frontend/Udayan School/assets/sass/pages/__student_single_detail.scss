@@ -1,0 +1,58 @@
+
+.back{
+    text-align: right;
+    a{
+        font-size: 1.7rem;
+        padding: 0.8rem 1.2rem;
+        background-color: $black;
+        color: $gray-500;
+        border-radius: 0.3rem;
+    }
+}
+.student_single_info{
+    width: 45%;
+    margin: auto;
+    h3{
+        text-align: center;
+        font-size: 2.5rem;
+        color: $heading;
+        border-bottom: 0.1px solid $gray-500;
+        padding-bottom: 1rem;
+    }
+    h4{
+        text-align: center;
+        font-size: 1.9rem;
+        color: $black;
+        padding-top: 0.7rem;
+    }
+    .img{
+        margin: auto;
+        width: 60%;
+        height: 37rem;
+        padding-bottom: 1rem;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    p{
+        width: 60%;
+        margin: auto;
+        color: $black-700;
+        line-height: 1.8;
+        font-size: 1.6rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        span{
+            font-weight: 400;
+        }
+        &::before{
+            content: "\f111";
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 600;
+            font-size: 0.5rem;
+            padding-right: 1rem;
+        }
+    }
+}

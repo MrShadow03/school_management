@@ -101,6 +101,11 @@ Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin/', 'as' => 'admin
     //accounts routes
     Route::get('account/index', [AccountController::class, 'index'])->name('account.index');
     Route::get('account/create', [AccountController::class, 'create'])->name('account.create');
+    Route::post('account/store', [AccountController::class, 'store'])->name('account.store');
+    Route::get('account/edit/{id}', [AccountController::class, 'edit'])->name('account.edit');
+    Route::patch('account/update/{id}', [AccountController::class, 'update'])->name('account.update');
+    Route::delete('account/delete', [AccountController::class, 'delete'])->name('account.delete');
+    Route::get('account/update_status/{id}/{status}', [AccountController::class, 'updateStatus'])->name('account.updateStatus');
 
     Route::get('section/axios/{name}', [SectionController::class, 'axios'])->name('section.axios');
 });
