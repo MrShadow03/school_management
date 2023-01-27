@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ResultController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\RoutineController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\teacher\TeacherSectionController;
@@ -51,6 +52,10 @@ Route::group(['middleware' => 'auth:teacher', 'prefix' => 'teacher/', 'as' => 't
     Route::get('result_upload/index/{session}/{type}/{section_id?}/{subject_id?}', [ResultController::class, 'index'])->name('result_upload.index');
     Route::get('result_upload/create/{session}/{type}/{section_id?}/{subject_id?}', [ResultController::class, 'create'])->name('result_upload.create');
     Route::post('result_upload/store', [ResultController::class, 'store'])->name('result_upload.store');
+    
+    //Collect payment
+    Route::get('collect_payment/create/{account_id}/{section_id?}', [PaymentController::class, 'create'])->name('collect_payment.create');
+    Route::post('collect_payment/store', [PaymentController::class, 'store'])->name('collect_payment.store');
 });
 
 Route::get('/teacher/dashboard', function () {

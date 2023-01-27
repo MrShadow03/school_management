@@ -135,65 +135,9 @@
   });
 })(jQuery)
 
-// if (document.querySelectorAll('.content_sidebar__item')) {
-//   let lastClickedItem = null;
-//   let lastClickedSubitem = null;
-//   let items = document.querySelectorAll('.content_sidebar__item');
-//   let sublists = document.querySelectorAll('.content_sidebar__sublist');
-//   let subitems = document.querySelectorAll('.content_sidebar__subitem');
-//   items.forEach(item => {
-//     item.addEventListener("click", function () {
-//       //set last clicked item
-//       if (lastClickedItem) {
-//         lastClickedItem.classList.remove('content_sidebar__item--active');
-//       }
-//       lastClickedItem = this;
-//       // Remove active from every items
-//       items.forEach(item => {
-//         item.classList.remove('content_sidebar__item--active');
-//       });
-
-//       // Add active to clicked item
-//       this.classList.add('content_sidebar__item--active');
-
-//       // Add display none to every sublists except current
-//       sublists.forEach(sublist => {
-//         sublist.classList.add('d-none');
-//       });
-
-//       // toggle display none from clicked sublist
-//       let sublist = this.querySelector('.content_sidebar__sublist');
-//       if (sublist.classList.contains('d-none')) {
-//         sublist.classList.remove('d-none');
-//       } else {
-//         sublist.classList.add('d-none');
-//       }
-
-//     });
-//   });
-
-//   subitems.forEach(subitem => {
-//     subitem.addEventListener("click", function () {
-//       //set last clicked subitem
-//       if (lastClickedSubitem) {
-//         lastClickedSubitem.classList.remove('content_sidebar__subitem--active');
-//       }
-//       lastClickedSubitem = this;
-//       // Remove active from every subitems
-//       subitems.forEach(subitem => {
-//         subitem.classList.remove('content_sidebar__subitem--active');
-//       });
-
-//       // Add active to clicked subitem
-//       this.classList.add('content_sidebar__subitem--active');
-//     });
-//   });
-// }
-
 
 if (document.querySelectorAll('.custom_scrollbar')) {
   const custom_scrollbar = document.querySelectorAll('.custom_scrollbar');
-  console.log(custom_scrollbar);
   custom_scrollbar.forEach(scrollbar => {
     new SimpleBar(scrollbar);
   });

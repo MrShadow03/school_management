@@ -63,6 +63,28 @@
                     </ul>
                 </li>
                 @elseif (Auth::guard('teacher')->check())
+                @php
+                    //money collection permissions
+                    //first get all the sections of the teacher and pluck the class
+                    $haveSections = App\Models\Section::where('teacher_id',auth()->user()->id)->exists();
+
+                    // dd(App\Models\Section::where('teacher_id',auth()->user()->id)->get()->pluck('class'));
+                    $classes = $haveSections ? App\Models\Section::where('teacher_id',auth()->user()->id)->get()->pluck('class')->toArray() : [];
+
+                    //get all the accounts
+                    $accounts = App\Models\Account::all();
+
+                    //loop through the accounts and check if the classes is in the array
+                    $availableAccounts = [];
+                    foreach ($accounts as $account) {
+                        $hasClass = count(array_intersect($classes, json_decode($account->classes))) > 0;
+                        $isAccountActive = $account->status == 1;
+
+                        if($hasClass && $isAccountActive){
+                            array_push($availableAccounts, $account);
+                        }
+                    }
+                @endphp
                 {{-- sidebar for teacher --}}
                 <li><a href="{{ route('teacher.dashboard') }}"><i class="menu_icon fa-light fa-house-user"></i>Dashboard</a></li>
                 <li><a href="{{ route('teacher.students',auth()->user()->id) }}"><i class="menu_icon fa-light fa-graduation-cap"></i>My Students</a></li>
@@ -74,6 +96,15 @@
                         <li><a href="{{ route('teacher.attendance.index') }}"><i class="fa-regular fa-calendars"></i></i>View Attendance</a></li>
                     </ul>
                 </li>
+                @if (count($availableAccounts) > 0)
+                <li><a class="toggle_btn" href="#"><i class="fa-regular fa-money-check-pen menu_icon"></i>Collect Fees<i class="las sub_icon la-angle-down"></i></a>
+                    <ul class="sub_menu">
+                        @foreach ($availableAccounts as $account)
+                        <li><a href="{{ route('teacher.collect_payment.create', $account->id) }}"><i class="fa-light fa-money-bill-1"></i>{{ $account->name }}</a></li>
+                        @endforeach
+                    </ul>
+                </li>   
+                @endif
                 <li><a class="toggle_btn" href="#"><i class="fa-regular fa-calendar-arrow-up menu_icon"></i>Manage Result<i class="las sub_icon la-angle-down"></i></a>
                     <ul class="sub_menu">
                         @foreach ($result_uploading_permissions as $permission)

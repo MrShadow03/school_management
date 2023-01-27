@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 26, 2023 at 12:48 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Jan 27, 2023 at 04:57 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,7 +44,7 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`id`, `name`, `classes`, `expenses`, `total`, `status`, `expire`, `created_at`, `updated_at`) VALUES
-(1, 'Session Charge', '[\"3\",\"4\",\"5\",\"6\",\"7\",\"8\",\"9\",\"10\"]', '{\"School\":\"200\",\"Electricity\":\"500\",\"Dress\":\"200\",\"Others\":\"100\",\"SMS Cost\":\"25\"}', 1025, 1, '2023-02-05', '2023-01-26 03:34:41', '2023-01-26 05:19:43'),
+(1, 'Session Charge', '[\"3\",\"4\",\"5\",\"6\",\"7\",\"8\",\"9\",\"10\"]', '{\"School\":\"200\",\"Electricity\":\"500\",\"Dress\":\"200\",\"Others\":\"100\",\"SMS Cost\":\"25\"}', 1025, 1, '2023-02-06', '2023-01-26 03:34:41', '2023-01-27 05:18:04'),
 (2, 'Some Account', '[\"3\"]', '{\"Quod vel dolor dolor\":\"7\",\"Voluptate maxime con\":\"43\",\"Deserunt voluptas do\":\"77\",\"Nihil voluptatum vel\":\"10\"}', 350, 0, NULL, '2023-01-26 03:37:17', '2023-01-26 05:41:28'),
 (3, 'Admission Fee', '[\"3\",\"5\",\"8\",\"6\",\"9\"]', '{\"Admission\":\"500\",\"G\":\"200\"}', 700, 0, NULL, '2023-01-26 05:39:54', '2023-01-26 05:40:27');
 
@@ -211,6 +211,32 @@ CREATE TABLE `password_resets` (
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payments`
+--
+
+CREATE TABLE `payments` (
+  `id` bigint(20) NOT NULL,
+  `student_id` bigint(20) NOT NULL,
+  `teacher_id` bigint(20) DEFAULT NULL,
+  `account_id` bigint(20) DEFAULT NULL,
+  `amount` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `payments`
+--
+
+INSERT INTO `payments` (`id`, `student_id`, `teacher_id`, `account_id`, `amount`, `created_at`, `updated_at`) VALUES
+(1, 29, 6, 1, 1025, '2023-01-27 09:37:20', '2023-01-27 09:37:20'),
+(2, 31, 6, 1, 1025, '2023-01-27 09:56:26', '2023-01-27 09:56:26'),
+(3, 28, 6, 1, 1025, '2023-01-27 09:56:36', '2023-01-27 09:56:36'),
+(4, 35, 6, 1, 1025, '2023-01-27 09:56:37', '2023-01-27 09:56:37');
 
 -- --------------------------------------------------------
 
@@ -433,7 +459,10 @@ INSERT INTO `results` (`id`, `student_id`, `section_id`, `subject_id`, `year`, `
 (199, 29, 14, 25, 2023, 'mid', 31, NULL, NULL, 0, 0, 31, 'F', '2023-01-24 06:08:05', '2023-01-24 06:08:05'),
 (200, 35, 14, 25, 2023, 'mid', 32, NULL, NULL, 0, 0, 32, 'F', '2023-01-24 06:08:09', '2023-01-24 06:08:09'),
 (201, 35, 14, NULL, 2023, 'mid', NULL, NULL, NULL, 1, 0, 32, 'F', '2023-01-24 06:08:09', '2023-01-24 06:08:09'),
-(202, 35, 14, NULL, 2023, NULL, NULL, NULL, NULL, 0, 1, 0, 'F', '2023-01-24 06:08:09', '2023-01-24 06:08:09');
+(203, 24, 14, 25, 2023, 'final', 65, NULL, NULL, 0, 0, 65, 'A-', '2023-01-27 07:29:30', '2023-01-27 07:29:30'),
+(204, 24, 14, NULL, 2023, 'final', NULL, NULL, NULL, 1, 0, 65, 'C', '2023-01-27 07:29:30', '2023-01-27 07:29:30'),
+(206, 25, 14, 25, 2023, 'final', 10, NULL, NULL, 0, 0, 10, 'F', '2023-01-27 07:29:50', '2023-01-27 07:29:50'),
+(207, 25, 14, NULL, 2023, 'final', NULL, NULL, NULL, 1, 0, 10, 'F', '2023-01-27 07:29:50', '2023-01-27 07:29:50');
 
 -- --------------------------------------------------------
 
@@ -614,18 +643,18 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `name`, `username`, `email`, `birth_certificate_number`, `present_address`, `permanent_address`, `birth_date`, `gender`, `religion`, `blood_group`, `father_name`, `father_contact`, `father_profession`, `father_nid`, `mother_name`, `mother_contact`, `mother_profession`, `mother_nid`, `local_guardian_name`, `local_guardian_contact`, `father_image`, `mother_image`, `student_image`, `class`, `section_id`, `status`, `class_roll`, `new`, `previous_roll`, `previous_section_id`, `email_verified_at`, `password`, `parent_id`, `remember_token`, `created_at`, `updated_at`) VALUES
-(24, 'Farhana Akter', 'farhana_akter052', NULL, '54546546545545', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2022-02-23', 'Female', 'Islam', 'B+', 'Dewan Lutfur Rahman', '01747371076', NULL, '132546981356', 'Salma Begum', '01747371076', NULL, '151325464681', 'Dewan Lutfur Rahman', '01747371076', 'student_images/mQ2o3gPBneBmRGoMequfLgkK7f5W1BdFsGdgxP33.png', 'student_images/nBWkRo8Y5zsZrAD2KIfXXIRl3jVpQ4oZOg3rjLiL.png', 'student_images/FP4HHbGrYEShd4K5g7JgbzVWIpfuKiMI8L7QbNn3.png', 9, 14, 1, 2, 1, 2, 12, NULL, '$2y$10$w0U3nxCyOv1jZiLxO9T1L./AfoZCbsk5X43.2WOldjXY6BkyGl0ya', 5, NULL, '2022-11-27 01:19:09', '2023-01-24 07:36:11'),
-(25, 'Faaris', 'faaris106', NULL, '132546813212', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2022-12-13', 'Male', 'Islam', 'B+', 'Galib Jaman', '01766555213', NULL, '5451321321321', 'Farhana Akter', '01766555213', NULL, '3541231321321', 'Galib Jaman', '01766555213', 'student_images/T6bjTkPEIH0BqhY2C62VIR3J1r8eCXtkhag950i4.png', 'student_images/ZqZnpJ2rWWkFbo6X6LvJ6MljFEpKIT9xtSg2i1sV.png', 'student_images/XNNXVRccegUu6r23E6MPyYM20JL1MyURP4vvFYKj.png', 9, 14, 1, 1, 1, 6, 12, NULL, '$2y$10$kVQIGAM36uvWgq0P8WtuQu8ADEnXteYLbhC9aDCPydP5mHt.7QybG', 6, NULL, '2022-12-22 01:54:02', '2023-01-24 07:36:11'),
-(26, 'Shawal Rahman', 'shawal_rahman37', NULL, '111321321325', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2008-01-08', 'Male', 'Islam', 'B+', 'Goku', '01766635213', NULL, '54654654654546', 'Shakura', '01766635213', NULL, '54685465465464', 'Goku', '01766635213', 'student_images/dPkuVL6i3kLRC0lAogA5DamCOE0AMqymeNvlauUB.png', 'student_images/GXB23BrAw6laqD78cbwMbtX2djdt4NUG71ONLOFf.png', 'student_images/OHD9TiszKXwjWsXCxdjbQbibnhGtKcOo61ARnawA.png', 9, 14, 1, 3, 1, 10, 12, NULL, '$2y$10$ogq75jODSAqObxCS96WQieFCDmCaEDuNc.5N3heCdrG9sauqwOeq.', 7, NULL, '2023-01-07 02:47:34', '2023-01-24 07:36:11'),
-(27, 'Mushfiqur Rahman', 'mushfiqur_rahman87', NULL, '54613213254654', 'Amirabad, Jhalokathi', 'Amirabad, Jhalokathi', '2008-01-14', 'Male', 'Islam', 'B+', 'Lutfur Rahman', '01747371076', NULL, '13254641132132', 'Salma Begum', '01769543257', NULL, '54132231325467', 'Lutfur Rahman', '01747371076', 'student_images/Wl58SXTz11QfkHxZYjcCpdQyNqewfqnT6TNamCF0.png', 'student_images/rMSusb6yZ3uNU0h0CTqCyr3c0pNWjotmoox9GaWP.jpg', 'student_images/LNRl08rYHWujHIteYCwOKmWQ6nZsrjAwJZKwifme.png', 9, 14, 1, 7, 1, 7, 12, NULL, '$2y$10$cPvH8XIsKr3EZtGLe8s7/.xE0mR6nF50RR0v4LVw8lpdXODpWepiG', 5, NULL, '2023-01-14 00:14:47', '2023-01-24 07:36:32'),
-(28, 'Veda Kelly', 'veda_kelly94', NULL, '116154132132132', 'In consequat Nostru', 'In consequat Nostru', '2004-04-07', 'Female', 'Islam', 'A+', 'Alisa Britt', '01755666213', NULL, '5415454613254', 'Rhona Gilmore', '01755666213', NULL, '3495468546546', 'Alisa Britt', '01755666213', 'student_images/bNKXn2Pg8vuzL5JfnxagKLp3eVdcZvLN2AopQDUW.png', 'student_images/kmeRwGGkdh5XDWwiYBeUnQuE0fmRfWuWiMnWYIIQ.png', 'student_images/Lp58VvdoFd6w0dBuUyAEcAYklWC2c7Y7ZaZwHnYp.png', 9, 14, 1, 5, 0, 4, NULL, NULL, '$2y$10$VLvqv8xXRKF7VdrgulaTxeRFtPu1jw1L9X9yVks5TfNhPGUCLHaoa', 8, NULL, '2023-01-21 04:47:16', '2023-01-24 07:36:11'),
-(29, 'Renee Sherman', 'renee_sherman91', NULL, '3954554654654', 'Illo sed molestias q', 'Sed magni et asperna', '1971-09-19', 'Male', 'Islam', 'AB-', 'Lenore Wynn', '01755666213', NULL, '7385465465456', 'Cyrus Sharpe', '01755666213', NULL, '3795465546545', 'Lenore Wynn', '01755666213', 'student_images/tcgpHZuFXJKupZ22DJzJ296jzZLKHLnpY55TBuQB.png', 'student_images/Ejwy1uFGXnhmnCYkTTAUOPgd1fVYV9XrilqiZpQl.png', 'student_images/GJ0HVlTMYuTa2jjmqxClOsPktNSl3OWZHwRFI4Fs.png', 9, 14, 1, 4, 0, 5, NULL, NULL, '$2y$10$lQM.MDglGu33luk/PLqqJOGIOn1E.kW6ruDJtgutxOFkweiR0Hzqq', 8, NULL, '2023-01-21 04:53:33', '2023-01-24 07:36:11'),
+(24, 'Farhana Akter', 'farhana_akter052', NULL, '54546546545545', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2022-02-23', 'Female', 'Islam', 'B+', 'Dewan Lutfur Rahman', '01747371076', NULL, '132546981356', 'Salma Begum', '01747371076', NULL, '151325464681', 'Dewan Lutfur Rahman', '01747371076', 'student_images/mQ2o3gPBneBmRGoMequfLgkK7f5W1BdFsGdgxP33.png', 'student_images/nBWkRo8Y5zsZrAD2KIfXXIRl3jVpQ4oZOg3rjLiL.png', 'student_images/FP4HHbGrYEShd4K5g7JgbzVWIpfuKiMI8L7QbNn3.png', 9, 14, 1, 2, 1, 2, 12, NULL, '$2y$10$w0U3nxCyOv1jZiLxO9T1L./AfoZCbsk5X43.2WOldjXY6BkyGl0ya', 5, NULL, '2022-11-27 01:19:09', '2023-01-27 07:34:42'),
+(25, 'Faaris', 'faaris106', NULL, '132546813212', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2022-12-13', 'Male', 'Islam', 'B+', 'Galib Jaman', '01766555213', NULL, '5451321321321', 'Farhana Akter', '01766555213', NULL, '3541231321321', 'Galib Jaman', '01766555213', 'student_images/T6bjTkPEIH0BqhY2C62VIR3J1r8eCXtkhag950i4.png', 'student_images/ZqZnpJ2rWWkFbo6X6LvJ6MljFEpKIT9xtSg2i1sV.png', 'student_images/XNNXVRccegUu6r23E6MPyYM20JL1MyURP4vvFYKj.png', 9, 14, 1, 1, 1, 6, 12, NULL, '$2y$10$kVQIGAM36uvWgq0P8WtuQu8ADEnXteYLbhC9aDCPydP5mHt.7QybG', 6, NULL, '2022-12-22 01:54:02', '2023-01-27 07:34:42'),
+(26, 'Shawal Rahman', 'shawal_rahman37', NULL, '111321321325', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '2008-01-08', 'Male', 'Islam', 'B+', 'Goku', '01766635213', NULL, '54654654654546', 'Shakura', '01766635213', NULL, '54685465465464', 'Goku', '01766635213', 'student_images/dPkuVL6i3kLRC0lAogA5DamCOE0AMqymeNvlauUB.png', 'student_images/GXB23BrAw6laqD78cbwMbtX2djdt4NUG71ONLOFf.png', 'student_images/OHD9TiszKXwjWsXCxdjbQbibnhGtKcOo61ARnawA.png', 9, 14, 1, 3, 1, 10, 12, NULL, '$2y$10$ogq75jODSAqObxCS96WQieFCDmCaEDuNc.5N3heCdrG9sauqwOeq.', 7, NULL, '2023-01-07 02:47:34', '2023-01-27 07:34:42'),
+(27, 'Mushfiqur Rahman', 'mushfiqur_rahman87', NULL, '54613213254654', 'Amirabad, Jhalokathi', 'Amirabad, Jhalokathi', '2008-01-14', 'Male', 'Islam', 'B+', 'Lutfur Rahman', '01747371076', NULL, '13254641132132', 'Salma Begum', '01769543257', NULL, '54132231325467', 'Lutfur Rahman', '01747371076', 'student_images/Wl58SXTz11QfkHxZYjcCpdQyNqewfqnT6TNamCF0.png', 'student_images/rMSusb6yZ3uNU0h0CTqCyr3c0pNWjotmoox9GaWP.jpg', 'student_images/LNRl08rYHWujHIteYCwOKmWQ6nZsrjAwJZKwifme.png', 9, 14, 1, 7, 1, 7, 12, NULL, '$2y$10$cPvH8XIsKr3EZtGLe8s7/.xE0mR6nF50RR0v4LVw8lpdXODpWepiG', 5, NULL, '2023-01-14 00:14:47', '2023-01-27 07:35:18'),
+(28, 'Veda Kelly', 'veda_kelly94', NULL, '116154132132132', 'In consequat Nostru', 'In consequat Nostru', '2004-04-07', 'Female', 'Islam', 'A+', 'Alisa Britt', '01755666213', NULL, '5415454613254', 'Rhona Gilmore', '01755666213', NULL, '3495468546546', 'Alisa Britt', '01755666213', 'student_images/bNKXn2Pg8vuzL5JfnxagKLp3eVdcZvLN2AopQDUW.png', 'student_images/kmeRwGGkdh5XDWwiYBeUnQuE0fmRfWuWiMnWYIIQ.png', 'student_images/Lp58VvdoFd6w0dBuUyAEcAYklWC2c7Y7ZaZwHnYp.png', 10, 10, 1, 2, 1, 5, 14, NULL, '$2y$10$VLvqv8xXRKF7VdrgulaTxeRFtPu1jw1L9X9yVks5TfNhPGUCLHaoa', 8, NULL, '2023-01-21 04:47:16', '2023-01-27 07:35:54'),
+(29, 'Renee Sherman', 'renee_sherman91', NULL, '3954554654654', 'Illo sed molestias q', 'Sed magni et asperna', '1971-09-19', 'Male', 'Islam', 'AB-', 'Lenore Wynn', '01755666213', NULL, '7385465465456', 'Cyrus Sharpe', '01755666213', NULL, '3795465546545', 'Lenore Wynn', '01755666213', 'student_images/tcgpHZuFXJKupZ22DJzJ296jzZLKHLnpY55TBuQB.png', 'student_images/Ejwy1uFGXnhmnCYkTTAUOPgd1fVYV9XrilqiZpQl.png', 'student_images/GJ0HVlTMYuTa2jjmqxClOsPktNSl3OWZHwRFI4Fs.png', 10, 10, 1, 1, 1, 4, 14, NULL, '$2y$10$lQM.MDglGu33luk/PLqqJOGIOn1E.kW6ruDJtgutxOFkweiR0Hzqq', 8, NULL, '2023-01-21 04:53:33', '2023-01-27 07:35:53'),
 (30, 'Ryan Chan', 'ryan_chan41', NULL, '6375465465454', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '1973-12-19', 'Female', 'Islam', 'B-', 'Keiko David', '01755666213', NULL, '51256546546', 'Blossom Coleman', '01766555213', NULL, '60545465464', 'Keiko David', '01755666213', 'student_images/HfF0TN9A3eI9wcimKNVm4Jf2WulNxlorxFzai9Uf.png', 'student_images/5FgBJwVN2JtWXbZvnZmetYubxtcyrseSO7mi2iyv.png', 'student_images/cXN5FxCyxxIR8pkgDcv0RwhqObzSWUSBqNz8526u.png', 4, 2, 1, 1, 0, NULL, NULL, NULL, '$2y$10$a82ImCXoXQ/CGMYlCzYDxeKKUyRBdyFvsmpYO1IiG0vrpw.C5Taau', 8, NULL, '2023-01-21 05:09:12', '2023-01-21 05:09:12'),
 (31, 'Unamed Student', 'unamed_student101', NULL, '925546546546', 'N.H Complex, Police Lines, Barishal', 'N.H Complex, Police Lines, Barishal', '1997-08-14', 'Female', 'Islam', 'A+', 'Austin Todd', '01766555213', NULL, '46468546546', 'Callie Sears', '01766555213', NULL, '201978546854', 'Austin Todd', '01766555213', 'student_images/YXJaikUYlkbjnZvHu1TVUqms7xkm3L6YQw7n2rWe.png', 'student_images/DSoTmgBThZHSickWv7KYHpTwQVPn5TmluXr3TWRs.png', 'student_images/TmNYf7qKdeWh9yekOAJwjk6TOM5ufXdA1QZGcjVK.png', 10, 10, 1, 1, 0, NULL, NULL, NULL, '$2y$10$NOsQDcY2QTXOTCNRG2DF2OKxBWsPX1GHJfwU7BLY8BdMYEe6OfJlG', 6, NULL, '2023-01-21 05:24:26', '2023-01-21 05:24:26'),
 (32, 'Shea Barrett', 'shea_barrett71', NULL, '793546546', 'Praesentium aut et q', 'Velit aut consequun', '2017-04-22', 'Male', 'Islam', 'AB-', 'Lee Burris', '01712345678', NULL, '20354654674', 'Paula Peters', '01712345678', NULL, '95774854546', 'Lee Burris', '01712345678', 'student_images/iGh2Z748e8FPJXsOu3XLqhuwPoJ6tyeon6VtPYPU.png', 'student_images/uK98R1eRiEN1kUqQLla8Zed5RXlye3bYGU5ROpws.png', 'student_images/k3cDGrC74ojtJvRt8nVqwng13pQ1E3Aq12pp4giV.png', 7, 16, 1, 1, 0, NULL, NULL, NULL, '$2y$10$Hd0bUr3jJndxQ5i3wT3x8u6M.KMNzq2NtstuLMF9511iibsXw2/Vi', 9, NULL, '2023-01-22 04:57:11', '2023-01-23 01:12:02'),
 (33, 'Spongebob Squarepants', 'spongebob_squarepants72', NULL, '793546546', 'Praesentium aut et q', 'Velit aut consequun', '2017-04-22', 'Male', 'Islam', 'AB-', 'Lee Burris', '01712345678', NULL, '20354654674', 'Paula Peters', '01712345678', NULL, '95774854546', 'Lee Burris', '01712345678', 'student_images/tUVpV0yPOTNxkPWewQ5bdSPI66AcTVsd3caVb0cX.png', 'student_images/lPcCkFGSyJbwNyT73nDmoOCADHtL8IvYu2TvbyJl.png', 'student_images/ToXqR0LIXoc9oGi94j4oGheUtRp3CnkruhWfMMCV.png', 7, 16, 1, 2, 0, NULL, NULL, NULL, '$2y$10$.7Oysq/konyViXpi3pDRQeVR2Z3i0K7Ch/HRlXTJFoxfyc/km7O0a', 9, NULL, '2023-01-22 05:08:07', '2023-01-23 01:12:02'),
 (34, 'Bolbasour', 'bolbasour72', NULL, '793546546', 'Praesentium aut et q', 'Velit aut consequun', '2017-04-22', 'Male', 'Islam', 'AB-', 'Lee Burris', '01712345678', NULL, '20354654674', 'Paula Peters', '01712345678', NULL, '95774854546', 'Lee Burris', '01712345678', 'student_images/AZwwr93gKRrNaHCyNeLgXkfoIbs1vUj4RUT5MoER.png', 'student_images/c4XJj7i8SDv8lcxsFXPz9EzazkE88May6ULbF4Pq.png', 'student_images/dEmP3G0jSPhfkh1czqySigEsYXuqEffJhKT7UFVG.png', 7, 16, 1, 3, 0, NULL, NULL, NULL, '$2y$10$X6rrBEtT3Fg.ffe.3VxSSe5DoISdI0U1kNcrYMScpJiuGTi8lptGu', 9, NULL, '2023-01-22 05:09:12', '2023-01-23 01:12:02'),
-(35, 'Taylor Salazar', 'taylor_salazar96', NULL, '8326333232321', 'Non illum accusanti', 'Non illum accusanti', '2022-07-01', 'Male', 'Islam', 'AB+', 'Kylan Moreno', '01766655213', NULL, '721546546546', 'Josiah Williamson', '01766655213', NULL, '81565546546', 'Kylan Moreno', '01766655213', 'student_images/F8mOqOkv8PrWDcHm3x1uFkPnfevkTboqo4DbwPef.png', 'student_images/u1iSJuDIWdGttqUUQEzZagTa0zJCq3uwm9GPd8je.png', 'student_images/kth6W7wEAqz2hoe5isaQBuNiVqhYEVdfEvOH2V4K.png', 9, 14, 1, 6, 0, 6, NULL, NULL, '$2y$10$KIaBgtrAdxAQn53WM0iD8e94toDOauBXXsHvPnQd5GtsBrhMXNWXO', 10, NULL, '2023-01-24 06:06:58', '2023-01-24 07:36:11');
+(35, 'Taylor Salazar', 'taylor_salazar96', NULL, '8326333232321', 'Non illum accusanti', 'Non illum accusanti', '2022-07-01', 'Male', 'Islam', 'AB+', 'Kylan Moreno', '01766655213', NULL, '721546546546', 'Josiah Williamson', '01766655213', NULL, '81565546546', 'Kylan Moreno', '01766655213', 'student_images/F8mOqOkv8PrWDcHm3x1uFkPnfevkTboqo4DbwPef.png', 'student_images/u1iSJuDIWdGttqUUQEzZagTa0zJCq3uwm9GPd8je.png', 'student_images/kth6W7wEAqz2hoe5isaQBuNiVqhYEVdfEvOH2V4K.png', 10, 10, 1, 3, 1, 6, 14, NULL, '$2y$10$KIaBgtrAdxAQn53WM0iD8e94toDOauBXXsHvPnQd5GtsBrhMXNWXO', 10, NULL, '2023-01-24 06:06:58', '2023-01-27 07:35:56');
 
 -- --------------------------------------------------------
 
@@ -911,6 +940,12 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
+-- Indexes for table `payments`
+--
+ALTER TABLE `payments`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `permissions`
 --
 ALTER TABLE `permissions`
@@ -1059,6 +1094,12 @@ ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
+-- AUTO_INCREMENT for table `payments`
+--
+ALTER TABLE `payments`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
@@ -1074,7 +1115,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `results`
 --
 ALTER TABLE `results`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=203;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=209;
 
 --
 -- AUTO_INCREMENT for table `roles`
