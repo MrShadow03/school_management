@@ -1,17 +1,11 @@
 <?php
 
-use App\Models\Section;
+use App\Models\Appointment;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\GradeController;
-use App\Http\Controllers\AccountController;
-use App\Http\Controllers\RoutineController;
-use App\Http\Controllers\SectionController;
-use App\Http\Controllers\StudentController;
-use App\Http\Controllers\SubjectController;
-use App\Http\Controllers\TeacherController;
-use App\Http\Controllers\ExamPermissionController;
-use App\Http\Controllers\SubjectTeacherController;
-use App\Http\Controllers\StudentPromotionController;
+use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\AssistantController;
+use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\Auth\Admin\NewPasswordController;
 use App\Http\Controllers\Auth\Admin\VerifyEmailController;
 use App\Http\Controllers\SingleStudentPromotionController;
@@ -37,12 +31,74 @@ Route::group(['middleware' => 'guest:admin', 'prefix' => 'admin/', 'as'=>'admin.
 
 Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin/', 'as' => 'admin.'], function(){
     //get admin dashboard
-    Route::get('dashboard', function () {
-        return view('dashboard.pages.dashboard',[
-            'sections' => Section::all()
-        ]);
-    })->name('dashboard');
+    Route::get('dashboard', [AppointmentController::class, 'index'])->name('dashboard');
     
+    //Appointments
+    Route::get('appointments/create', [AppointmentController::class, 'create'])->name('appointments.create');
+    Route::post('appointments/store', [AppointmentController::class, 'store'])->name('appointments.store');
+    Route::post('appointments/filter', [AppointmentController::class, 'filter'])->name('appointments.filter');
+    Route::get('appointments/edit/{id}', [AppointmentController::class, 'edit'])->name('appointments.edit');
+    Route::patch('appointments/update', [AppointmentController::class, 'update'])->name('appointments.update');
+    Route::get('appointments/getSerialNumber/{doctor_id}', [AppointmentController::class, 'getSerialNumber'])->name('appointments.getSerialNumber');
+
+    //students/Assistants
+    Route::get('assistants', [AssistantController::class, 'index'])->name('assistants.index');
+    Route::get('assistants/create', [AssistantController::class, 'create'])->name('assistants.create');
+    Route::post('assistants/store', [AssistantController::class, 'store'])->name('assistants.store');
+    Route::get('assistants/edit/{id}', [AssistantController::class, 'edit'])->name('assistants.edit');
+    Route::patch('assistants/update', [AssistantController::class, 'update'])->name('assistants.update');
+    
+    //Departments
+    Route::get('departments', [DepartmentController::class, 'index'])->name('departments.index');
+    Route::get('departments/create', [DepartmentController::class, 'create'])->name('departments.create');
+    Route::post('departments/store', [DepartmentController::class, 'store'])->name('departments.store');
+    Route::get('departments/edit/{id}', [DepartmentController::class, 'edit'])->name('departments.edit');
+    Route::patch('departments/update', [DepartmentController::class, 'update'])->name('departments.update');
+
+    //Doctors
+    Route::get('doctors', [DoctorController::class, 'index'])->name('doctors.index');
+    Route::get('doctors/create', [DoctorController::class, 'create'])->name('doctors.create');
+    Route::post('doctors/store', [DoctorController::class, 'store'])->name('doctors.store');
+    Route::get('doctors/edit/{id}', [DoctorController::class, 'edit'])->name('doctors.edit');
+    Route::get('doctors/changeStatus/{id}/{status}', [DoctorController::class, 'changeStatus'])->name('doctors.changeStatus');
+    Route::patch('doctors/update', [DoctorController::class, 'update'])->name('doctors.update');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])->name('verification.notice');
     Route::get('verify-email/{id}/{hash}', [VerifyEmailController::class, '__invoke'])->middleware(['signed', 'throttle:6,1'])->name('verification.verify');
     Route::post('email/verification-notification', [EmailVerificationNotificationController::class, 'store'])->middleware('throttle:6,1')->name('verification.send');

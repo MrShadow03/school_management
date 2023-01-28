@@ -41,23 +41,9 @@ class Student extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function studentParent()
+    //has many doctors
+    public function doctors()
     {
-        return $this->belongsTo(StudentParent::class);
-    }
-
-    public function section()
-    {
-        return $this->belongsTo(Section::class);
-    }
-
-    public function attendances()
-    {
-        return $this->hasMany(Attendance::class)->orderBy('created_at','desc');
-    }
-
-    public function result()
-    {
-        return $this->hasMany(Result::class);
+        return $this->hasMany(Doctor::class);
     }
 }

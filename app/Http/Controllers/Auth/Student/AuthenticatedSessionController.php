@@ -18,6 +18,7 @@ class AuthenticatedSessionController extends Controller
     public function create()
     {
         //dd('create');
+        return redirect()->route('admin.login');
         return view('dashboard.pages.student_login');
     }
 

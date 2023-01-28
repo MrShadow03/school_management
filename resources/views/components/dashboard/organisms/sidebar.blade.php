@@ -7,7 +7,7 @@
             <x-dashboard.molecules.sidebar_menu>
                 {{-- sidebar for students --}}
                 @if (Auth::guard('student')->check())
-                <li><a href="index.html"><i class="menu_icon fa-light fa-user"></i>Dashboard</a></li>
+                <li><a href="index.html"><i class="menu_icon fa-light fa-user"></i>Appointments</a></li>
                 <li><a href="{{ route('student.routine') }}"><i class="menu_icon fa-light fa-calendar-days"></i>Routine</a></li>
                 <li><a href="{{ route('student.result') }}"><i class="menu_icon fa-light fa-bell"></i>Results</a></li>
                 <li><a href="index.html"><i class="menu_icon fa-light fa-user-graduate"></i>Teachers</a></li>
@@ -18,108 +18,11 @@
                 </li>
                 @elseif (Auth::guard('admin')->check())
                 {{-- sidebar for admin --}}
-                <li><a href="{{ route('admin.dashboard') }}"><i class="menu_icon fa-regular fa-house-user"></i>Dashboard</a></li>
-                <li><a class="toggle_btn" href="#"><i class="fa-regular fa-chalkboard-user menu_icon"></i>Manage Teacher<i class="las sub_icon la-angle-down"></i></a>
-                    <ul class="sub_menu">
-                        <li><a href="{{ route('admin.register-teacher.create') }}"><i class="fa-regular fa-users"></i> Teachers</a></li>
-                        <li><a href="{{ route('admin.register-teacher.create') }}"><i class="fa-regular fa-user-plus"></i> Register Teacher</a></li>
-                    </ul>
-                </li>
-                <li><a class="toggle_btn" href="#"><i class="fa-regular fa-graduation-cap menu_icon"></i>Manage Student<i class="las sub_icon la-angle-down"></i></a>
-                    <ul class="sub_menu">
-                        <li><a href="{{ route('admin.students') }}"><i class="fa-regular fa-users"></i> All Students</a></li>
-                        <li><a href="{{ route('admin.register-student.create') }}"><i class="fa-regular fa-user-plus"></i> Student Register</a></li>
-                    </ul>
-                </li>
-                <li><a class="toggle_btn" href="#"><i class="fa-regular fa-layer-group menu_icon"></i>Class & Sections<i class="las sub_icon la-angle-down"></i></a>
-                    <ul class="sub_menu">
-                        <li><a href="{{ route('admin.section.index') }}"><i class="fa-regular fa-layer-plus"></i>Sections</a></li>
-                    </ul>
-                </li>
-                <li><a class="toggle_btn" href="#"><i class="fa-light fa-book menu_icon"></i>Subjects<i class="las sub_icon la-angle-down"></i></a>
-                    <ul class="sub_menu">
-                        <li><a href="{{ route('admin.subject.index') }}"><i class="fa-light fa-books-medical"></i>Create Subject</a></li>
-                        <li><a href="{{ route('admin.assign-subject-teacher') }}"><i class="fa-regular fa-user-plus"></i> Assign Teacher</a></li>
-                    </ul>
-                </li>
-                <li><a class="toggle_btn" href="#"><i class="fa-regular fa-calendar-days menu_icon"></i>Routines<i class="las sub_icon la-angle-down"></i></a>
-                    <ul class="sub_menu">
-                        <li><a href="{{ route('admin.routine.index') }}"><i class="fa-regular fa-calendars"></i>View Routines</a></li>
-                        <li><a href="{{ route('admin.routine') }}"><i class="fa-regular fa-calendar-plus"></i> Create Routines</a></li>
-                    </ul>
-                </li>
-                <li><a class="toggle_btn" href="#"><i class="fa-solid fa-arrow-up-wide-short menu_icon"></i>Promote Students<i class="las sub_icon la-angle-down"></i></a>
-                    <ul class="sub_menu">
-                        <li><a href="{{ route('admin.promotion.index') }}"><i class="fa-regular fa-layer-plus"></i>Mass Promotion</a></li>
-                        <li><a href="{{ route('admin.promotion.single.index') }}"><i class="fa-regular fa-layer-plus"></i>Single Promotion</a></li>
-                    </ul>
-                </li>
-                <li><a class="toggle_btn" href="#"><i class="fa-regular fa-gear menu_icon"></i>Settings & Permissions<i class="las sub_icon la-angle-down"></i></a>
-                    <ul class="sub_menu">
-                        <li><a href="{{ route('admin.exam_permission.index') }}"><i class="fa-regular fa-user-unlock"></i>Result Upload Permissions</a></li>
-                        <li><a href="{{ route('admin.grade.index') }}"><i class="fa-solid fa-star-shooting"></i>Grading System</a></li>
-                        <li><a href="{{ route('admin.account.index') }}"><i class="fa-regular fa-book-open"></i>Accounts</a></li>
-                        <li><a href="#"><i class="fa-regular fa-calendar-plus"></i>Fee Collection Permission</a></li>
-                    </ul>
-                </li>
-                @elseif (Auth::guard('teacher')->check())
-                @php
-                    //money collection permissions
-                    //first get all the sections of the teacher and pluck the class
-                    $haveSections = App\Models\Section::where('teacher_id',auth()->user()->id)->exists();
-
-                    // dd(App\Models\Section::where('teacher_id',auth()->user()->id)->get()->pluck('class'));
-                    $classes = $haveSections ? App\Models\Section::where('teacher_id',auth()->user()->id)->get()->pluck('class')->toArray() : [];
-
-                    //get all the accounts
-                    $accounts = App\Models\Account::all();
-
-                    //loop through the accounts and check if the classes is in the array
-                    $availableAccounts = [];
-                    foreach ($accounts as $account) {
-                        $hasClass = count(array_intersect($classes, json_decode($account->classes))) > 0;
-                        $isAccountActive = $account->status == 1;
-
-                        if($hasClass && $isAccountActive){
-                            array_push($availableAccounts, $account);
-                        }
-                    }
-                @endphp
-                {{-- sidebar for teacher --}}
-                <li><a href="{{ route('teacher.dashboard') }}"><i class="menu_icon fa-light fa-house-user"></i>Dashboard</a></li>
-                <li><a href="{{ route('teacher.students',auth()->user()->id) }}"><i class="menu_icon fa-light fa-graduation-cap"></i>My Students</a></li>
-                <li><a href="{{ route('teacher.routine') }}"><i class="menu_icon fa-light fa-graduation-cap"></i>My Routines</a></li>
+                <li><a href="{{ route('admin.dashboard') }}"><i class="menu_icon fa-regular fa-calendar-check"></i>Appoinments</a></li>
+                <li><a href="{{ route('admin.departments.index') }}"><i class="menu_icon fa-regular fa-layer-group"></i>Departments</a></li>
+                <li><a href="{{ route('admin.doctors.index') }}"><i class="menu_icon fa-regular fa-stethoscope"></i>Doctors</a></li>
+                {{-- <li><a href="{{ route('admin.assistants.index') }}"><i class="menu_icon fa-regular fa-house-user"></i>Assistants</a></li> --}}
                 
-                <li><a class="toggle_btn" href="#"><i class="fa-regular fa-calendar-days menu_icon"></i>Attendance<i class="las sub_icon la-angle-down"></i></a>
-                    <ul class="sub_menu">
-                        <li><a href="{{ route('teacher.attendance.create') }}"><i class="fa-light fa-graduation-cap"></i>Take Attendance</a></li>
-                        <li><a href="{{ route('teacher.attendance.index') }}"><i class="fa-regular fa-calendars"></i></i>View Attendance</a></li>
-                    </ul>
-                </li>
-                @if (count($availableAccounts) > 0)
-                <li><a class="toggle_btn" href="#"><i class="fa-regular fa-money-check-pen menu_icon"></i>Collect Fees<i class="las sub_icon la-angle-down"></i></a>
-                    <ul class="sub_menu">
-                        @foreach ($availableAccounts as $account)
-                        <li><a href="{{ route('teacher.collect_payment.create', $account->id) }}"><i class="fa-light fa-money-bill-1"></i>{{ $account->name }}</a></li>
-                        @endforeach
-                    </ul>
-                </li>   
-                @endif
-                <li><a class="toggle_btn" href="#"><i class="fa-regular fa-calendar-arrow-up menu_icon"></i>Manage Result<i class="las sub_icon la-angle-down"></i></a>
-                    <ul class="sub_menu">
-                        @foreach ($result_uploading_permissions as $permission)
-                        @php
-                            $name = $permission->name == 'mid_result_uploading_permission' ? 'Mid-term Results' : ($permission->name == 'final_result_uploading_permission' ? 'Final Results' : 'Test Results');
-                            $type = $permission->name == 'mid_result_uploading_permission' ? 'mid' : ($permission->name == 'final_result_uploading_permission' ? 'final' : 'test');
-                            $year = $permission->year;
-                        @endphp
-                        @if ($permission->status)
-                        <li><a href="{{ $permission->status ? route('teacher.result_upload.index', [$year, $type]) : '#' }}">{!! $permission->status?'<i class="fa-regular fa-list-ol"></i>':'<i class="fa-regular fa-cloud-slash"></i>' !!} View {{ $name }}</a></li>
-                        <li><a href="{{ $permission->status ? route('teacher.result_upload.create', [$year, $type]) : '#' }}">{!! $permission->status?'<i class="fa-regular fa-cloud-arrow-up"></i>':'<i class="fa-regular fa-cloud-slash"></i>' !!} Upload {{ $name }}</a></li>
-                        @endif
-                        @endforeach
-                    </ul>
-                </li>
                 @endif
             </x-dashboard.molecules.sidebar_menu>
         <x-dashboard.molecules.sidebar_footer />

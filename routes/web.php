@@ -23,6 +23,3 @@ Route::get('/', function () {
 
 require __DIR__.'/admin_auth.php';
 require __DIR__.'/student_auth.php';
-require __DIR__.'/teacher_auth.php';
-require __DIR__.'/parent_auth.php';
-require __DIR__.'/stuff_auth.php';
