@@ -19,7 +19,7 @@
                     <td class="body-column text-body-column">{{ $student->class_roll }}</td>
                     <td class="body-column text-body-column">{{ $student->name }}</td>
                     <td class="body-column text-body-column">
-                        <form class="table-wrapper-alt" action="{{ route('teacher.collect_payment.store') }}" method="POST">
+                        <form class="table-wrapper-alt" action="{{ route('teacher.collect_payment.store') }}" method="POST" style="display: flex;gap: 3rem;">
                             @csrf
                             @method('POST')
                             <input type="hidden" name="section_id" value="{{ old('section_id', $current_section->id) }}">

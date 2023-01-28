@@ -8,4 +8,6 @@
 <script src="{{ asset('./backend/js/ckeditor.js') }}"></script>
 <script src="{{ asset('./backend/js/apex.js') }}"></script> 
 <script src="{{ asset('./backend/js/dropify.js') }}"></script> --}}
+<script src="{{ asset('./backend/js/chart.min.js') }}"></script>
+<script src="{{ asset('./backend/js/chart_codes.js') }}"></script>
 <script src="{{ asset('./backend/js/custom.js') }}"></script>

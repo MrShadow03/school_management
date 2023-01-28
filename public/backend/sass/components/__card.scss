@@ -1,0 +1,44 @@
+.card{
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    .card__icon__wrapper{
+        width: 25%;
+        aspect-ratio: 1/1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50% !important;
+        i{
+            font-size: 3rem;
+            color: #fff;
+        }
+    }
+}
+
+.card__title{
+    font-size: 1.4rem;
+    opacity: 0.6;
+    font-family: 'inter', sans-serif;
+    font-weight: 400;
+}
+.card__data{
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: $primary;
+    font-family: 'poppins', sans-serif;
+    margin-top: 2rem;
+}
+
+.grid__wrapper{
+    padding: 2rem;
+}
+.grid__title{
+    font-size: 1.4rem;
+    font-family: 'poppins', sans-serif;
+    font-weight: 500;
+    color: $primary;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $border_light;
+}

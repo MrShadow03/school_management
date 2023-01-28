@@ -36,6 +36,13 @@ Route::group(['middleware' => 'guest:admin', 'prefix' => 'admin/', 'as'=>'admin.
 });
 
 Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin/', 'as' => 'admin.'], function(){
+    //get admin dashboard
+    Route::get('dashboard', function () {
+        return view('dashboard.pages.dashboard',[
+            'sections' => Section::all()
+        ]);
+    })->name('dashboard');
+    
     Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])->name('verification.notice');
     Route::get('verify-email/{id}/{hash}', [VerifyEmailController::class, '__invoke'])->middleware(['signed', 'throttle:6,1'])->name('verification.verify');
     Route::post('email/verification-notification', [EmailVerificationNotificationController::class, 'store'])->middleware('throttle:6,1')->name('verification.send');
@@ -109,9 +116,3 @@ Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin/', 'as' => 'admin
 
     Route::get('section/axios/{name}', [SectionController::class, 'axios'])->name('section.axios');
 });
-
-Route::get('/admin/dashboard', function () {
-    return view('dashboard.pages.dashboard',[
-        'sections' => Section::all()
-    ]);
-})->middleware(['auth:admin', 'verified'])->name('admin.dashboard');
