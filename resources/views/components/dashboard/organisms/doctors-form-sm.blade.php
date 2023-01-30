@@ -1,5 +1,5 @@
 @props(['doctors', 'departments', 'assistants'])
-<form class="data_form" action="{{ route("admin.doctors.store") }}" method="post">
+<form class="data_form print-none" action="{{ route("admin.doctors.store") }}" method="post">
     @csrf
     <h1 class="form_title pb-2">Register a Doctor</h1>
     <div class="input_group">
@@ -27,7 +27,7 @@
     </div>
     <div class="input_group">
         <div class="input_field">
-            <label for="specialty">Specialty <span class="required">*</span></label>
+            <label for="specialty">Specialty </label>
             <input value="{{old('specialty')}}" type="text" id="specialty" name="specialty">
             @error('specialty')
                 <p class="input_error">{{$message}}</p>
@@ -37,7 +37,7 @@
     <div class="input_group">
         <div class="input_field">
             <label for="contact_number">Contact number <span class="required">*</span></label>
-            <input value="{{old('contact_number')}}" type="number" id="contact_number" name="contact_number">
+            <input value="{{old('contact_number')}}" type="number" id="contact_number" name="contact_number" required>
             @error('contact_number')
                 <p class="input_error">{{$message}}</p>
             @enderror
@@ -54,7 +54,16 @@
     </div>
     <div class="input_group">
         <div class="input_field">
-            <label for="designation">Designation <span class="required">*</span></label>
+            <label for="room_number">Room Number <span class="required">*</span></label>
+            <input value="{{old('room_number')}}" type="text" id="room_number" name="room_number" required>
+            @error('room_number')
+            <p class="input_error">{{$message}}</p>
+            @enderror
+        </div>
+    </div>
+    <div class="input_group">
+        <div class="input_field">
+            <label for="designation">Designation </label>
             <input value="{{old('designation')}}" type="text" id="designation" name="designation">
             @error('designation')
                 <p class="input_error">{{$message}}</p>
@@ -63,7 +72,7 @@
     </div>
     <div class="input_group">
         <div class="input_field">
-            <label for="student_id">Assistant <span class="required">*</span></label>
+            <label for="student_id">Assistant </label>
             <select name="student_id" id="student_id">
                 <option value="" disabled selected>Select an assistant</option>
                 @foreach ($assistants as $assistant)

@@ -44,3 +44,20 @@ html::-webkit-scrollbar-thumb {
 div::-webkit-scrollbar {
   display: none;
 }
+
+//hide .print-none class in print
+@media print {
+  .print-none {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
+
+// only show .print-only class in print
+@media screen {
+  .print-only {
+    display: none !important;
+  }
+}

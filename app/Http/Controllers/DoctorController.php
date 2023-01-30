@@ -28,6 +28,7 @@ class DoctorController extends Controller
             "visit_time" => "required",
             "designation" => "nullable",
             "student_id" => "nullable",
+            "room_number" => "nullable",
         ],[
             "student_id.required" => "The assistant field is required.",
         ]);
@@ -40,6 +41,7 @@ class DoctorController extends Controller
             "visit_time" => $request->visit_time,
             "designation" => $request->designation,
             "student_id" => $request->student_id,
+            "room_number" => $request->room_number,
         ]);
 
         return redirect()->route('admin.doctors.index')->with('success', 'Department created successfully');

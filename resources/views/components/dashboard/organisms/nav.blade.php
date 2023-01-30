@@ -1,14 +1,14 @@
 @props(['search','username','logout_route'])
-<div class="top_head">
+<div class="top_head print-none">
     <div class="bars hamburger hamburger--arrowturn-r">
         <div class="hamburger-box">
             <div class="hamburger-inner"></div>
         </div>
     </div>
     @if (isset($search))
-        <div class="search"><input class="search_input" type="text"><i class="las la-search"></i></div>
+        <div class="search print-none"><input class="search_input" type="text"><i class="las la-search"></i></div>
     @endif
-    <div class="social_link">
+    <div class="social_link print-none">
         <div class="message"><i class="fa-regular fa-bell"></i></div>
         <div class="profile">
             @if (Auth::guard('student')->check())

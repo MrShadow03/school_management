@@ -9,8 +9,6 @@
                 <tr class="heading-row">
                     <th class="heading-column text-title-column">Index</th>
                     <th class="heading-column text-title-column">Name</th>
-                    <th class="heading-column text-title-column">Department</th>
-                    <th class="heading-column text-title-column">Visit time</th>
                     <th class="heading-column text-title-column">Status</th>
                     <th class="heading-column text-title-column">Actions</th>
                 </tr>
@@ -23,11 +21,9 @@
                 <tr class="body-row">
                     <td class="body-column text-body-column">{{ $i }}</td>
                     <td class="body-column text-body-column">{{ $doctor->name }}</td>
-                    <td class="body-column text-body-column">{{ $doctor->department->name }}</td>
-                    <td class="body-column text-body-column">{{ $doctor->visit_time }}</td>
                     <td class="body-column text-body-column {{ $doctor->status ? 'text-success' : 'text-danger' }}">{{ $doctor->status ? 'Active' : 'Inactive' }}</td>
                     <td class="body-column text-body-column">
-                        <a href="{{ route('admin.doctors.changeStatus', [$doctor->id ,$doctor->status]) }}" class="btn btn-sm btn-primary" onclick="placeData(this.parentNode)"><i class="fa-regular fa-repeat"></i> Change Status</a>
+                        <a href="{{ route('admin.doctors.changeStatus', [$doctor->id ,$doctor->status]) }}" class="btn btn-sm btn-primary" onclick="placeData(this.parentNode)">{!! $doctor->status ? '<i class="fa-regular fa-thumbs-down"></i>' : '<i class="fa-regular fa-thumbs-up"></i>' !!}</a>
                     </td>
                 </tr>
                 @php

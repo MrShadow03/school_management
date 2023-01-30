@@ -43,7 +43,7 @@
             @enderror
         </div>
     </div>
-    <div class="input_group">
+    {{-- <div class="input_group">
         <div class="input_field">
             <label for="age">Age <span class="required">*</span></label>
             <input value="{{old('age')}}" type="number" id="age" name="age" >
@@ -51,6 +51,6 @@
                 <p class="input_error">{{$message}}</p>
             @enderror
         </div>
-    </div>
+    </div> --}}
     <button type="submit" class="btn btn-lg mt-2"><i class="fa-light fa-floppy-disk"></i> Save</button>
 </form>

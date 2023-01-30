@@ -34,6 +34,8 @@ class AppointmentController extends Controller
         return view('dashboard.pages.dashboard',[
             'appointments' => $appointments,
             'doctors' => Doctor::all(),
+            'doctor' => Doctor::find($request->doctor_id)->name,
+            
         ]);
     }
 
@@ -54,32 +56,34 @@ class AppointmentController extends Controller
         ]);
 
         $visit_time = Doctor::find($request->doctor_id)->visit_time;
+        $room_number = Doctor::find($request->doctor_id)->room_number;
+        $doctor = Doctor::find($request->doctor_id)->name;
 
-        if($appointment){
-            $post_url = "https://api.smsinbd.com/sms-api/sendsms" ;
-            $response = [];
-            $sms_body = 'Appointment for '.$request->name.' is confirmed. Serial Number: '.$request->serial_number.'. Time: '.$visit_time.' -South Apollo Hospital, Barisal';
-            $sms = $sms_body;
-            $post_values = array(
-                'api_token' => '1BMvjpBSyia5PjdZi5juxtWANZRqmkuYfbJ42EO8',
-                'senderid' => '8809612442451',
-                'message' => $sms,
-                'contact_number' => '88'.$request->contact_number,
-            );
-            $post_string = "";
-            foreach( $post_values as $key => $value )
-            { $post_string .= "$key=" . urlencode( $value ) . "&"; }
-            $post_string = rtrim( $post_string, "& " );
+        // if($appointment){
+        //     $post_url = "https://api.smsinbd.com/sms-api/sendsms" ;
+        //     $response = [];
+        //     $sms_body = 'Appointment for '.$request->name.' is confirmed. Doctor: '.$doctor.'. Serial Number: '.$request->serial_number.'. Time: '.$visit_time.'. Room number: '.$room_number.'. -South Apollo Hospital, Barisal';
+        //     $sms = $sms_body;
+        //     $post_values = array(
+        //         'api_token' => '1BMvjpBSyia5PjdZi5juxtWANZRqmkuYfbJ42EO8',
+        //         'senderid' => '8809612442451',
+        //         'message' => $sms,
+        //         'contact_number' => '88'.$request->contact_number,
+        //     );
+        //     $post_string = "";
+        //     foreach( $post_values as $key => $value )
+        //     { $post_string .= "$key=" . urlencode( $value ) . "&"; }
+        //     $post_string = rtrim( $post_string, "& " );
             
-            $request = curl_init($post_url);
-            curl_setopt($request, CURLOPT_HEADER, 0);
-            curl_setopt($request, CURLOPT_RETURNTRANSFER, 1);  
-            curl_setopt($request, CURLOPT_POSTFIELDS, $post_string); 
-            curl_setopt($request, CURLOPT_SSL_VERIFYPEER, FALSE);  
-            $post_response = curl_exec($request);
-            curl_close ($request);
-            $array =  json_decode( preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $post_response), true );
-        }
+        //     $request = curl_init($post_url);
+        //     curl_setopt($request, CURLOPT_HEADER, 0);
+        //     curl_setopt($request, CURLOPT_RETURNTRANSFER, 1);  
+        //     curl_setopt($request, CURLOPT_POSTFIELDS, $post_string); 
+        //     curl_setopt($request, CURLOPT_SSL_VERIFYPEER, FALSE);  
+        //     $post_response = curl_exec($request);
+        //     curl_close ($request);
+        //     $array =  json_decode( preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $post_response), true );
+        // }
 
         return redirect()->route('admin.appointments.create')->with('success', 'Department created successfully');
     }
