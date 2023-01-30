@@ -19,9 +19,9 @@ use App\Http\Controllers\Auth\Admin\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\Admin\EmailVerificationNotificationController;
 
 Route::group(['middleware' => 'guest:admin', 'prefix' => 'admin/', 'as'=>'admin.'], function(){
-    Route::get('register', [RegisteredAdminController::class, 'create'])->name('register');
-    Route::post('register', [RegisteredAdminController::class, 'store']);  
-    Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');   
+    // Route::get('register', [RegisteredAdminController::class, 'create'])->name('register');
+    // Route::post('register', [RegisteredAdminController::class, 'store']);  
+    Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');
     Route::post('login', [AuthenticatedSessionController::class, 'store']);   
     Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])->name('password.request');   
     Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])->name('password.email');   

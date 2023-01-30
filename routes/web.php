@@ -14,11 +14,12 @@ use App\Http\Controllers\Auth\Admin\RegisteredUserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/test', [TestController::class, 'create']);
-Route::post('/test/store', [TestController::class, 'store'])->name('test.store');
-
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('admin.login');
+});
+
+Route::get('/admin', function () {
+    return redirect()->route('admin.login');
 });
 
 require __DIR__.'/admin_auth.php';
